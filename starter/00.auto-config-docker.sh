@@ -11,7 +11,7 @@ docker run --ip 172.188.0.10 -d --name mysql --net nt \
   -v mysql-data:/var/lib/mysql \
   -p 3306:3306 -p 33060:33060 \
   -e MYSQL_ROOT_PASSWORD=123456 \
-  -e MYSQL_USER=appuser \
+  -e MYSQL_USER=root \
   -e MYSQL_PASSWORD=apppassword \
   -e MYSQL_DATABASE=appdb \
   -d mysql:8.0 \

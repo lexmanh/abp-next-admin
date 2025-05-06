@@ -10,7 +10,7 @@ clear
 ./migrate-db-cmd.sh LY.MicroService.Platform.EntityFrameworkCore platform --ef-u
 ./migrate-db-cmd.sh LY.MicroService.BackendAdmin.EntityFrameworkCore admin --ef-u
 ./migrate-db-cmd.sh LY.MicroService.AuthServer.EntityFrameworkCore authserver --ef-u
-./migrate-db-cmd.sh LY.MicroService.IdentityServer.EntityFrameworkCore identityserver4-admin --ef-u
+#./migrate-db-cmd.sh LY.MicroService.IdentityServer.EntityFrameworkCore identityserver4-admin --ef-u
 ./migrate-db-cmd.sh LY.MicroService.LocalizationManagement.EntityFrameworkCore localization --ef-u
 ./migrate-db-cmd.sh LY.MicroService.RealtimeMessage.EntityFrameworkCore message --ef-u
 ./migrate-db-cmd.sh LY.MicroService.TaskManagement.EntityFrameworkCore taskmanagement --ef-u

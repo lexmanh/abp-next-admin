@@ -292,8 +292,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LY.MicroService.BackendAdmi
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LY.MicroService.IdentityServer", "services\LY.MicroService.IdentityServer\LY.MicroService.IdentityServer.csproj", "{6DB63EC6-0278-4DBA-A999-768481018B70}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LY.MicroService.IdentityServer.HttpApi.Host", "services\LY.MicroService.IdentityServer.HttpApi.Host\LY.MicroService.IdentityServer.HttpApi.Host.csproj", "{B6DA1032-ADB7-4F4C-9B32-F5F9160CB6E2}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LY.MicroService.LocalizationManagement.HttpApi.Host", "services\LY.MicroService.LocalizationManagement.HttpApi.Host\LY.MicroService.LocalizationManagement.HttpApi.Host.csproj", "{8BB50CB6-1E99-4617-B8A6-EABDED67405D}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LY.MicroService.PlatformManagement.HttpApi.Host", "services\LY.MicroService.PlatformManagement.HttpApi.Host\LY.MicroService.PlatformManagement.HttpApi.Host.csproj", "{A200E783-CBA2-4F64-A6EC-49D5C6482DEB}"
@@ -368,7 +366,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LINGYUN.Abp.Saas.HttpApi.Cl
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "webhooks", "webhooks", "{13ACF670-F109-404E-B252-2FA34A4EA061}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LINGYUN.Abp.WebHooks", "modules\webhooks\LINGYUN.Abp.WebHooks\LINGYUN.Abp.WebHooks.csproj", "{91AE01B1-CC82-40E2-8290-B8A84C6E90D1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LINGYUN.Abp.Webhooks", "modules\webhooks\LINGYUN.Abp.Webhooks\LINGYUN.Abp.Webhooks.csproj", "{91AE01B1-CC82-40E2-8290-B8A84C6E90D1}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "authorization", "authorization", "{9EC33D45-CCC7-41DF-829E-6B89A640FE35}"
 EndProject
@@ -839,6 +837,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LINGYUN.Abp.Saas.DbChecker"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LINGYUN.Abp.UI.Navigation.VueVbenAdmin5", "modules\platform\LINGYUN.Abp.UI.Navigation.VueVbenAdmin5\LINGYUN.Abp.UI.Navigation.VueVbenAdmin5.csproj", "{4105FC8B-E8C6-DBD7-FFEA-EA5AB09C7D08}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LY.MicroService.IdentityServer.HttpApi.Host", "services\LY.MicroService.IdentityServer.HttpApi.Host\LY.MicroService.IdentityServer.HttpApi.Host.csproj", "{69DCAF8B-8BDA-421D-B0EE-8318DAA89DD2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LINGYUN.Abp.WebhooksManagement.Application.Contracts", "modules\webhooks\LINGYUN.Abp.WebhooksManagement.Application.Contracts\LINGYUN.Abp.WebhooksManagement.Application.Contracts.csproj", "{FADFD6D2-6AA3-4522-BFAF-031FF363A452}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -1289,10 +1291,6 @@ Global
 		{6DB63EC6-0278-4DBA-A999-768481018B70}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6DB63EC6-0278-4DBA-A999-768481018B70}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6DB63EC6-0278-4DBA-A999-768481018B70}.Release|Any CPU.Build.0 = Release|Any CPU
-		{B6DA1032-ADB7-4F4C-9B32-F5F9160CB6E2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B6DA1032-ADB7-4F4C-9B32-F5F9160CB6E2}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B6DA1032-ADB7-4F4C-9B32-F5F9160CB6E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B6DA1032-ADB7-4F4C-9B32-F5F9160CB6E2}.Release|Any CPU.Build.0 = Release|Any CPU
 		{8BB50CB6-1E99-4617-B8A6-EABDED67405D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{8BB50CB6-1E99-4617-B8A6-EABDED67405D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8BB50CB6-1E99-4617-B8A6-EABDED67405D}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -2173,6 +2171,14 @@ Global
 		{4105FC8B-E8C6-DBD7-FFEA-EA5AB09C7D08}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4105FC8B-E8C6-DBD7-FFEA-EA5AB09C7D08}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4105FC8B-E8C6-DBD7-FFEA-EA5AB09C7D08}.Release|Any CPU.Build.0 = Release|Any CPU
+		{69DCAF8B-8BDA-421D-B0EE-8318DAA89DD2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{69DCAF8B-8BDA-421D-B0EE-8318DAA89DD2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{69DCAF8B-8BDA-421D-B0EE-8318DAA89DD2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{69DCAF8B-8BDA-421D-B0EE-8318DAA89DD2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FADFD6D2-6AA3-4522-BFAF-031FF363A452}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FADFD6D2-6AA3-4522-BFAF-031FF363A452}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FADFD6D2-6AA3-4522-BFAF-031FF363A452}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FADFD6D2-6AA3-4522-BFAF-031FF363A452}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -2317,7 +2323,6 @@ Global
 		{EB73D2CC-B1BE-471A-B76E-35F288CD0E16} = {90E88EAC-4291-4406-8D88-EFDF61B11292}
 		{3811B6AE-D86C-429D-AE37-B34AE31B7174} = {F4615BCE-D5C1-407A-8681-8EEE92DEF9D0}
 		{6DB63EC6-0278-4DBA-A999-768481018B70} = {685188AC-A145-4A27-BF5F-9C970A59AA9C}
-		{B6DA1032-ADB7-4F4C-9B32-F5F9160CB6E2} = {E2408063-FB1F-4513-B4A7-1FE50667C6E8}
 		{8BB50CB6-1E99-4617-B8A6-EABDED67405D} = {A2EA6B3F-AD1A-4FDA-B12E-F71B20A43A6B}
 		{A200E783-CBA2-4F64-A6EC-49D5C6482DEB} = {E5D1B78A-1A8F-4D52-BF99-A4A863ADE898}
 		{A17C9F1D-457A-48AC-B89C-722D8B3955DA} = {608A3BD0-FC8D-48B0-B1C5-F3203A3BE99F}
@@ -2580,6 +2585,8 @@ Global
 		{D63FEED3-2342-7E96-4121-B0C19CF1EA81} = {6A3FF105-7E8B-4B4D-A736-1C2BAF86FDAA}
 		{DED16774-635C-D781-4D5B-D1FA56EECF10} = {D01D859E-4B72-478A-BABD-90F0981652D5}
 		{4105FC8B-E8C6-DBD7-FFEA-EA5AB09C7D08} = {F4923692-D343-4318-AECA-96F580B1A563}
+		{69DCAF8B-8BDA-421D-B0EE-8318DAA89DD2} = {E2408063-FB1F-4513-B4A7-1FE50667C6E8}
+		{FADFD6D2-6AA3-4522-BFAF-031FF363A452} = {13ACF670-F109-404E-B252-2FA34A4EA061}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C95FDF91-16F2-4A8B-A4BE-0E62D1B66718}

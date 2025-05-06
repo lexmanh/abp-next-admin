@@ -1,5 +1,8 @@
 version: '3.4'
-
+volumes:
+  esdata:
+    driver: local
+      
 services:
   abp-redis:
     image: redis:6
@@ -16,7 +19,7 @@ services:
       - abp-next-admin
 
   abp-mysql:
-    image: mysql
+    image: mysql:8.0
     hostname: abp-mysql
     container_name: abp-mysql
     ports:
@@ -72,11 +75,12 @@ services:
       - TZ=Asia/Shanghai
     volumes:
       - ./deploy/middleware/elasticsearch/plugins:/usr/share/elasticsearch/plugins
-      - ./deploy/middleware/elasticsearch/data:/usr/share/elasticsearch/data
+      - esdata:/usr/share/elasticsearch/data:rw
     ports:
       - 9200:9200
     networks:
       - abp-next-admin
+    user: "1000:1000"
 
   abp-kibana:
     image: kibana:7.16.3
