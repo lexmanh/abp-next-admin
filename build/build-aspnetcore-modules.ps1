@@ -1,4 +1,4 @@
-# COMMON PATHS 
+  # COMMON PATHS 
 
 $rootFolder = (Get-Item -Path "./" -Verbose).FullName
 

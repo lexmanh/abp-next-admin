@@ -1,7 +1,7 @@
 readonly workdir=$(cd $(dirname $0); pwd)
-echo "当前工作目录: $workdir"
+echo "Current Working Directory: $workdir"
 
-echo "开始构建前端UI应用界面"
+echo "Start building the front-end UI application interface"
 
 cd $workdir"/../apps/vue"
 

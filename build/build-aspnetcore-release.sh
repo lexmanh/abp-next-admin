@@ -1,7 +1,7 @@
 readonly workdir=$(cd $(dirname $0); pwd)
-echo "当前工作目录: $workdir"
+echo "currentWorkingDirectory: $workdir"
 
-echo "构建身份认证服务"
+echo "build an identity authentication service"
 cd $workdir"/../aspnet-core/services/account/AuthServer.Host"
 
 dotnet restore
@@ -9,14 +9,14 @@ dotnet publish -c Release -o ../../Publish/identityserver --no-cache --no-restor
 cp -r -f Dockerfile ../../Publish/identityserver/Dockerfile
 
 
-echo "开始构建身份认证管理服务"
+echo "Start building an identity authentication management service"
 cd $workdir"/../aspnet-core/services/identity-server/LINGYUN.Abp.IdentityServer4.HttpApi.Host"
 
 dotnet restore
 dotnet publish -c Release -o ../../Publish/identityserver4-admin --no-cache --no-restore
 cp -r -f Dockerfile ../../Publish/identityserver4-admin/Dockerfile
 
-echo "开始构建后台管理服务"
+echo "start building backend management services"
 
 cd $workdir"/../aspnet-core/services/admin/LINGYUN.Abp.BackendAdmin.HttpApi.Host"
 
