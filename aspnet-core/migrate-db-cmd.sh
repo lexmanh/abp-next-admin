@@ -6,8 +6,8 @@ export LANG=en_US.UTF-8
 # Hiển thị tiêu đề (tương đương title %2)
 echo "Tiêu đề: $2"
 
-# Hiển thị thông báo đang di cư
-echo "$2 đang di cư"
+# Hiển thị thông báo đang cập nhật cấu trúc db
+echo "$2 đang cập nhật cấu trúc db"
 
 # Chuyển đến thư mục migrations/$1
 cd ./migrations/$1 || { echo "Không tìm thấy thư mục migrations/$1"; exit 1; }
@@ -36,5 +36,5 @@ esac
 cd ../..
 
 # Hiển thị thông báo hoàn tất
-echo "$2 đã di cư"
+echo "$2 đã hoàn tất cập nhật cấu trúc db"
 echo "--------"

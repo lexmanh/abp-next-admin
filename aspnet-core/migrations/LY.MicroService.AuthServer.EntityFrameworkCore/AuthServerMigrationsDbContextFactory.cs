@@ -10,7 +10,7 @@ public class AuthServerMigrationsDbContextFactory : IDesignTimeDbContextFactory<
     public AuthServerMigrationsDbContext CreateDbContext(string[] args)
     {
         var configuration = BuildConfiguration();
-        var connectionString = configuration.GetConnectionString("Default");
+        var connectionString = configuration.GetConnectionString("Identity");
 
         var builder = new DbContextOptionsBuilder<AuthServerMigrationsDbContext>()
             .UseMySql(connectionString, ServerVersion.AutoDetect(connectionString));

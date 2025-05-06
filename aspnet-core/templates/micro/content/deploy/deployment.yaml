@@ -23,7 +23,7 @@ spec:
               value: Production
             # 时区问题自行修改
             # - name: TZ
-            #   value: "Asia/Shanghai"
+            #   value: "Asia/Ho_Chi_Minh"
         ports:
             - containerPort: 8080
         imagePullPolicy: Always

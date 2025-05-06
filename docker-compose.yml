@@ -7,7 +7,7 @@ services:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
       - ASPNETCORE_HTTP_PORTS=80
-      - TZ=Asia/Shanghai
+      - TZ=Asia/Ho_Chi_Minh
     ports:
       - "30010:80"
     networks:
@@ -27,7 +27,7 @@ services:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
       - ASPNETCORE_HTTP_PORTS=80
-      - TZ=Asia/Shanghai
+      - TZ=Asia/Ho_Chi_Minh
     ports:
       - "30015:80"
     networks:
@@ -47,7 +47,7 @@ services:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
       - ASPNETCORE_HTTP_PORTS=80
-      - TZ=Asia/Shanghai
+      - TZ=Asia/Ho_Chi_Minh
     ports:
       - "30030:80"
     networks:
@@ -67,7 +67,7 @@ services:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
       - ASPNETCORE_HTTP_PORTS=80
-      - TZ=Asia/Shanghai
+      - TZ=Asia/Ho_Chi_Minh
     ports:
       - "30025:80"
     networks:
@@ -87,7 +87,7 @@ services:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
       - ASPNETCORE_HTTP_PORTS=80
-      - TZ=Asia/Shanghai
+      - TZ=Asia/Ho_Chi_Minh
     ports:
       - "30020:80"
     networks:
@@ -107,7 +107,7 @@ services:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
       - ASPNETCORE_HTTP_PORTS=80
-      - TZ=Asia/Shanghai
+      - TZ=Asia/Ho_Chi_Minh
     ports:
       - "30040:80"
     networks:
@@ -127,7 +127,7 @@ services:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
       - ASPNETCORE_HTTP_PORTS=80
-      - TZ=Asia/Shanghai
+      - TZ=Asia/Ho_Chi_Minh
     ports:
       - "30045:80"
     networks:
@@ -147,7 +147,7 @@ services:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
       - ASPNETCORE_HTTP_PORTS=80
-      - TZ=Asia/Shanghai
+      - TZ=Asia/Ho_Chi_Minh
     ports:
       - "30050:80"
     networks:
@@ -167,7 +167,7 @@ services:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
       - ASPNETCORE_HTTP_PORTS=80
-      - TZ=Asia/Shanghai
+      - TZ=Asia/Ho_Chi_Minh
     ports:
       - "30060:80"
     networks:
@@ -187,7 +187,7 @@ services:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
       - ASPNETCORE_HTTP_PORTS=80
-      - TZ=Asia/Shanghai
+      - TZ=Asia/Ho_Chi_Minh
     ports:
       - "44385:80"
     networks:
@@ -207,7 +207,7 @@ services:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
       - ASPNETCORE_HTTP_PORTS=80
-      - TZ=Asia/Shanghai
+      - TZ=Asia/Ho_Chi_Minh
     ports:
       - "30000:80"
     networks:

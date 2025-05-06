@@ -10,7 +10,8 @@ public class RealtimeMessageMigrationsDbContextFactory : IDesignTimeDbContextFac
     public RealtimeMessageMigrationsDbContext CreateDbContext(string[] args)
     {
         var configuration = BuildConfiguration();
-        var connectionString = configuration.GetConnectionString("Default");
+        // var connectionString = configuration.GetConnectionString("Default");
+        var connectionString = configuration.GetConnectionString("Realtime");
 
         var builder = new DbContextOptionsBuilder<RealtimeMessageMigrationsDbContext>()
             .UseMySql(connectionString, ServerVersion.AutoDetect(connectionString));

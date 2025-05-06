@@ -6,7 +6,7 @@ services:
       - AgileConfig__IsEnabled=false
       - App__SelfUrl=http://auth-server:44385/
       - App__RefreshClaimsUrl=http://host.docker.internal-api:30015
-      - App__CorsOrigins=http://localhost:3100,http://localhost:30000,http://apigateway:30000
+      - App__CorsOrigins=http://localhost:3100,http://localhost:40080,http://localhost:30000,http://apigateway:30000
       - Auditing__AllEntitiesSelector=true
       - ConnectionStrings__Default=Server=host.docker.internal;Database=IdentityServer-V70;User Id=root;Password=123456
       - ConnectionStrings__AbpAuditLogging=Server=host.docker.internal;Database=Platform-V70;User Id=root;Password=123456
@@ -65,7 +65,7 @@ services:
     environment:
       - AgileConfig__IsEnabled=false
       - Auditing__AllEntitiesSelector=true
-      - App__CorsOrigins=http://localhost:3100,http://localhost:30000,http://apigateway:30000
+      - App__CorsOrigins=http://localhost:3100,http://localhost:40080,http://localhost:30000,http://apigateway:30000
       - ConnectionStrings__Default=Server=host.docker.internal;Database=IdentityServer-V70;User Id=root;Password=123456
       - ConnectionStrings__AbpAuditLogging=Server=host.docker.internal;Database=Platform-V70;User Id=root;Password=123456
       - ConnectionStrings__AbpOpenIddict=Server=host.docker.internal;Database=AuthServer-V70;User Id=root;Password=123456
@@ -120,7 +120,7 @@ services:
     environment:
       - AgileConfig__IsEnabled=false
       - Auditing__AllEntitiesSelector=true
-      - App__CorsOrigins=http://localhost:3100,http://localhost:30000,http://apigateway:30000
+      - App__CorsOrigins=http://localhost:3100,http://localhost:40080,http://localhost:30000,http://apigateway:30000
       - ConnectionStrings__Default=Server=host.docker.internal;Database=Platform-V70;User Id=root;Password=123456
       - ConnectionStrings__AbpAuditLogging=Server=host.docker.internal;Database=Platform-V70;User Id=root;Password=123456
       - ConnectionStrings__AbpOpenIddict=Server=host.docker.internal;Database=AuthServer-V70;User Id=root;Password=123456
@@ -178,7 +178,7 @@ services:
     environment:
       - AgileConfig__IsEnabled=false
       - Auditing__AllEntitiesSelector=true
-      - App__CorsOrigins=http://localhost:3100,http://localhost:30000,http://apigateway:30000
+      - App__CorsOrigins=http://localhost:3100,http://localhost:40080,http://localhost:30000,http://apigateway:30000
       - ConnectionStrings__Default=Server=host.docker.internal;Database=Platform-V70;User Id=root;Password=123456
       - ConnectionStrings__AbpAuditLogging=Server=host.docker.internal;Database=Platform-V70;User Id=root;Password=123456
       - ConnectionStrings__AbpOpenIddict=Server=host.docker.internal;Database=AuthServer-V70;User Id=root;Password=123456
@@ -233,7 +233,7 @@ services:
     environment:
       - AgileConfig__IsEnabled=false
       - Auditing__AllEntitiesSelector=true
-      - App__CorsOrigins=http://localhost:3100,http://localhost:30000,http://apigateway:30000
+      - App__CorsOrigins=http://localhost:3100,http://localhost:40080,http://localhost:30000,http://apigateway:30000
       - ConnectionStrings__Default=Server=host.docker.internal;Database=Platform-V70;User Id=root;Password=123456
       - ConnectionStrings__AbpAuditLogging=Server=host.docker.internal;Database=Platform-V70;User Id=root;Password=123456
       - ConnectionStrings__AbpOpenIddict=Server=host.docker.internal;Database=AuthServer-V70;User Id=root;Password=123456
@@ -297,7 +297,7 @@ services:
   messages-api:
     environment:
       - AgileConfig__IsEnabled=false
-      - App__CorsOrigins=http://localhost:3100,http://localhost:30000,http://apigateway:30000
+      - App__CorsOrigins=http://localhost:3100,http://localhost:40080,http://localhost:30000,http://apigateway:30000
       - Auditing__AllEntitiesSelector=true
       - ConnectionStrings__Default=Server=host.docker.internal;Database=Messages-V70;User Id=root;Password=123456
       - ConnectionStrings__AbpAuditLogging=Server=host.docker.internal;Database=Platform-V70;User Id=root;Password=123456
@@ -355,7 +355,7 @@ services:
     environment:
       - AgileConfig__IsEnabled=false
       - Auditing__AllEntitiesSelector=true
-      - App__CorsOrigins=http://localhost:3100,http://localhost:30000,http://apigateway:30000
+      - App__CorsOrigins=http://localhost:3100,http://localhost:40080,http://localhost:30000,http://apigateway:30000
       - ConnectionStrings__Default=Server=host.docker.internal;Database=Platform-V70;User Id=root;Password=123456
       - ConnectionStrings__AbpAuditLogging=Server=host.docker.internal;Database=Platform-V70;User Id=root;Password=123456
       - ConnectionStrings__AbpOpenIddict=Server=host.docker.internal;Database=AuthServer-V70;User Id=root;Password=123456
@@ -410,7 +410,7 @@ services:
     environment:
       - AgileConfig__IsEnabled=false
       - Auditing__AllEntitiesSelector=true
-      - App__CorsOrigins=http://localhost:3100,http://localhost:30000,http://apigateway:30000
+      - App__CorsOrigins=http://localhost:3100,http://localhost:40080,http://localhost:30000,http://apigateway:30000
       - ConnectionStrings__Default=Server=host.docker.internal;Database=Platform-V70;User Id=root;Password=123456
       - ConnectionStrings__AbpAuditLogging=Server=host.docker.internal;Database=Platform-V70;User Id=root;Password=123456
       - ConnectionStrings__AbpOpenIddict=Server=host.docker.internal;Database=AuthServer-V70;User Id=root;Password=123456
@@ -465,7 +465,7 @@ services:
     environment:
       - AgileConfig__IsEnabled=false
       - Auditing__AllEntitiesSelector=true
-      - App__CorsOrigins=http://localhost:3100,http://localhost:30000,http://apigateway:30000
+      - App__CorsOrigins=http://localhost:3100,http://localhost:40080,http://localhost:30000,http://apigateway:30000
       - ConnectionStrings__Default=Server=host.docker.internal;Database=Workflow-V70;User Id=root;Password=123456
       - ConnectionStrings__AbpAuditLogging=Server=host.docker.internal;Database=Platform-V70;User Id=root;Password=123456
       - ConnectionStrings__AbpOpenIddict=Server=host.docker.internal;Database=AuthServer-V70;User Id=root;Password=123456
@@ -530,7 +530,7 @@ services:
     environment:
       - AgileConfig__IsEnabled=false
       - Auditing__AllEntitiesSelector=true
-      - App__CorsOrigins=http://localhost:3100,http://localhost:30000,http://apigateway:30000
+      - App__CorsOrigins=http://localhost:3100,http://localhost:40080,http://localhost:30000,http://apigateway:30000
       - ConnectionStrings__Default=Server=host.docker.internal;Database=Platform-V70;User Id=root;Password=123456
       - ConnectionStrings__AbpAuditLogging=Server=host.docker.internal;Database=Platform-V70;User Id=root;Password=123456
       - ConnectionStrings__AbpOpenIddict=Server=host.docker.internal;Database=AuthServer-V70;User Id=root;Password=123456
@@ -595,7 +595,7 @@ services:
     environment:
       - AgileConfig__IsEnabled=false
       - Auditing__AllEntitiesSelector=true
-      - App__CorsOrigins=http://localhost:3100,http://localhost:30000,http://apigateway:30000
+      - App__CorsOrigins=http://localhost:3100,http://localhost:40080,http://localhost:30000,http://apigateway:30000
       - Encryption__PassPhrase=s46c5q55nxpeS8Ra
       - Encryption__InitVector=s83ng0abvd02js84
       - Encryption__Salt=sf&5)s3#

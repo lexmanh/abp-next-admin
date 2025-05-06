@@ -5,7 +5,7 @@ WORKDIR /app
 COPY . /app
 
 #东8区
-ENV TZ=Asia/Shanghai
+ENV TZ=Asia/Ho_Chi_Minh
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo '$TZ' > /etc/timezone
 
 EXPOSE 80/tcp

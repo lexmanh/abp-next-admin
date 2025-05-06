@@ -8,7 +8,7 @@ COPY . /app
 ## 建议在外部(如docker-compose.yml)中定义
 ## Set server time zone.
 ## Suggest defining it externally (such as Docker Compose. yml)
-#ENV TZ=Asia/Shanghai
+#ENV TZ=Asia/Ho_Chi_Minh
 #RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo '$TZ' > /etc/timezone
 
 
