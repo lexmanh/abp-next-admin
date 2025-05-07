@@ -1,4 +1,4 @@
-﻿using System.Security.Principal;
+using System.Security.Principal;
 using Volo.Abp.Data;
 using Volo.Abp.MultiTenancy;
 
@@ -24,7 +24,7 @@ public class AbpUINavigationVueVbenAdmin5NavigationDefinitionProvider : Navigati
     {
         var project = new ApplicationMenu(
             name: "VbenProject",
-            displayName: "项目",
+            displayName: "Dự án",
             url: "/vben-admin",
             component: "",
             description: "项目",
@@ -35,7 +35,7 @@ public class AbpUINavigationVueVbenAdmin5NavigationDefinitionProvider : Navigati
         project.AddItem(
             new ApplicationMenu(
                 name: "VbenDocument",
-                displayName: "文档",
+                displayName: "Tài liệu",
                 url: "/vben-admin/document",
                 component: "",
                 icon: "lucide:book-open-text",
@@ -46,7 +46,7 @@ public class AbpUINavigationVueVbenAdmin5NavigationDefinitionProvider : Navigati
         project.AddItem(
             new ApplicationMenu(
                 name: "VbenGithub",
-                displayName: "文档",
+                displayName: "Tài liệu",
                 url: "/vben-admin/github",
                 component: "",
                 icon: "mdi:github",
@@ -57,7 +57,7 @@ public class AbpUINavigationVueVbenAdmin5NavigationDefinitionProvider : Navigati
         project.AddItem(
             new ApplicationMenu(
                 name: "VbenNaive",
-                displayName: "Naive UI 版本",
+                displayName: "Phiên bản Naive UI",
                 url: "/vben-admin/naive",
                 component: "",
                 icon: "logos:naiveui",
@@ -69,7 +69,7 @@ public class AbpUINavigationVueVbenAdmin5NavigationDefinitionProvider : Navigati
         project.AddItem(
             new ApplicationMenu(
                 name: "VbenElementPlus",
-                displayName: "Element Plus 版本",
+                displayName: "Phiên bản Element Plus",
                 url: "/vben-admin/ele",
                 component: "",
                 icon: "logos:element",
@@ -81,7 +81,7 @@ public class AbpUINavigationVueVbenAdmin5NavigationDefinitionProvider : Navigati
 
         var about = new ApplicationMenu(
             name: "VbenAbout",
-            displayName: "关于",
+            displayName: "Về",
             url: "/vben-admin/about",
             component: "/_core/about/index",
             description: "关于",
@@ -100,7 +100,7 @@ public class AbpUINavigationVueVbenAdmin5NavigationDefinitionProvider : Navigati
     {
         var account = new ApplicationMenu(
             name: "Vben5Account",
-            displayName: "账户管理",
+            displayName: "Quản lý tài khoản",
             url: "/account",
             component: "",
             description: "账户管理",
@@ -111,7 +111,7 @@ public class AbpUINavigationVueVbenAdmin5NavigationDefinitionProvider : Navigati
         account.AddItem(
             new ApplicationMenu(
                 name: "Vben5AccountMySettings",
-                displayName: "个人设置",
+                displayName: "Cài đặt cá nhân",
                 url: "/account/my-settings",
                 component: "/account/my-settings/index",
                 icon: "tdesign:user-setting",
@@ -126,7 +126,7 @@ public class AbpUINavigationVueVbenAdmin5NavigationDefinitionProvider : Navigati
     {
         var dashboard = new ApplicationMenu(
             name: "Vben5Dashboard",
-            displayName: "仪表盘",
+            displayName: "Bảng điều khiển",
             url: "/dashboard",
             component: "",
             description: "仪表盘",
@@ -137,7 +137,7 @@ public class AbpUINavigationVueVbenAdmin5NavigationDefinitionProvider : Navigati
         dashboard.AddItem(
             new ApplicationMenu(
                 name: "Vben5Analysis",
-                displayName: "分析页",
+                displayName: "Trang phân tích",
                 url: "/analytics",
                 component: "/dashboard/analytics/index",
                 icon: "lucide:area-chart",
@@ -149,7 +149,7 @@ public class AbpUINavigationVueVbenAdmin5NavigationDefinitionProvider : Navigati
         dashboard.AddItem(
            new ApplicationMenu(
                name: "Vben5Workbench",
-               displayName: "工作台",
+               displayName: "Bàn làm việc",
                url: "/workspace",
                component: "/dashboard/workspace/index",
                icon: "carbon:workspace",
@@ -164,7 +164,7 @@ public class AbpUINavigationVueVbenAdmin5NavigationDefinitionProvider : Navigati
     {
         var manage = new ApplicationMenu(
             name: "Vben5Manage",
-            displayName: "管理",
+            displayName: "Quản lý",
             url: "/manage",
             component: "",
             description: "管理",
@@ -174,7 +174,7 @@ public class AbpUINavigationVueVbenAdmin5NavigationDefinitionProvider : Navigati
         var openIddict = manage.AddItem(
                 new ApplicationMenu(
                     name: "Vben5OpenIddict",
-                    displayName: "身份认证服务器",
+                    displayName: "Máy chủ xác thực danh tính",
                     url: "/manage/openiddict",
                     component: "",
                     icon: "mdi:openid",
@@ -184,7 +184,7 @@ public class AbpUINavigationVueVbenAdmin5NavigationDefinitionProvider : Navigati
         openIddict.AddItem(
             new ApplicationMenu(
                 name: "Vben5OpenIddictApplications",
-                displayName: "应用管理",
+                displayName: "Quản lý ứng dụng",
                 url: "/manage/openiddict/applications",
                 component: "/openiddict/applications/index",
                 icon: "carbon:application",
@@ -194,7 +194,7 @@ public class AbpUINavigationVueVbenAdmin5NavigationDefinitionProvider : Navigati
         openIddict.AddItem(
             new ApplicationMenu(
                 name: "Vben5OpenIddictAuthorizations",
-                displayName: "授权管理",
+                displayName: "Quản lý ủy quyền",
                 url: "/manage/openiddict/authorizations",
                 component: "/openiddict/authorizations/index",
                 icon: "arcticons:ente-authenticator",
@@ -204,7 +204,7 @@ public class AbpUINavigationVueVbenAdmin5NavigationDefinitionProvider : Navigati
         openIddict.AddItem(
             new ApplicationMenu(
                 name: "Vben5OpenIddictScopes",
-                displayName: "范围管理",
+                displayName: "Quản lý phạm vi",
                 url: "/manage/openiddict/scopes",
                 component: "/openiddict/scopes/index",
                 icon: "et:scope",
@@ -214,7 +214,7 @@ public class AbpUINavigationVueVbenAdmin5NavigationDefinitionProvider : Navigati
         openIddict.AddItem(
             new ApplicationMenu(
                 name: "Vben5OpenIddictTokens",
-                displayName: "授权令牌",
+                displayName: "Mã thông báo ủy quyền",
                 url: "/manage/openiddict/tokens",
                 component: "/openiddict/tokens/index",
                 icon: "oui:token-key",
@@ -225,7 +225,7 @@ public class AbpUINavigationVueVbenAdmin5NavigationDefinitionProvider : Navigati
         var identity = manage.AddItem(
             new ApplicationMenu(
                 name: "Vben5Identity",
-                displayName: "身份认证管理",
+                displayName: "Quản lý xác thực danh tính",
                 url: "/manage/identity",
                 component: "",
                 icon: "teenyicons:id-outline",
@@ -234,7 +234,7 @@ public class AbpUINavigationVueVbenAdmin5NavigationDefinitionProvider : Navigati
         identity.AddItem(
           new ApplicationMenu(
               name: "Vben5IdentityUsers",
-              displayName: "用户管理",
+              displayName: "Quản lý người dùng",
               url: "/manage/identity/users",
               component: "/identity/users/index",
               icon: "mdi:user-outline",
@@ -243,7 +243,7 @@ public class AbpUINavigationVueVbenAdmin5NavigationDefinitionProvider : Navigati
         identity.AddItem(
           new ApplicationMenu(
               name: "Vben5IdentityRoles",
-              displayName: "角色管理",
+              displayName: "Quản lý vai trò",
               url: "/manage/identity/roles",
               component: "/identity/roles/index",
               icon: "carbon:user-role",
@@ -252,7 +252,7 @@ public class AbpUINavigationVueVbenAdmin5NavigationDefinitionProvider : Navigati
         identity.AddItem(
           new ApplicationMenu(
               name: "Vben5IdentityClaimTypes",
-              displayName: "身份标识",
+              displayName: "Nhận dạng danh tính",
               url: "/manage/identity/claim-types",
               component: "/identity/claim-types/index",
               icon: "la:id-card-solid",
@@ -262,7 +262,7 @@ public class AbpUINavigationVueVbenAdmin5NavigationDefinitionProvider : Navigati
         identity.AddItem(
           new ApplicationMenu(
               name: "Vben5IdentityOrganizationUnits",
-              displayName: "组织机构",
+              displayName: "Tổ chức cơ cấu",
               url: "/manage/identity/organization-units",
               component: "/identity/organization-units/index",
               icon: "clarity:organization-line",
@@ -271,7 +271,7 @@ public class AbpUINavigationVueVbenAdmin5NavigationDefinitionProvider : Navigati
         identity.AddItem(
           new ApplicationMenu(
               name: "SecurityLogs",
-              displayName: "安全日志",
+              displayName: "Nhật ký an toàn",
               url: "/manage/identity/security-logs",
               component: "/identity/security-logs/index",
               icon: "carbon:security",
@@ -281,7 +281,7 @@ public class AbpUINavigationVueVbenAdmin5NavigationDefinitionProvider : Navigati
         identity.AddItem(
           new ApplicationMenu(
               name: "Vben5IdentitySessions",
-              displayName: "会话管理",
+              displayName: "Quản lý hội thoại",
               url: "/manage/identity/sessions",
               component: "/identity/sessions/index",
               icon: "carbon:prompt-session",
@@ -290,7 +290,7 @@ public class AbpUINavigationVueVbenAdmin5NavigationDefinitionProvider : Navigati
 
         var permissionManagement = manage.AddItem(new ApplicationMenu(
               name: "Vben5Permissions",
-              displayName: "权限管理",
+              displayName: "Quản lý quyền hạn",
               url: "/manage/permissions",
               component: "",
               description: "权限管理",
@@ -299,7 +299,7 @@ public class AbpUINavigationVueVbenAdmin5NavigationDefinitionProvider : Navigati
             .SetProperty("title", "abp.manage.permissions.title"));
         permissionManagement.AddItem(new ApplicationMenu(
                name: "Vben5PermissionsGroupDefinitions",
-               displayName: "权限分组",
+               displayName: "Nhóm quyền hạn",
                url: "/manage/permissions/groups",
                component: "/permissions/groups/index",
                icon: "lucide:group",
@@ -308,7 +308,7 @@ public class AbpUINavigationVueVbenAdmin5NavigationDefinitionProvider : Navigati
             .SetProperty("title", "abp.manage.permissions.groups"));
         permissionManagement.AddItem(new ApplicationMenu(
                name: "Vben5PermissionsDefinitions",
-               displayName: "权限定义",
+               displayName: "Định nghĩa quyền hạn",
                url: "/manage/permissions/definitions",
                component: "/permissions/definitions/index",
                icon: "icon-park-outline:permissions",
@@ -319,7 +319,7 @@ public class AbpUINavigationVueVbenAdmin5NavigationDefinitionProvider : Navigati
 
         var featureManagement = manage.AddItem(new ApplicationMenu(
                name: "Vben5Features",
-               displayName: "功能管理",
+               displayName: "Quản lý chức năng",
                url: "/manage/features",
                component: "",
                description: "功能管理",
@@ -328,7 +328,7 @@ public class AbpUINavigationVueVbenAdmin5NavigationDefinitionProvider : Navigati
             .SetProperty("title", "abp.manage.features.title"));
         featureManagement.AddItem(new ApplicationMenu(
                name: "Vben5FeaturesGroupDefinitions",
-               displayName: "功能分组",
+               displayName: "Nhóm chức năng",
                url: "/manage/features/groups",
                component: "/features/groups/index",
                icon: "lucide:group",
@@ -337,7 +337,7 @@ public class AbpUINavigationVueVbenAdmin5NavigationDefinitionProvider : Navigati
             .SetProperty("title", "abp.manage.features.groups"));
         featureManagement.AddItem(new ApplicationMenu(
                name: "Vben5FeaturesDefinitions",
-               displayName: "功能定义",
+               displayName: "Định nghĩa chức năng",
                url: "/manage/features/definitions",
                component: "/features/definitions/index",
                icon: "pajamas:feature-flag",
@@ -347,7 +347,7 @@ public class AbpUINavigationVueVbenAdmin5NavigationDefinitionProvider : Navigati
 
         var settingManagement = manage.AddItem(new ApplicationMenu(
                name: "Vben5Settings",
-               displayName: "设置管理",
+               displayName: "Cài đặt quản lý",
                url: "/manage/settings",
                component: "",
                description: "设置管理",
@@ -357,7 +357,7 @@ public class AbpUINavigationVueVbenAdmin5NavigationDefinitionProvider : Navigati
             .SetProperty("requiredFeatures", "SettingManagement.Enable"));
         settingManagement.AddItem(new ApplicationMenu(
                name: "Vben5SettingsSystem",
-               displayName: "系统设置",
+               displayName: "Cài đặt hệ thống",
                url: "/manage/settings/system",
                component: "/settings/system/index",
                icon: "tabler:settings-cog",
@@ -367,7 +367,7 @@ public class AbpUINavigationVueVbenAdmin5NavigationDefinitionProvider : Navigati
             .SetProperty("requiredFeatures", "SettingManagement.Enable"));
         settingManagement.AddItem(new ApplicationMenu(
                name: "Vben5SettingsDefinitions",
-               displayName: "设置定义",
+               displayName: "Thiết lập định nghĩa",
                url: "/manage/settings/definitions",
                component: "/settings/definitions/index",
                icon: "codicon:settings",
@@ -377,7 +377,7 @@ public class AbpUINavigationVueVbenAdmin5NavigationDefinitionProvider : Navigati
 
         var localization = manage.AddItem(new ApplicationMenu(
             name: "Vben5Localizations",
-            displayName: "本地化管理",
+            displayName: "Quản lý địa phương hóa",
             url: "/manage/localization",
             component: "",
             description: "本地化管理",
@@ -387,7 +387,7 @@ public class AbpUINavigationVueVbenAdmin5NavigationDefinitionProvider : Navigati
         localization.AddItem(
           new ApplicationMenu(
               name: "Vben5LocalizationsLanguages",
-              displayName: "语言管理",
+              displayName: "Quản lý ngôn ngữ",
               url: "/manage/localization/languages",
               component: "/localization/languages/index",
               icon: "cil:language",
@@ -398,7 +398,7 @@ public class AbpUINavigationVueVbenAdmin5NavigationDefinitionProvider : Navigati
         localization.AddItem(
           new ApplicationMenu(
               name: "Vben5LocalizationsResources",
-              displayName: "资源管理",
+              displayName: "Quản lý tài nguyên",
               url: "/manage/localization/resources",
               component: "/localization/resources/index",
               icon: "grommet-icons:resources",
@@ -409,7 +409,7 @@ public class AbpUINavigationVueVbenAdmin5NavigationDefinitionProvider : Navigati
         localization.AddItem(
           new ApplicationMenu(
               name: "Vben5LocalizationsTexts",
-              displayName: "文档管理",
+              displayName: "Quản lý tài liệu",
               url: "/manage/localization/texts",
               component: "/localization/texts/index",
               icon: "mi:text",
@@ -420,7 +420,7 @@ public class AbpUINavigationVueVbenAdmin5NavigationDefinitionProvider : Navigati
 
         var dataProtection = manage.AddItem(new ApplicationMenu(
               name: "Vben5DataProtection",
-              displayName: "数据保护",
+              displayName: "Bảo vệ dữ liệu",
               url: "/manage/data-protection",
               component: "",
               description: "数据保护",
@@ -429,7 +429,7 @@ public class AbpUINavigationVueVbenAdmin5NavigationDefinitionProvider : Navigati
             .SetProperty("title", "abp.manage.dataProtection.title"));
         dataProtection.AddItem(new ApplicationMenu(
                name: "Vben5DataProtectionEntityTypeInfos",
-               displayName: "实体管理",
+               displayName: "Quản lý thực thể",
                url: "/manage/data-protection/entity-type-infos",
                component: "/data-protection/entity-type-infos/index",
                icon: "iconamoon:type",
@@ -439,7 +439,7 @@ public class AbpUINavigationVueVbenAdmin5NavigationDefinitionProvider : Navigati
 
         manage.AddItem(new ApplicationMenu(
                name: "Vben5AuditingAuditLogs",
-               displayName: "审计日志",
+               displayName: "Nhật ký kiểm toán",
                url: "/manage/audit-logs",
                component: "/auditing/audit-logs/index",
                icon: "fluent-mdl2:compliance-audit",
@@ -451,7 +451,7 @@ public class AbpUINavigationVueVbenAdmin5NavigationDefinitionProvider : Navigati
         manage.AddItem(
             new ApplicationMenu(
                 name: "Vben5AuditingLoggings",
-                displayName: "系统日志",
+                displayName: "Nhật ký hệ thống",
                 url: "/manage/sys-logs",
                 component: "/auditing/loggings/index",
                 icon: "icon-park-outline:log",
@@ -461,7 +461,7 @@ public class AbpUINavigationVueVbenAdmin5NavigationDefinitionProvider : Navigati
 
         var notificationManagement = manage.AddItem(new ApplicationMenu(
               name: "Vben5Notifications",
-              displayName: "通知管理",
+              displayName: "Quản lý thông báo",
               url: "/manage/notifications",
               component: "",
               description: "通知管理",
@@ -469,7 +469,7 @@ public class AbpUINavigationVueVbenAdmin5NavigationDefinitionProvider : Navigati
             .SetProperty("title", "abp.manage.notifications.title"));
         notificationManagement.AddItem(new ApplicationMenu(
                name: "Vben5NotificationsMyNotifilers",
-               displayName: "我的通知",
+               displayName: "Thông báo của tôi",
                url: "/manage/notifications/my-notifilers",
                component: "/notifications/my-notifilers/index",
                icon: "ant-design:notification-outlined",
@@ -477,7 +477,7 @@ public class AbpUINavigationVueVbenAdmin5NavigationDefinitionProvider : Navigati
             .SetProperty("title", "abp.manage.notifications.myNotifilers"));
         notificationManagement.AddItem(new ApplicationMenu(
                name: "Vben5NotificationsGroupDefinitions",
-               displayName: "通知分组",
+               displayName: "Thông báo nhóm",
                url: "/manage/notifications/groups",
                component: "/notifications/groups/index",
                icon: "lucide:group",
@@ -486,7 +486,7 @@ public class AbpUINavigationVueVbenAdmin5NavigationDefinitionProvider : Navigati
             .SetProperty("title", "abp.manage.notifications.groups"));
         notificationManagement.AddItem(new ApplicationMenu(
                name: "NotificationsDefinitions",
-               displayName: "通知定义",
+               displayName: "Định nghĩa thông báo",
                url: "/manage/notifications/definitions",
                component: "/notifications/definitions/index",
                icon: "nimbus:notification",
@@ -497,7 +497,7 @@ public class AbpUINavigationVueVbenAdmin5NavigationDefinitionProvider : Navigati
         manage.AddItem(
             new ApplicationMenu(
                 name: "Vben5ApiDocument",
-                displayName: "Api 文档",
+                displayName: "Tài liệu API",
                 url: "/manage/openapi",
                 component: "IFrame",
                 description: "Api 文档",
@@ -509,7 +509,7 @@ public class AbpUINavigationVueVbenAdmin5NavigationDefinitionProvider : Navigati
         manage.AddItem(
             new ApplicationMenu(
                 name: "Vben5Caches",
-                displayName: "缓存管理",
+                displayName: "Quản lý bộ nhớ đệm",
                 url: "/manage/cache",
                 component: "/caching/caches/index",
                 description: "缓存管理")
@@ -532,7 +532,7 @@ public class AbpUINavigationVueVbenAdmin5NavigationDefinitionProvider : Navigati
         saas.AddItem(
           new ApplicationMenu(
               name: "Vben5SaasTenants",
-              displayName: "租户管理",
+              displayName: "Quản lý người thuê nhà",
               url: "/saas/tenants",
               component: "/saas/tenants/index",
               icon: "arcticons:tenantcloud-pro",
@@ -542,7 +542,7 @@ public class AbpUINavigationVueVbenAdmin5NavigationDefinitionProvider : Navigati
         saas.AddItem(
           new ApplicationMenu(
               name: "Vben5SaasEditions",
-              displayName: "版本管理",
+              displayName: "Quản lý phiên bản",
               url: "/saas/editions",
               component: "/saas/editions/index",
               icon: "icon-park-outline:multi-rectangle",
@@ -557,7 +557,7 @@ public class AbpUINavigationVueVbenAdmin5NavigationDefinitionProvider : Navigati
     {
         var platform = new ApplicationMenu(
             name: "Vben5Platform",
-            displayName: "平台管理",
+            displayName: "Quản lý nền tảng",
             url: "/platform",
             component: "",
             description: "平台管理",
@@ -566,7 +566,7 @@ public class AbpUINavigationVueVbenAdmin5NavigationDefinitionProvider : Navigati
         platform.AddItem(
           new ApplicationMenu(
               name: "Vben5PlatformDataDictionaries",
-              displayName: "数据字典",
+              displayName: "Từ điển dữ liệu",
               url: "/platform/data-dictionaries",
               component: "/platform/data-dictionaries/index",
               icon: "material-symbols:dictionary-outline",
@@ -575,7 +575,7 @@ public class AbpUINavigationVueVbenAdmin5NavigationDefinitionProvider : Navigati
         platform.AddItem(
           new ApplicationMenu(
               name: "Vben5PlatformLayouts",
-              displayName: "布局管理",
+              displayName: "Quản lý bố cục",
               url: "/platform/layouts",
               component: "/platform/layouts/index",
               icon: "material-symbols-light:responsive-layout",
@@ -584,7 +584,7 @@ public class AbpUINavigationVueVbenAdmin5NavigationDefinitionProvider : Navigati
         platform.AddItem(
           new ApplicationMenu(
               name: "Vben5PlatformMenus",
-              displayName: "菜单管理",
+              displayName: "Quản lý thực đơn",
               url: "/platform/menus",
               component: "/platform/menus/index",
               icon: "material-symbols-light:menu",
@@ -594,7 +594,7 @@ public class AbpUINavigationVueVbenAdmin5NavigationDefinitionProvider : Navigati
         var messages = platform.AddItem(
           new ApplicationMenu(
               name: "Vben5PlatformMessages",
-              displayName: "消息管理",
+              displayName: "Quản lý tin nhắn",
               url: "/platform/messages",
               component: "",
               icon: "tabler:message-cog",
@@ -604,7 +604,7 @@ public class AbpUINavigationVueVbenAdmin5NavigationDefinitionProvider : Navigati
         messages.AddItem(
           new ApplicationMenu(
               name: "Vben5PlatformEmailMessages",
-              displayName: "邮件消息",
+              displayName: "Thư điện tử",
               url: "/platform/messages/email",
               component: "/platform/messages/email/index",
               icon: "material-symbols:attach-email-outline",
@@ -614,7 +614,7 @@ public class AbpUINavigationVueVbenAdmin5NavigationDefinitionProvider : Navigati
         messages.AddItem(
           new ApplicationMenu(
               name: "Vben5PlatformSmsMessages",
-              displayName: "短信消息",
+              displayName: "Tin nhắn văn bản",
               url: "/platform/messages/sms",
               component: "/platform/messages/sms/index",
               icon: "material-symbols:sms-outline",
@@ -629,7 +629,7 @@ public class AbpUINavigationVueVbenAdmin5NavigationDefinitionProvider : Navigati
     {
         var oss = new ApplicationMenu(
             name: "Vben5Oss",
-            displayName: "对象存储",
+            displayName: "Lưu trữ đối tượng",
             url: "/oss",
             component: "",
             description: "对象存储",
@@ -638,7 +638,7 @@ public class AbpUINavigationVueVbenAdmin5NavigationDefinitionProvider : Navigati
         oss.AddItem(
           new ApplicationMenu(
               name: "Vben5OssContainers",
-              displayName: "容器管理",
+              displayName: "Quản lý container",
               url: "/oss/containers",
               component: "/oss/containers/index",
               icon: "mdi:bucket-outline",
@@ -647,7 +647,7 @@ public class AbpUINavigationVueVbenAdmin5NavigationDefinitionProvider : Navigati
         oss.AddItem(
           new ApplicationMenu(
               name: "Vben5OssObjects",
-              displayName: "文件管理",
+              displayName: "Quản lý tài liệu",
               url: "/oss/objects",
               component: "/oss/objects/index",
               icon: "mdi-light:file",
@@ -661,7 +661,7 @@ public class AbpUINavigationVueVbenAdmin5NavigationDefinitionProvider : Navigati
     {
         var task = new ApplicationMenu(
             name: "Vben5Tasks",
-            displayName: "任务管理",
+            displayName: "Quản lý nhiệm vụ",
             url: "/task-management",
             component: "",
             description: "任务管理",
@@ -670,7 +670,7 @@ public class AbpUINavigationVueVbenAdmin5NavigationDefinitionProvider : Navigati
         task.AddItem(
           new ApplicationMenu(
               name: "Vben5TasksJobInfos",
-              displayName: "任务队列",
+              displayName: "Hàng đợi nhiệm vụ",
               url: "/task-management/background-jobs",
               component: "/tasks/job-infos/index",
               icon: "eos-icons:job",
@@ -694,7 +694,7 @@ public class AbpUINavigationVueVbenAdmin5NavigationDefinitionProvider : Navigati
         webhooks.AddItem(
           new ApplicationMenu(
               name: "Vben5WebhooksGroupDefinitions",
-              displayName: "Webhook分组",
+              displayName: "Nhóm Webhook",
               url: "/webhooks/groups",
               component: "/webhooks/groups/index",
               icon: "lucide:group",
@@ -704,7 +704,7 @@ public class AbpUINavigationVueVbenAdmin5NavigationDefinitionProvider : Navigati
         webhooks.AddItem(
           new ApplicationMenu(
               name: "Vben5WebhooksDefinitions",
-              displayName: "Webhook定义",
+              displayName: "Định nghĩa Webhook",
               url: "/webhooks/definitions",
               component: "/webhooks/definitions/index",
               icon: "material-symbols:webhook",
@@ -714,7 +714,7 @@ public class AbpUINavigationVueVbenAdmin5NavigationDefinitionProvider : Navigati
         webhooks.AddItem(
           new ApplicationMenu(
               name: "Vben5WebhooksSubscriptions",
-              displayName: "管理订阅",
+              displayName: "Quản lý đăng ký",
               url: "/webhooks/subscriptions",
               component: "/webhooks/subscriptions/index",
               icon: "material-symbols:subscriptions",
@@ -724,7 +724,7 @@ public class AbpUINavigationVueVbenAdmin5NavigationDefinitionProvider : Navigati
         webhooks.AddItem(
           new ApplicationMenu(
               name: "Vben5WebhooksSendAttempts",
-              displayName: "管理记录",
+              displayName: "Quản lý hồ sơ",
               url: "/webhooks/send-attempts",
               component: "/webhooks/send-attempts/index",
               icon: "material-symbols:history",
@@ -739,7 +739,7 @@ public class AbpUINavigationVueVbenAdmin5NavigationDefinitionProvider : Navigati
     {
         var textTemplating = new ApplicationMenu(
             name: "Vben5TextTemplating",
-            displayName: "模板管理",
+            displayName: "Quản lý mẫu",
             url: "/text-templating",
             component: "",
             description: "模板管理",
@@ -749,7 +749,7 @@ public class AbpUINavigationVueVbenAdmin5NavigationDefinitionProvider : Navigati
         textTemplating.AddItem(
           new ApplicationMenu(
               name: "Vben5TextTemplatingDefinitions",
-              displayName: "模板定义",
+              displayName: "Định nghĩa mẫu",
               url: "/text-templating/definitions",
               component: "/text-templating/definitions/index",
               icon: "qlementine-icons:template-16",

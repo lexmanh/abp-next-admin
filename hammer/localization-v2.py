@@ -9,16 +9,23 @@ import re
 # --- CẤU HÌNH ---
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 OPENAI_MODEL = "gpt-4o"
-TARGET_JSON_FILENAME = "vi.json" # Đổi tên để rõ ràng hơn
+TARGET_JSON_FILENAME = "vi.json"
 TARGET_LANGUAGE = "Vietnamese"
-API_CALL_DELAY_SECONDS = 1 # Giảm độ trễ một chút
+API_CALL_DELAY_SECONDS = 1
+
+# Tên tệp cache cho các bản dịch displayName của C#
+CSHARP_TRANSLATIONS_CACHE_FILE = ".csharp_nav_displayname_cache.json"
+
 
 # --- TÙY CHỌN XỬ LÝ BỔ SUNG ---
 DRY_RUN_DEFAULT = False
 FORCE_RETRANSLATE_JSON_DEFAULT = False
+# Thêm tùy chọn buộc dịch lại cho C# displayName, độc lập với JSON
+FORCE_RETRANSLATE_CSHARP_DEFAULT = False
 # --- KẾT THÚC CẤU HÌNH ---
 
 # (Hàm translate_texts_object_openai và process_repo giữ nguyên như bản trước)
+# ... (Giữ nguyên các hàm này) ...
 def translate_texts_object_openai(texts_object_to_translate: dict, source_lang_description: str, dry_run: bool = False) -> dict | None:
     if not texts_object_to_translate:
         return {}
@@ -97,9 +104,6 @@ def process_repo(repo_path_str: str, dry_run: bool = False, force_retranslate: b
     if force_retranslate: print("--- TÙY CHỌN BUỘC DỊCH LẠI ĐANG BẬT (JSON) ---")
 
     print(f"Đang quét kho lưu trữ để dịch tệp JSON: {repo_path}")
-    # ... (phần còn lại của hàm process_repo giữ nguyên như bản trước) ...
-    # Chỉ đảm bảo tên biến TARGET_FILENAME được dùng đúng
-    # Ví dụ: target_vi_json_path = current_path / TARGET_JSON_FILENAME (nếu bạn đổi tên biến)
     total_vi_files_created_or_updated = 0
     total_source_sets_processed = 0
     total_texts_actually_sent_to_api = 0
@@ -115,13 +119,16 @@ def process_repo(repo_path_str: str, dry_run: bool = False, force_retranslate: b
             except ValueError:
                 dirnames[:] = []
                 continue
+
         en_json_path = current_path / "en.json"
         zh_hans_json_path = current_path / "zh-Hans.json"
         target_vi_json_path = current_path / TARGET_JSON_FILENAME
         has_en = en_json_path.is_file()
         has_zh_hans = zh_hans_json_path.is_file()
+
         if not has_en and not has_zh_hans:
             continue
+
         total_source_sets_processed += 1
         print(f"\nĐang xử lý thư mục JSON: {current_path}")
         existing_vi_texts = {}
@@ -184,6 +191,7 @@ def process_repo(repo_path_str: str, dry_run: bool = False, force_retranslate: b
                     print(f"  DRY RUN: Sẽ chỉ cập nhật culture cho {target_vi_json_path.name} (không ghi tệp).")
                     total_vi_files_created_or_updated +=1
             continue
+
         texts_to_send_for_translation = {}
         if force_retranslate:
             print("  BUỘC DỊCH LẠI: Tất cả các key từ nguồn sẽ được đưa vào danh sách dịch.")
@@ -192,6 +200,7 @@ def process_repo(repo_path_str: str, dry_run: bool = False, force_retranslate: b
             for key, source_value in merged_source_texts.items():
                 if key not in existing_vi_texts:
                     texts_to_send_for_translation[key] = source_value
+
         newly_translated_texts_object = {}
         if texts_to_send_for_translation:
             num_keys_to_send = len(texts_to_send_for_translation)
@@ -212,8 +221,10 @@ def process_repo(repo_path_str: str, dry_run: bool = False, force_retranslate: b
                     print(f"  Dịch thuật API không thành công cho các văn bản mới tại {current_path}.")
         else:
             print(f"  Không có văn bản mới nào cần dịch cho {current_path} (hoặc không buộc dịch lại).")
+
         final_combined_vi_texts = existing_vi_texts.copy()
         final_combined_vi_texts.update(newly_translated_texts_object)
+
         final_vi_json_structure = {}
         if existing_vi_full_data is not None:
             final_vi_json_structure = {k: v for k, v in existing_vi_full_data.items() if k != "texts"}
@@ -221,8 +232,10 @@ def process_repo(repo_path_str: str, dry_run: bool = False, force_retranslate: b
             final_vi_json_structure = {k: v for k, v in en_culture_data_for_metadata.items() if k != "texts"}
         elif zh_hans_culture_data_for_metadata:
             final_vi_json_structure = {k: v for k, v in zh_hans_culture_data_for_metadata.items() if k != "texts"}
+
         final_vi_json_structure["culture"] = "vi"
         final_vi_json_structure["texts"] = final_combined_vi_texts
+
         if not dry_run:
             try:
                 with open(target_vi_json_path, 'w', encoding='utf-8') as f_out:
@@ -237,12 +250,14 @@ def process_repo(repo_path_str: str, dry_run: bool = False, force_retranslate: b
             if len(final_combined_vi_texts) > 3: sample_texts_dry_run["..."] = "..."
             print(f"  DRY RUN: Nội dung texts giả lập (một phần): {json.dumps(sample_texts_dry_run, ensure_ascii=False, indent=2)}")
             total_vi_files_created_or_updated += 1
+
     print(f"\n--- Hoàn tất xử lý JSON ---")
     print(f"Đã xử lý {total_source_sets_processed} bộ tệp nguồn (en.json và/hoặc zh-Hans.json).")
     print(f"Tổng số key-value {'sẽ được gửi (DRY RUN)' if dry_run else 'đã được gửi'} để dịch: {total_texts_actually_sent_to_api}.")
     print(f"Tổng số tệp {TARGET_JSON_FILENAME} {'sẽ được (DRY RUN)' if dry_run else 'đã được'} tạo/cập nhật: {total_vi_files_created_or_updated}.")
 
 def add_vietnamese_to_module_files(repo_path_str: str, dry_run: bool = False):
+    # ... (Hàm này giữ nguyên như bản trước) ...
     repo_path = Path(repo_path_str).resolve()
     if not repo_path.is_dir():
         print(f"Lỗi: Đường dẫn kho lưu trữ không hợp lệ cho việc cập nhật tệp Module: {repo_path_str}")
@@ -284,28 +299,33 @@ def add_vietnamese_to_module_files(repo_path_str: str, dry_run: bool = False):
             try:
                 with open(file_path, 'r', encoding='utf-8-sig') as f:
                     lines = f.readlines()
-                original_lines_for_dry_run = list(lines)
+
                 already_has_vietnamese = False
                 for line_content in lines:
                     if not is_comment_regex.match(line_content) and vietnamese_present_regex.search(line_content):
                         already_has_vietnamese = True
                         break
+
                 if already_has_vietnamese:
                     print(f"    Ngôn ngữ Tiếng Việt đã tồn tại trong {filename}.")
                     continue
+
                 has_en_config = False
                 for line_content in lines:
                     if not is_comment_regex.match(line_content) and english_present_regex.search(line_content):
                         has_en_config = True
                         break
+
                 has_zh_config = False
                 for line_content in lines:
                     if not is_comment_regex.match(line_content) and chinese_present_regex.search(line_content):
                         has_zh_config = True
                         break
+
                 if not (has_en_config or has_zh_config):
                     print(f"    Không tìm thấy cấu hình cho 'en' hoặc 'zh-Hans' trong {filename}. Bỏ qua.")
                     continue
+
                 last_add_line_index = -1
                 indentation = "            "
                 for i, line_content in reversed(list(enumerate(lines))):
@@ -315,14 +335,17 @@ def add_vietnamese_to_module_files(repo_path_str: str, dry_run: bool = False):
                             last_add_line_index = i
                             indentation = match_any_add.group(1)
                             break
+
                 new_vietnamese_line_to_add = f'{indentation}options.Languages.Add(new LanguageInfo("vi", "vi", "Tiếng Việt"));\n'
                 action_taken_on_cs_file = False
+
                 if last_add_line_index != -1:
                     lines.insert(last_add_line_index + 1, new_vietnamese_line_to_add)
                     action_taken_on_cs_file = True
                 else:
                     print(f"    CẢNH BÁO: Tìm thấy 'en'/'zh-Hans' nhưng không tìm được dòng 'options.Languages.Add' phù hợp để chèn vào {filename}. Bỏ qua.")
                     continue
+
                 if action_taken_on_cs_file:
                     if not dry_run:
                         with open(file_path, 'w', encoding='utf-8') as f:
@@ -337,82 +360,129 @@ def add_vietnamese_to_module_files(repo_path_str: str, dry_run: bool = False):
     print(f"Đã quét {module_files_scanned} tệp Module phù hợp với mẫu.")
     print(f"Tổng số tệp Module C# {'sẽ được (DRY RUN)' if dry_run else 'đã được'} cập nhật: {module_files_updated}.")
 
-# --- HÀM MỚI ĐỂ DỊCH displayName TRONG NAVIGATION ---
-def translate_single_text_openai(text: str, source_lang_name: str, target_lang: str, dry_run: bool = False) -> str | None:
-    """
-    Dịch một đoạn văn bản đơn lẻ.
-    """
-    if not text.strip(): # Bỏ qua nếu chuỗi rỗng hoặc chỉ chứa khoảng trắng
-        return text
+
+def translate_batch_of_strings_openai(texts_to_translate_dict: dict, source_lang_name: str, target_lang: str, dry_run: bool = False) -> dict | None:
+    if not texts_to_translate_dict:
+        return {}
     if not OPENAI_API_KEY:
-        # print("Lỗi: Biến môi trường OPENAI_API_KEY chưa được đặt. (translate_single_text)") # Có thể bỏ qua để tránh lặp lại
-        return None # Hoặc trả về text gốc để không làm hỏng file
+        # Đã kiểm tra ở hàm gọi, nhưng thêm ở đây cho chắc chắn nếu hàm này được gọi độc lập
+        print("Lỗi: Biến môi trường OPENAI_API_KEY chưa được đặt. (translate_batch)")
+        return None
 
     if dry_run:
-        return f"[DRY_RUN_{target_lang.upper()}_FOR_{text[:30].replace newline('')}...]"
+        print(f"  DRY RUN: Sẽ không gọi API cho lô {len(texts_to_translate_dict)} chuỗi displayName. Giả lập kết quả.")
+        return {key: f"[DRY_RUN_BATCH_{target_lang.upper()}_FOR_{key[:20].replace(chr(10),'').replace(chr(13),'')}...]" for key in texts_to_translate_dict.keys()}
 
     try:
         client = OpenAI(api_key=OPENAI_API_KEY)
     except Exception as e:
-        print(f"Lỗi khi khởi tạo OpenAI client (single_text): {e}")
-        return None
+        print(f"Lỗi khi khởi tạo OpenAI client (batch displayName): {e}")
+        return None # Trả về None nếu client không khởi tạo được
 
-    system_prompt = f"You are a concise translation assistant. Your primary task is to translate the provided text snippet accurately from {source_lang_name} to {target_lang}. Return only the translated text itself, without any additional explanations, introductory phrases, or surrounding characters like quotes unless they are part of the translation itself."
-    user_prompt = f"Translate the following {source_lang_name} text to {target_lang}:\n\nOriginal text: \"{text}\"\n\nTranslated text only:"
+    # Input cho LLM là một JSON object với key là chuỗi gốc, value cũng là chuỗi gốc
+    json_input_for_llm = json.dumps(texts_to_translate_dict, ensure_ascii=False, indent=2)
 
-    print(f"    Đang dịch displayName: '{text}' từ {source_lang_name} sang {target_lang}...")
+    system_prompt = (
+        f"You are a highly accurate translation assistant. You will be given a JSON object where keys are strings in "
+        f"{source_lang_name} that need translation, and the values are these same strings. Your task is to translate these text strings (which appear as both keys and values in the input JSON) "
+        f"to {target_lang}. Return a JSON object with the exact same keys as the input. For each key, its corresponding value in the output JSON "
+        f"must be the translation of that key into {target_lang}. Ensure the output is only the valid JSON object."
+    )
+    user_prompt = (
+        f"Translate the text strings (which are the keys of the input JSON object) from {source_lang_name} to {target_lang}. "
+        f"The keys of the output JSON object must be identical to the keys of the input JSON object. "
+        f"The values in the output JSON object should be the translations of these keys.\n\n"
+        f"Input JSON (treat keys as texts to translate, values are just for reference):\n```json\n{json_input_for_llm}\n```\n\n"
+        f"Output JSON (keys preserved, values are translations of the keys into {target_lang}):"
+    )
+
+    print(f"  Đang gửi lô {len(texts_to_translate_dict)} displayName để dịch từ '{source_lang_name}' sang {target_lang}...")
     try:
         if API_CALL_DELAY_SECONDS > 0:
-            print(f"      Đợi {API_CALL_DELAY_SECONDS} giây trước khi gọi API (displayName)...")
+            print(f"    Đợi {API_CALL_DELAY_SECONDS} giây trước khi gọi API (batch displayName)...")
             time.sleep(API_CALL_DELAY_SECONDS)
 
         completion = client.chat.completions.create(
             model=OPENAI_MODEL,
+            response_format={"type": "json_object"},
             messages=[
                 {"role": "system", "content": system_prompt},
                 {"role": "user", "content": user_prompt}
             ],
-            temperature=0.3, # Giảm nhiệt độ để bản dịch sát nghĩa hơn
-            max_tokens=len(text.split()) * 3 + 20 # Ước lượng token cho output
+            temperature=0.2
         )
-        translated = completion.choices[0].message.content.strip()
-        # Đôi khi model vẫn có thể trả về dấu ngoặc kép bao quanh, thử loại bỏ nếu có
-        if translated.startswith('"') and translated.endswith('"') and len(translated) > 1:
-            translated = translated[1:-1]
-        return translated
-    except Exception as e:
-        print(f"    Lỗi khi dịch văn bản '{text}': {e}")
-        return None # Trả về None nếu lỗi, hoặc text gốc để không làm hỏng file
+        translated_response_str = completion.choices[0].message.content
+        if translated_response_str:
+            try:
+                translated_map_from_api = json.loads(translated_response_str)
+                # Xác thực và chuẩn hóa kết quả: chỉ lấy các key đã gửi và đảm bảo value là string
+                validated_map = {}
+                for original_key in texts_to_translate_dict.keys():
+                    if original_key in translated_map_from_api and isinstance(translated_map_from_api[original_key], str):
+                        validated_map[original_key] = translated_map_from_api[original_key].strip()
+                    else:
+                        print(f"  Cảnh báo: Key '{original_key}' không có trong kết quả dịch hàng loạt hoặc giá trị không phải chuỗi. Sẽ giữ lại giá trị gốc.")
+                        validated_map[original_key] = original_key # Giữ lại giá trị gốc (tiếng Trung) nếu có vấn đề
 
-def translate_display_names_in_navigation_providers(repo_path_str: str, dry_run: bool = False):
+                print(f"  Đã nhận bản dịch hàng loạt cho {len(validated_map)} key-value từ OpenAI.")
+                return validated_map
+            except json.JSONDecodeError as e:
+                print(f"  Lỗi: OpenAI không trả về JSON object hợp lệ cho bản dịch hàng loạt. Lỗi: {e}")
+                print(f"  Nội dung nhận được: {translated_response_str}")
+                # Trả về map với giá trị gốc nếu parse lỗi để không làm mất key khi cố gắng cập nhật
+                return {key: key for key in texts_to_translate_dict.keys()}
+        else:
+            print("  Lỗi: OpenAI trả về nội dung trống cho bản dịch hàng loạt.")
+            return {key: key for key in texts_to_translate_dict.keys()}
+    except Exception as e:
+        print(f"  Lỗi khi gọi API OpenAI (dịch hàng loạt displayName): {e}")
+        return {key: key for key in texts_to_translate_dict.keys()} # Trả về map gốc nếu API lỗi
+
+
+def load_csharp_displayname_cache(repo_path: Path) -> dict:
+    cache_file_path = repo_path / CSHARP_TRANSLATIONS_CACHE_FILE
+    if cache_file_path.is_file():
+        try:
+            with open(cache_file_path, 'r', encoding='utf-8') as f:
+                return json.load(f)
+        except Exception as e:
+            print(f"Cảnh báo: Không thể tải cache dịch C# displayName: {e}. Bắt đầu với cache trống.")
+    return {}
+
+def save_csharp_displayname_cache(repo_path: Path, cache_data: dict):
+    cache_file_path = repo_path / CSHARP_TRANSLATIONS_CACHE_FILE
+    try:
+        with open(cache_file_path, 'w', encoding='utf-8') as f:
+            json.dump(cache_data, f, ensure_ascii=False, indent=2)
+        print(f"Đã lưu cache dịch C# displayName vào: {cache_file_path}")
+    except Exception as e:
+        print(f"Lỗi khi lưu cache dịch C# displayName: {e}")
+
+
+def translate_display_names_in_navigation_providers(repo_path_str: str, dry_run: bool = False, force_retranslate_csharp: bool = False):
     repo_path = Path(repo_path_str).resolve()
     if not repo_path.is_dir():
         print(f"Lỗi: Đường dẫn kho lưu trữ không hợp lệ cho việc dịch displayName: {repo_path_str}")
         return
 
     print(f"\nĐang quét kho lưu trữ để dịch displayName trong *NavigationDefinitionProvider.cs...")
-    if dry_run:
-        print("--- CHẾ ĐỘ DRY RUN ĐANG BẬT (C# displayName) ---")
+    if dry_run: print("--- CHẾ ĐỘ DRY RUN ĐANG BẬT (C# displayName) ---")
+    if force_retranslate_csharp: print("--- TÙY CHỌN BUỘC DỊCH LẠI ĐANG BẬT (C# displayName) ---")
 
-    # Regex để tìm `displayName:` theo sau là một chuỗi C# (có thể là thường hoặc verbatim @).
-    # Group 1: Phần trước chuỗi (ví dụ `displayName: `)
-    # Group 2: Toàn bộ chuỗi C# bao gồm dấu ngoặc kép và @ nếu có (ví dụ `"仪表盘"` hoặc `@ "仪表盘"`)
-    # Group 3: Nội dung thực sự của chuỗi bên trong dấu ngoặc kép (ví dụ `仪表盘`)
+    translations_cache = load_csharp_displayname_cache(repo_path)
+
     display_name_pattern = re.compile(
-        r'(displayName\s*:\s*)'  # Group 1: "displayName: " (prefix)
-        r'(@?"((?:\\.|[^"\\])*)")'  # Group 2: Toàn bộ chuỗi ký tự (ví dụ "text" hoặc @"text")
-        # Group 3: Nội dung của chuỗi (bên trong group 2)
+        r'(displayName\s*:\s*)'
+        r'(@?"((?:\\(?:["\\/bfnrt]|u[0-9a-fA-F]{4})|[^"\\])*)")'
     )
 
-    files_to_check_pattern = "*NavigationDefinitionProvider.cs" # Chỉ một mẫu
+    files_to_check_pattern = "*NavigationDefinitionProvider.cs"
     files_changed_count = 0
-    total_display_names_found = 0
-    total_display_names_translated_successfully = 0 # Đếm số lần dịch thành công và có thay đổi
+    total_unique_chinese_displaynames_found_all_files = 0
+    total_displaynames_sent_to_api_batch = 0
 
     for root_dir_str, dirnames, filenames_in_dir in os.walk(repo_path):
         current_path_obj = Path(root_dir_str)
-
-        # Logic bỏ qua thư mục ẩn
         if current_path_obj != repo_path:
             try:
                 path_relative_to_repo = current_path_obj.relative_to(repo_path)
@@ -428,88 +498,135 @@ def translate_display_names_in_navigation_providers(repo_path_str: str, dry_run:
                 continue
 
             file_path_obj = current_path_obj / filename_str
+            # Sử dụng đường dẫn tương đối làm key cho cache để script có thể chạy từ các máy khác nhau
+            relative_file_path_for_cache = str(file_path_obj.relative_to(repo_path))
             print(f"  Đang xử lý tệp Navigation: {file_path_obj}")
 
             try:
                 with open(file_path_obj, 'r', encoding='utf-8-sig') as f:
                     original_content = f.read()
 
-                modified_content_parts = []
-                last_match_end = 0
-                file_modified_flag = False
+                # Thu thập tất cả displayName tiếng Trung duy nhất cần dịch (chưa có trong cache hoặc buộc dịch lại)
+                texts_for_current_file_batch = {} # { "chinese_text": "chinese_text" }
+                all_chinese_displaynames_in_this_file = {} # { "chinese_text": original_string_literal }
 
                 for match in display_name_pattern.finditer(original_content):
-                    total_display_names_found += 1
+                    text_content = match.group(3)
+                    original_literal = match.group(2)
+                    if any('\u4e00' <= char <= '\u9fff' for char in text_content): # Heuristic cho tiếng Trung
+                        all_chinese_displaynames_in_this_file[text_content] = original_literal
+                        if force_retranslate_csharp or \
+                                text_content not in translations_cache.get(relative_file_path_for_cache, {}):
+                            texts_for_current_file_batch[text_content] = text_content
 
-                    prefix_capture = match.group(1) # Ví dụ: 'displayName: '
-                    string_literal_capture = match.group(2) # Ví dụ: '"仪表盘"' hoặc '@"nội dung"'
-                    chinese_text_to_translate = match.group(3) # Ví dụ: '仪表盘' hoặc 'nội dung'
+                if not all_chinese_displaynames_in_this_file:
+                    print(f"    Không tìm thấy displayName tiếng Trung nào trong {filename_str}.")
+                    continue
 
-                    # Thêm phần nội dung từ lần khớp cuối cùng đến đầu lần khớp này
-                    modified_content_parts.append(original_content[last_match_end:match.start()])
+                total_unique_chinese_displaynames_found_all_files += len(all_chinese_displaynames_in_this_file) # Đếm tất cả các displayName TQ duy nhất được tìm thấy
 
-                    print(f"    Tìm thấy displayName: '{chinese_text_to_translate}'")
-
-                    # Giả định rằng các chuỗi này là tiếng Trung cần dịch
-                    # (Có thể thêm logic kiểm tra ngôn ngữ ở đây nếu cần độ chính xác cao hơn)
-                    translated_text = translate_single_text_openai(
-                        chinese_text_to_translate,
+                api_translations_for_this_file = {} # { "chinese_text": "vietnamese_text" }
+                if texts_for_current_file_batch: # Nếu có gì đó cần gửi đi dịch
+                    total_displaynames_sent_to_api_batch += len(texts_for_current_file_batch)
+                    api_translations_for_this_file = translate_batch_of_strings_openai(
+                        texts_for_current_file_batch,
                         "Simplified Chinese",
                         TARGET_LANGUAGE,
                         dry_run
                     )
+                    if api_translations_for_this_file is None: # Lỗi API nghiêm trọng
+                        print(f"    Lỗi nghiêm trọng khi gọi API dịch hàng loạt cho {filename_str}. Bỏ qua tệp này.")
+                        continue
 
-                    if translated_text is not None and translated_text != chinese_text_to_translate:
-                        # Xử lý escaping cho chuỗi C# mới
-                        new_string_literal = ""
-                        if string_literal_capture.startswith('@"'): # Chuỗi verbatim
-                            new_string_literal = f'@"{translated_text.replace("\"", "\"\"")}"' # Escape " thành ""
-                        else: # Chuỗi thường
-                            escaped_translated_text = translated_text.replace('\\', '\\\\').replace('"', '\\"')
-                            new_string_literal = f'"{escaped_translated_text}"'
+                    # Cập nhật cache với các bản dịch mới (nếu không phải dry run)
+                    if not dry_run and api_translations_for_this_file:
+                        if relative_file_path_for_cache not in translations_cache:
+                            translations_cache[relative_file_path_for_cache] = {}
+                        for original_text, translated_text in api_translations_for_this_file.items():
+                            # Chỉ cập nhật cache nếu bản dịch thực sự khác hoặc là bản dịch mới
+                            if translated_text != original_text:
+                                translations_cache[relative_file_path_for_cache][original_text] = translated_text
+                else:
+                    print(f"    Tất cả displayName tiếng Trung trong {filename_str} đã có trong cache (hoặc không có gì mới) và không buộc dịch lại.")
 
-                        modified_content_parts.append(prefix_capture)
-                        modified_content_parts.append(new_string_literal)
-                        print(f"      -> Dịch thành (literal): {new_string_literal}")
-                        total_display_names_translated_successfully +=1
-                        file_modified_flag = True
-                    else:
-                        # Giữ lại toàn bộ match gốc nếu không dịch, lỗi, hoặc dry run không có thay đổi giả lập
+                # Thực hiện thay thế trong nội dung bằng cách sử dụng cache và kết quả API mới
+                modified_content_parts = []
+                last_match_end = 0
+                file_actually_changed_this_run = False
+
+                for match in display_name_pattern.finditer(original_content):
+                    modified_content_parts.append(original_content[last_match_end:match.start()])
+
+                    prefix = match.group(1)
+                    original_string_literal = match.group(2)
+                    text_content = match.group(3) # Đây là text tiếng Trung gốc từ file
+
+                    final_translated_text_for_this_occurrence = None
+
+                    if text_content in all_chinese_displaynames_in_this_file: # Chỉ xử lý những cái đã xác định là tiếng Trung
+                        # Ưu tiên bản dịch mới từ API (nếu có và khác)
+                        if text_content in api_translations_for_this_file and \
+                                api_translations_for_this_file[text_content] != text_content:
+                            final_translated_text_for_this_occurrence = api_translations_for_this_file[text_content]
+                            if dry_run: print(f"      DRY RUN: Sẽ dịch API '{text_content}' -> '{final_translated_text_for_this_occurrence}'")
+                            else: print(f"      Dịch API mới: '{text_content}' -> '{final_translated_text_for_this_occurrence}'")
+                        # Nếu không, thử lấy từ cache (nếu không buộc dịch lại)
+                        elif not force_retranslate_csharp and \
+                                text_content in translations_cache.get(relative_file_path_for_cache, {}):
+                            final_translated_text_for_this_occurrence = translations_cache[relative_file_path_for_cache][text_content]
+                            if final_translated_text_for_this_occurrence != text_content: # Chỉ in nếu cache khác gốc (đã được dịch trước đó)
+                                print(f"      Sử dụng từ cache: '{text_content}' -> '{final_translated_text_for_this_occurrence}'")
+                        # Nếu là dry_run và text này nằm trong lô gửi đi (dù có thể cache hit ở lần chạy thật)
+                        elif dry_run and text_content in texts_for_current_file_batch and \
+                                text_content in api_translations_for_this_file: # api_translations_for_this_file là kết quả giả lập dry_run
+                            final_translated_text_for_this_occurrence = api_translations_for_this_file[text_content]
+                            print(f"      DRY RUN (từ batch giả lập): Sẽ dịch '{text_content}' -> '{final_translated_text_for_this_occurrence}'")
+
+
+                        if final_translated_text_for_this_occurrence and \
+                                (final_translated_text_for_this_occurrence != text_content or \
+                                 (dry_run and final_translated_text_for_this_occurrence.startswith("[DRY_RUN_BATCH_"))):
+
+                            new_string_literal = ""
+                            if original_string_literal.startswith('@"'):
+                                new_string_literal = f'@"{final_translated_text_for_this_occurrence.replace("\"", "\"\"")}"'
+                            else:
+                                escaped_text = final_translated_text_for_this_occurrence.replace('\\', '\\\\').replace('"', '\\"')
+                                new_string_literal = f'"{escaped_text}"'
+
+                            modified_content_parts.append(prefix)
+                            modified_content_parts.append(new_string_literal)
+                            file_actually_changed_this_run = True
+                        else:
+                            modified_content_parts.append(match.group(0)) # Giữ lại match gốc
+                            if any('\u4e00' <= char <= '\u9fff' for char in text_content): # Chỉ in nếu là tiếng Trung
+                                print(f"      Giữ nguyên (không dịch/dịch giống hệt/không có trong cache khi không force): '{text_content}'")
+                    else: # Không phải tiếng Trung (theo heuristic), giữ lại
                         modified_content_parts.append(match.group(0))
-                        if translated_text is None and not dry_run: # Lỗi dịch thực sự
-                            print(f"      -> Lỗi dịch, giữ nguyên: '{chinese_text_to_translate}'")
-                        elif dry_run and translated_text is not None : # Dry run có kết quả giả lập
-                            print(f"      -> DRY RUN: Sẽ thay thế bằng: '{translated_text}'")
-                            # total_display_names_translated_successfully +=1 # Đã đếm ở trên khi gọi hàm
-                            file_modified_flag = True # Coi như sẽ có thay đổi
-                        else: # Không có gì để dịch hoặc bản dịch giống hệt
-                            print(f"      -> Không cần dịch hoặc không thay đổi, giữ nguyên: '{chinese_text_to_translate}'")
 
                     last_match_end = match.end()
 
-                # Thêm phần còn lại của tệp (sau lần khớp cuối cùng)
                 modified_content_parts.append(original_content[last_match_end:])
 
-                if file_modified_flag:
+                if file_actually_changed_this_run:
+                    files_changed_count +=1
                     if not dry_run:
                         with open(file_path_obj, 'w', encoding='utf-8') as f:
                             f.write("".join(modified_content_parts))
                         print(f"    Đã cập nhật displayName(s) trong {filename_str}")
                     else:
                         print(f"    DRY RUN: Sẽ cập nhật displayName(s) trong {filename_str}")
-                    files_changed_count += 1
-                elif total_display_names_found > 0 and any(m.group(3) for m in display_name_pattern.finditer(original_content)): # Nếu có displayName được tìm thấy nhưng không có gì thay đổi
-                    print(f"    Không có thay đổi nào được thực hiện cho displayName(s) trong {filename_str}.")
-
+                elif len(all_chinese_displaynames_in_this_file) > 0:
+                    print(f"    Không có thay đổi displayName nào được thực hiện trong {filename_str}.")
             except Exception as e:
                 print(f"  Lỗi khi xử lý tệp Navigation Provider {file_path_obj}: {e}")
 
-    print(f"\n--- Hoàn tất dịch displayName trong C# Navigation Providers ---")
-    print(f"Tổng số displayName tìm thấy: {total_display_names_found}")
     if not dry_run:
-        print(f"Tổng số displayName đã dịch thành công và có thay đổi: {total_display_names_translated_successfully}")
-    else:
-        print(f"Tổng số displayName sẽ được dịch (DRY RUN): {total_display_names_translated_successfully}")
+        save_csharp_displayname_cache(repo_path, translations_cache)
+
+    print(f"\n--- Hoàn tất dịch displayName trong C# Navigation Providers ---")
+    print(f"Tổng số displayName tiếng Trung độc nhất được tìm thấy trong tất cả các tệp: {total_unique_chinese_displaynames_found_all_files}")
+    print(f"Tổng số displayName tiếng Trung độc nhất {'sẽ được gửi (DRY RUN)' if dry_run else 'đã được gửi'} đến API (theo lô): {total_displaynames_sent_to_api_batch}")
     print(f"Tổng số tệp *NavigationDefinitionProvider.cs {'sẽ được (DRY RUN)' if dry_run else 'đã được'} cập nhật: {files_changed_count}")
 
 
@@ -527,20 +644,17 @@ if __name__ == "__main__":
         force_retranslate_json_choice = input("Buộc DỊCH LẠI TẤT CẢ các key JSON (thay vì chỉ dịch key mới)? (y/n, mặc định n): ").strip().lower()
         FORCE_RETRANSLATE_JSON_SCRIPT = True if force_retranslate_json_choice == 'y' else FORCE_RETRANSLATE_JSON_DEFAULT
 
+        force_retranslate_csharp_choice = input("Buộc DỊCH LẠI TẤT CẢ các displayName C# (thay vì dùng cache/bỏ qua nếu không phải TQ)? (y/n, mặc định n): ").strip().lower()
+        FORCE_RETRANSLATE_CSHARP_SCRIPT = True if force_retranslate_csharp_choice == 'y' else FORCE_RETRANSLATE_CSHARP_DEFAULT
+
         print("-" * 30)
-        if DRY_RUN_SCRIPT:
-            print("CHẾ ĐỘ DRY RUN: KÍCH HOẠT")
-        if FORCE_RETRANSLATE_JSON_SCRIPT:
-            print("BUỘC DỊCH LẠI JSON: KÍCH HOẠT")
+        if DRY_RUN_SCRIPT: print("CHẾ ĐỘ DRY RUN: KÍCH HOẠT")
+        if FORCE_RETRANSLATE_JSON_SCRIPT: print("BUỘC DỊCH LẠI JSON: KÍCH HOẠT")
+        if FORCE_RETRANSLATE_CSHARP_SCRIPT: print("BUỘC DỊCH LẠI C# DISPLAYNAME: KÍCH HOẠT")
         print("-" * 30)
 
-        # Bước 1: Dịch các tệp JSON
         process_repo(repo_directory_input, dry_run=DRY_RUN_SCRIPT, force_retranslate=FORCE_RETRANSLATE_JSON_SCRIPT)
-
-        # Bước 2: Cập nhật các tệp Module C# (thêm LanguageInfo)
         add_vietnamese_to_module_files(repo_directory_input, dry_run=DRY_RUN_SCRIPT)
-
-        # Bước 3: Dịch displayName trong các tệp *NavigationDefinitionProvider.cs
-        translate_display_names_in_navigation_providers(repo_directory_input, dry_run=DRY_RUN_SCRIPT)
+        translate_display_names_in_navigation_providers(repo_directory_input, dry_run=DRY_RUN_SCRIPT, force_retranslate_csharp=FORCE_RETRANSLATE_CSHARP_SCRIPT)
 
         print("\nHoàn thành tất cả các tác vụ!")
