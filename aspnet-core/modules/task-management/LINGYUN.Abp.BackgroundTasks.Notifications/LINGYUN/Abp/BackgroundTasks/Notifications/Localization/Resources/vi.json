@@ -1,0 +1,22 @@
+{
+  "culture": "vi",
+  "texts": {
+    "Notifications:BackgroundTasks": "Thông báo công việc nền",
+    "Notifications:JobExecuteSucceeded": "Thông báo thành công công việc",
+    "Notifications:JobExecuteSucceededDesc": "Sau khi công việc nền được thực hiện thành công, thông báo được gửi đi.",
+    "Notifications:JobExecuteFailed": "Thông báo thất bại công việc",
+    "Notifications:JobExecuteFailedDesc": "Thông báo được gửi khi thực hiện công việc nền thất bại.",
+    "Notifications:JobExecuteCompleted": "Thông báo hoàn thành công việc",
+    "Notifications:JobExecuteCompletedDesc": "Sau khi công việc nền hoàn tất, thông báo được gửi đi.",
+    "DisplayName:PushProvider": "Nhà cung cấp dịch vụ đẩy",
+    "Description:PushProvider": "Nếu chương trình đẩy được chỉ định, ứng dụng sẽ chọn nó để gửi tin nhắn. Danh sách tùy chọn là: SignalR(thông báo thời gian thực), Sms(thông báo SMS), Emailing(thông báo email), wecht.miniprogram(WeChat MiniProgram), WxPusher(dịch vụ đẩy WeChat của WxPusher), PushPlus(dịch vụ đẩy đa nền tảng của PushPlus).",
+    "DisplayName:Template": "Mẫu",
+    "Description:Template": "Nếu cần chỉ định nội dung mẫu.",
+    "DisplayName:Context": "Ngữ cảnh",
+    "Description:Context": "Được chỉ định khi định dạng nội dung mẫu.",
+    "DisplayName:Content": "Nội dung",
+    "Description:Content": "Nếu bạn chỉ định nội dung, một tin nhắn văn bản thuần túy sẽ được gửi đi.",
+    "DisplayName:Culture": "Văn hóa",
+    "Description:Culture": "Cần nội địa hóa đặc tả nội dung thông báo"
+  }
+}

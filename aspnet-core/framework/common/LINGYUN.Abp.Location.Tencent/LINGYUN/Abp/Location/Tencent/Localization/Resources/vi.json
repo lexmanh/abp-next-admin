@@ -1,0 +1,11 @@
+{
+  "culture": "vi",
+  "texts": {
+    "ResolveLocationFailed": "Lỗi phân tích địa chỉ, thông báo lỗi :{0}",
+    "Message:RETURN_0": "OK",
+    "Message:RETURN_110": "Thông tin tham số yêu cầu không chính xác",
+    "Message:RETURN_306": "Lỗi định dạng khóa",
+    "Message:RETURN_310": "Kiểm tra chuỗi nếu yêu cầu có thông tin lưu trữ",
+    "Message:RETURN_311": "Nguồn yêu cầu không được ủy quyền"
+  }
+}

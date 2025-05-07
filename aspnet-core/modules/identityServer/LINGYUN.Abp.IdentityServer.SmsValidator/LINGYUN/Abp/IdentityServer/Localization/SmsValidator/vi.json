@@ -1,0 +1,9 @@
+{
+  "culture": "vi",
+  "texts": {
+    "InvalidGrant:GrantTypeInvalid": "Loại ủy quyền không được phép!",
+    "InvalidGrant:PhoneVerifyInvalid": "mã xác minh điện thoại không thành công!",
+    "InvalidGrant:PhoneOrTokenCodeNotFound": "Không tìm thấy số điện thoại hoặc mã xác minh!",
+    "InvalidGrant:PhoneNumberNotRegister": "Số điện thoại di động đã đăng ký chưa được đăng ký!"
+  }
+}

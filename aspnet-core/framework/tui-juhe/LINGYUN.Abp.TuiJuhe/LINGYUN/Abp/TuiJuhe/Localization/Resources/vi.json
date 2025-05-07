@@ -1,0 +1,20 @@
+{
+  "culture": "vi",
+  "texts": {
+    "DisplayName:TuiJuhe": "TuiJuhe",
+    "Description:TuiJuhe": "TuiJuhe",
+    "Settings:Security.Token": "Mã thông báo",
+    "Settings:Security.TokenDesc": "Mã thông báo người dùng, (https://tui.juhe.cn/setup) trong trung tâm của trang cá nhân.",
+    "Features:TuiJuhe": "Dịch vụ đẩy TuiJuhe",
+    "Features:TuiJuheEnable": "Kích hoạt TuiJuhe",
+    "Features:TuiJuheEnableDesc": "Kích hoạt để ứng dụng có khả năng của TuiJuhe.",
+    "Features:Message": "Đẩy thông báo TuiJuhe",
+    "Features:MessageEnable": "Kích hoạt đẩy thông báo TuiJuhe",
+    "Features:MessageEnableDesc": "Kích hoạt để các ứng dụng có khả năng nhận thông báo qua TuiJuhe.",
+    "Features:Message.SendLimit": "Giới hạn số lượng đẩy TuiJuhe",
+    "Features:Message.SendLimitDesc": "Đặt giới hạn số lượng tin nhắn đẩy TuiJuhe.",
+    "Features:Message.SendLimitInterval": "Khoảng thời gian giới hạn tin nhắn TuiJuhe",
+    "Features:Message.SendLimitIntervalDesc": "Đặt thời gian giới hạn tin nhắn TuiJuhe (thời gian: giờ). Tần suất gửi tin nhắn (giới hạn yêu cầu): Tốc độ không quá 50 lần mỗi giờ.",
+    "Security": "Bảo mật"
+  }
+}

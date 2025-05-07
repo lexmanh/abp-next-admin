@@ -1,0 +1,29 @@
+{
+  "culture": "vi",
+  "texts": {
+    "TextTemplate:JobExceptionNotifier": "Mẫu thông báo ngoại lệ công việc nền",
+    "JobExceptionNotifier": "Thông báo ngoại lệ công việc nền",
+    "DisplayName:To": "Đến",
+    "Description:To": "demo@example.com, nhiều người nhận cách nhau bằng dấu phẩy(,)",
+    "DisplayName:Subject": "Chủ đề",
+    "Description:Subject": "Gửi chủ đề của tin nhắn",
+    "DisplayName:From": "Từ",
+    "Description:From": "Tên người gửi email",
+    "DisplayName:Body": "Nội dung",
+    "Description:Body": "Nội dung văn bản được gửi.",
+    "DisplayName:Template": "Mẫu",
+    "Description:Template": "Nếu cần chỉ định nội dung mẫu.",
+    "DisplayName:Context": "Ngữ cảnh",
+    "Description:Context": "Chỉ định khi định dạng nội dung mẫu.",
+    "DisplayName:Culture": "Văn hóa",
+    "Description:Culture": "Cần phải địa phương hóa thông số nội dung tin nhắn",
+    "TenantName": "Tên người thuê",
+    "JobGroup": "Nhóm công việc",
+    "JobName": "Tên công việc",
+    "JobId": "Mã công việc",
+    "JobType": "Loại công việc",
+    "TriggerTime": "Thời gian kích hoạt",
+    "ErrorMessage": "Thông báo lỗi",
+    "JobExecuteError": "Ngoại lệ công việc nền"
+  }
+}

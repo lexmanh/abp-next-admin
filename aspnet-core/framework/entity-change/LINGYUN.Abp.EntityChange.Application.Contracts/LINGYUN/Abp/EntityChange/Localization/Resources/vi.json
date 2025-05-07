@@ -1,0 +1,12 @@
+{
+  "culture": "vi",
+  "texts": {
+    "DisplayName:EntityId": "Id thực thể",
+    "DisplayName:EntityChangeId": "Phiên bản",
+    "DisplayName:Entities": "Thực thể",
+    "DisplayName:AuditLogId": "Id nhật ký kiểm toán",
+    "DisplayName:StartTime": "Thời gian bắt đầu",
+    "DisplayName:EndTime": "Thời gian kết thúc",
+    "DisplayName:ChangeType": "Loại thay đổi"
+  }
+}

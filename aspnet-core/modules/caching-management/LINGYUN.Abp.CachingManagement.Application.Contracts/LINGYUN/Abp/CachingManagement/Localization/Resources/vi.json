@@ -1,0 +1,23 @@
+{
+  "culture": "vi",
+  "texts": {
+    "Permission:CachingManagement": "Quản lý Bộ nhớ đệm",
+    "Permission:Caches": "Quản lý Bộ nhớ đệm",
+    "Permission:Refresh": "Làm mới",
+    "Permission:Delete": "Xóa",
+    "Permission:ManageValue": "Quản lý Giá trị",
+    "Caches": "Bộ nhớ đệm",
+    "CacheInfo": "Thông tin Bộ nhớ đệm",
+    "DisplayName:Marker": "Cột mốc",
+    "DisplayName:NextMarker": "Cột mốc tiếp theo",
+    "DisplayName:Type": "Loại",
+    "DisplayName:Size": "Kích thước",
+    "DisplayName:Ttl": "Thời gian sống",
+    "DisplayName:Values": "Giá trị",
+    "DisplayName:Key": "Khóa",
+    "DisplayName:Keys": "Các khóa",
+    "DisplayName:AbsoluteExpiration": "Thời điểm hết hạn tuyệt đối",
+    "DisplayName:SlidingExpiration": "Thời gian hết hạn trượt",
+    "Abp.CachingManagement:01001": "Bộ nhớ đệm loại {Type} không hỗ trợ xem giá trị khóa."
+  }
+}

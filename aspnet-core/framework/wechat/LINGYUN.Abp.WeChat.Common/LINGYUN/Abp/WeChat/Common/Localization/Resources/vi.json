@@ -1,0 +1,16 @@
+{
+  "culture": "vi",
+  "texts": {
+    "WeChat:-40001": "Lỗi xác minh chữ ký",
+    "WeChat:-40002": "Phân tích cú pháp xml/json thất bại",
+    "WeChat:-40003": "Thất bại trong việc tạo chữ ký băm mã hóa",
+    "WeChat:-40004": "AESKey không hợp lệ",
+    "WeChat:-40005": "Lỗi kiểm tra AppId",
+    "WeChat:-40006": "Mã hóa AES thất bại",
+    "WeChat:-40007": "Giải mã AES thất bại",
+    "WeChat:-40008": "Bộ đệm bất hợp lệ sau khi giải mã",
+    "WeChat:-40009": "Thất bại trong mã hóa base64",
+    "WeChat:-40010": "Thất bại trong giải mã base64",
+    "WeChat:-40011": "Thất bại trong việc tạo xml/json"
+  }
+}

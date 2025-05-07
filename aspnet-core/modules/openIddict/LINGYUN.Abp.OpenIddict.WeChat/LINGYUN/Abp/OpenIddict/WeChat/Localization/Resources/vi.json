@@ -1,0 +1,12 @@
+{
+  "culture": "vi",
+  "texts": {
+    "MiniProgramAuthorizationDisabledMessage": "Sự ủy quyền applet không được bật cho ứng dụng",
+    "OfficialAuthorizationDisabledMessage": "Sự ủy quyền chính thức không được bật cho ứng dụng",
+    "SelfRegistrationDisabledMessage": "Đăng ký tự động bị vô hiệu hóa cho ứng dụng này. Vui lòng liên hệ với quản trị viên ứng dụng để đăng ký người dùng mới.",
+    "InvalidGrant:GrantTypeInvalid": "Loại ủy quyền không được phép!",
+    "InvalidGrant:WeChatTokenInvalid": "Xác thực WeChat thất bại!",
+    "InvalidGrant:WeChatCodeNotFound": "Mã nhận được khi đăng nhập WeChat là trống hoặc không tồn tại!",
+    "InvalidGrant:WeChatNotRegister": "Tài khoản WeChat của người dùng chưa được đăng ký!"
+  }
+}

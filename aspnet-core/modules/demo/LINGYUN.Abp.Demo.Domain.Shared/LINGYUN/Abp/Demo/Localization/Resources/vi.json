@@ -1,0 +1,26 @@
+{
+  "culture": "vi",
+  "texts": {
+    "Permission:Demo": "Bản Demo",
+    "Permission:Books": "Sách",
+    "Permission:Books.Create": "Tạo Sách",
+    "Permission:Books.Edit": "Chỉnh sửa Sách",
+    "Permission:Books.Delete": "Xóa Sách",
+    "Permission:Books.Export": "Xuất Sách",
+    "Permission:Books.Import": "Nhập Sách",
+    "Permission:Authors": "Tác giả",
+    "Permission:Authors.Create": "Tạo Tác Giả",
+    "Permission:Authors.Edit": "Chỉnh Sửa Tác Giả",
+    "Permission:Authors.Delete": "Xóa Tác Giả",
+    "Demo:00001": "Tác giả {Name} đã tồn tại!",
+    "Author": "Tác giả",
+    "Book": "Sách",
+    "DisplayName:Name": "Tên",
+    "DisplayName:Type": "Loại",
+    "DisplayName:PublishDate": "Ngày Xuất Bản",
+    "DisplayName:Price": "Giá",
+    "DisplayName:AuthorId": "Mã Tác Giả",
+    "DisplayName:BirthDate": "Ngày Sinh",
+    "DisplayName:ShortBio": "Tiểu Sử Ngắn"
+  }
+}

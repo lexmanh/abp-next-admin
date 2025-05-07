@@ -1,0 +1,10 @@
+{
+  "culture": "vi",
+  "texts": {
+    "IndicesCleanupJob": "Công việc dọn dẹp chỉ mục hết hạn",
+    "Indices:IndexPrefix": "Tiền tố chỉ mục",
+    "Indices:TimeZone": "Múi giờ",
+    "Indices:TimeZoneDesc": "Múi giờ để tính toán chênh lệch thời gian, mặc định là Utc, tùy chọn (Utc, Local).",
+    "Indices:ExpirationTime": "Thời gian hết hạn (giây)"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "culture": "vi",
+  "texts": {
+    "DisplayName:WeChat.Official": "WeChat Chính thức",
+    "Description:WeChat.Official": "WeChat Chính thức",
+    "DisplayName:WeChat.Official.IsSandBox": "是否沙盒测试",
+    "Description:WeChat.Official.IsSandBox": "在使用微信公众号能力前,可通过申请测试号熟悉调用,详情见:https://developers.weixin.qq.com/doc/offiaccount/Basic_Information/Requesting_an_API_Test_Account.html",
+    "DisplayName:WeChat.Official.AppId": "AppId",
+    "Description:WeChat.Official.AppId": "AppId, xem: https://developers.weixin.qq.com/doc/offiaccount/Basic_Information/Access_Overview.html",
+    "DisplayName:WeChat.Official.AppSecret": "Mã bí mật ứng dụng",
+    "Description:WeChat.Official.AppSecret": "Mã bí mật ứng dụng, xem: https://developers.weixin.qq.com/doc/offiaccount/Basic_Information/Access_Overview.html",
+    "DisplayName:WeChat.Official.Url": "Url",
+    "Description:WeChat.Official.Url": "Url, xem: https://developers.weixin.qq.com/doc/offiaccount/Basic_Information/Access_Overview.html",
+    "DisplayName:WeChat.Official.Token": "Mã thông báo",
+    "Description:WeChat.Official.Token": "Mã thông báo, xem: https://developers.weixin.qq.com/doc/offiaccount/Basic_Information/Access_Overview.html",
+    "DisplayName:WeChat.Official.EncodingAESKey": "Khóa mã hóa AES",
+    "Description:WeChat.Official.EncodingAESKey": "Khóa mã hóa AES, xem: https://developers.weixin.qq.com/doc/offiaccount/Basic_Information/Access_Overview.html"
+  }
+}

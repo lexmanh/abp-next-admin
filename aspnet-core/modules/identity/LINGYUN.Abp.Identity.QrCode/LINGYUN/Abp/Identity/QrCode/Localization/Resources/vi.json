@@ -1,0 +1,8 @@
+{
+  "culture": "vi",
+  "texts": {
+    "QrCode:Invalid": "Mã QR không hợp lệ!",
+    "QrCode:NotScaned": "Mã QR chưa được quét!",
+    "QrCode:Scaned": "Vui lòng xác nhận mã QR."
+  }
+}

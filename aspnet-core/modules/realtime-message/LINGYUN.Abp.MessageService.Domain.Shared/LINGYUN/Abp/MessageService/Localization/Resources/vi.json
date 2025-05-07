@@ -1,0 +1,33 @@
+{
+  "culture": "vi",
+  "texts": {
+    "LINGYUN.Abp.Message:01400": "Gửi tin nhắn thất bại: Tin nhắn không đầy đủ!",
+    "LINGYUN.Abp.Message:01401": "Bạn chưa tham gia nhóm nên không thể thao tác!",
+    "LINGYUN.Abp.Message:02301": "Đơn xin vào nhóm đã được gửi, chờ quản trị viên phê duyệt",
+    "LINGYUN.Abp.Message:02302": "Bạn cần xác thực câu hỏi để tham gia nhóm chat",
+    "LINGYUN.Abp.Message:02400": "Quản trị viên đã bật chế độ im lặng!",
+    "LINGYUN.Abp.Message:02403": "Quản trị viên đã cấm bạn nói chuyện!",
+    "LINGYUN.Abp.Message:02401": "Quản trị viên không cho phép nói chuyện ẩn danh!",
+    "LINGYUN.Abp.Message:02404": "Gửi tin nhắn thất bại: nhóm không tồn tại hoặc đã giải tán!",
+    "LINGYUN.Abp.Message:03301": "Yêu cầu kết bạn đã được gửi, chờ đợi phê duyệt của đối phương",
+    "LINGYUN.Abp.Message:03302": "Bạn cần xác thực vấn đề để kết bạn",
+    "LINGYUN.Abp.Message:03400": "Người dùng đã từ chối tất cả các tin nhắn!",
+    "LINGYUN.Abp.Message:03401": "Người dùng từ chối tin nhắn bạn đã gửi!",
+    "LINGYUN.Abp.Message:03402": "Người dùng không nhận bình luận ẩn danh!",
+    "LINGYUN.Abp.Message:03403": "Gửi tin nhắn thất bại: người này cần đồng ý kết bạn!",
+    "LINGYUN.Abp.Message:03404": "Gửi tin nhắn thất bại: người dùng không tồn tại hoặc đã bị hủy kích hoạt!",
+    "LINGYUN.Abp.Message:03410": "Người dùng từ chối kết bạn",
+    "LINGYUN.Abp.Message:03411": "Đối phương đã là bạn của bạn hoặc đã gửi yêu cầu xác thực. Không thể thực hiện lại thao tác!",
+    "Notifications:IM": "Tin nhắn tức thì",
+    "Notifications:FriendValidation": "Thông báo xác thực bạn bè",
+    "Notifications:NewFriend": "Thông báo bạn mới",
+    "Notifications:RequestAddNewFriend": "Người dùng {name} đã yêu cầu bạn thêm làm bạn",
+    "Notifications:RequestAddNewFriendDetail": "Mô tả: {description}",
+    "Notifications:JoinGroup": "Thông báo tham gia nhóm",
+    "Notifications:ExitGroup": "Thông báo rời nhóm",
+    "Notifications:DissolveGroup": "Thông báo giải tán nhóm",
+    "AddNewFriendBySearchId": "Thêm bằng tìm kiếm tài khoản",
+    "WelcomeToApplicationFormUser": "Người dùng :{User} chào mừng bạn tham gia cùng chúng tôi!",
+    "Messages:NewFriend": "Tôi đã thêm bạn làm bạn, hãy cùng nhau trò chuyện!"
+  }
+}

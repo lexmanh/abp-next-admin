@@ -1,0 +1,32 @@
+{
+  "culture": "vi",
+  "texts": {
+    "Delete": "Xóa",
+    "DisplayName:Enable": "Kích hoạt",
+    "DisplayName:CreationTime": "Thời gian tạo",
+    "DisplayName:LastModificationTime": "Thời gian chỉnh sửa",
+    "DisplayName:SaveAndNext": "Lưu và tiếp theo",
+    "Feature:LocalizationManagement": "Quản lý ngôn ngữ",
+    "Feature:LocalizationManagementEnable": "Kích hoạt quản lý ngôn ngữ",
+    "Feature:LocalizationManagementEnableDesc": "Kích hoạt quản lý ngôn ngữ trong ứng dụng",
+    "Permissions:LocalizationManagement": "Ngôn ngữ",
+    "Permissions:Language": "Ngôn ngữ",
+    "Permissions:Resource": "Tài nguyên",
+    "Permissions:Text": "Văn bản",
+    "Permissions:Create": "Tạo",
+    "Permissions:Update": "Cập nhật",
+    "Permissions:Delete": "Xóa",
+    "Edit": "Chỉnh sửa",
+    "EditByName": "Chỉnh sửa - {0}",
+    "Filter": "Lọc",
+    "SaveAndNext": "Lưu và tiếp theo",
+    "SearchFilter": "Tìm kiếm",
+    "Text:AddNew": "Văn bản mới",
+    "Language:AddNew": "Ngôn ngữ mới",
+    "Resource:AddNew": "Tài nguyên mới",
+    "Localization:001100": "Ngôn ngữ {CultureName} đã tồn tại!",
+    "Localization:001400": "Tên ngôn ngữ {CultureName} không tìm thấy hoặc không được phép vận hành ngôn ngữ dựng sẵn!",
+    "Localization:002100": "Tài nguyên {Name} đã tồn tại!",
+    "Localization:002400": "Tên tài nguyên {Name} không tìm thấy hoặc không được phép vận hành tài nguyên dựng sẵn!"
+  }
+}

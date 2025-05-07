@@ -1,0 +1,7 @@
+{
+  "culture": "vi",
+  "texts": {
+    "ThisFieldMustBeANumber": "Trường này phải là một số!",
+    "The field {0} must be a number.": "Giá trị được cung cấp {0} phải là một số!"
+  }
+}

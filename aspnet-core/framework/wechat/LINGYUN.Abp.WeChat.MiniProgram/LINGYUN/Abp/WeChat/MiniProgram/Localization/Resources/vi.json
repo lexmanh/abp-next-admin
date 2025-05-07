@@ -1,0 +1,29 @@
+{
+  "culture": "vi",
+  "texts": {
+    "DisplayName:WeChat.MiniProgram": "Chương trình Mini WeChat",
+    "Description:WeChat.MiniProgram": "Chương trình Mini WeChat",
+    "DisplayName:WeChat.MiniProgram.AppId": "AppId",
+    "Description:WeChat.MiniProgram.AppId": "AppId, Xem: https://developers.weixin.qq.com/miniprogram/dev/framework/",
+    "DisplayName:WeChat.MiniProgram.AppSecret": "Bí mật ứng dụng",
+    "Description:WeChat.MiniProgram.AppSecret": "Bí mật ứng dụng, Xem: https://developers.weixin.qq.com/miniprogram/dev/framework/",
+    "DisplayName:WeChat.MiniProgram.Token": "Mã thông báo",
+    "Description:WeChat.MiniProgram.Token": "Mã thông báo, Xem: https://developers.weixin.qq.com/miniprogram/dev/framework/",
+    "DisplayName:WeChat.MiniProgram.EncodingAESKey": "Khóa AES mã hóa",
+    "Description:WeChat.MiniProgram.EncodingAESKey": "Khóa AES mã hóa, Xem: https://developers.weixin.qq.com/miniprogram/dev/framework/",
+    "Features:WeChat.MiniProgram": "Chương trình Mini",
+    "Features:WeChat.MiniProgramDesc": "Chương trình Mini",
+    "Features:WeChat.MiniProgram.Enable": "Kích hoạt",
+    "Features:WeChat.MiniProgram.EnableDesc": "Kích hoạt chương trình Mini WeChat",
+    "Features:WeChat.MiniProgram.EnableAuthorization": "Xác thực",
+    "Features:WeChat.MiniProgram.EnableAuthorizationDesc": "Kích hoạt xác thực chương trình Mini WeChat",
+    "Features:WeChat.MiniProgram.Messages": "Tin nhắn mẫu",
+    "Features:WeChat.MiniProgram.MessagesDesc": "Tin nhắn mẫu",
+    "Features:WeChat.MiniProgram.EnableMessages": "Kích hoạt tin nhắn mẫu",
+    "Features:WeChat.MiniProgram.EnableMessagesDesc": "Kích hoạt tin nhắn mẫu applet WeChat",
+    "Features:WeChat.MiniProgram.SendLimit": "Giới hạn gửi",
+    "Features:WeChat.MiniProgram.SendLimitDesc": "Giới hạn tin nhắn mẫu applet WeChat trong một khoảng thời gian nhất định",
+    "Features:WeChat.MiniProgram.SendLimitInterval": "Khoảng thời gian gửi",
+    "Features:WeChat.MiniProgram.SendLimitIntervalDesc": "Giới hạn tần số có thể gọi tin nhắn mẫu, đơn vị là tháng"
+  }
+}

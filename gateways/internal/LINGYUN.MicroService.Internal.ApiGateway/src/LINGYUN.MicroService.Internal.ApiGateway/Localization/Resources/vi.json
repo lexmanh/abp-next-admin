@@ -1,0 +1,10 @@
+{
+  "culture": "vi",
+  "texts": {
+    "NoLoadBalancer": "Không có bộ cân bằng tải",
+    "RoundRobin": "Vòng quay tuần tự",
+    "LeastConnection": "Ít kết nối nhất",
+    "CookieStickySessions": "Phiên dính cookie",
+    "CustomLoadBalancer": "Bộ cân bằng tải tùy chỉnh - {0}"
+  }
+}

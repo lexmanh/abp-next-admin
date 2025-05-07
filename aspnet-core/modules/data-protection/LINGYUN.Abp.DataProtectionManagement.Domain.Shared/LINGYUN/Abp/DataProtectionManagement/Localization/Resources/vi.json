@@ -1,0 +1,18 @@
+{
+  "culture": "vi",
+  "texts": {
+    "Permission:DataProtectionManagement": "Bảo vệ Dữ liệu",
+    "Permission:EntityTypeInfo": "Thông tin Loại Thực thể",
+    "Permission:RoleEntityRule": "Quy tắc Thực thể Vai trò",
+    "Permission:OrganizationUnitEntityRule": "Quy tắc Thực thể Đơn vị Tổ chức",
+    "Permission:Create": "Tạo",
+    "Permission:Update": "Cập nhật",
+    "Permission:Delete": "Xóa",
+    "Permission:Strategy": "Chiến lược",
+    "Permission:ChangeStrategy": "Thay đổi Chiến lược",
+    "DataProtectionManagement:001100": "Đã tồn tại một định nghĩa loại thực thể tên {Name}!",
+    "DataProtectionManagement:001200": "Loại thực thể đã có một định nghĩa thuộc tính tên {Name}!",
+    "DataProtectionManagement:002100": "Quy tắc truy cập {Operation} cho thực thể {Name} đã được gán cho vai trò {RoleName}!",
+    "DataProtectionManagement:003100": "Quy tắc truy cập {Operation} cho thực thể {Name} đã được gán cho tổ chức {RoleName}!"
+  }
+}

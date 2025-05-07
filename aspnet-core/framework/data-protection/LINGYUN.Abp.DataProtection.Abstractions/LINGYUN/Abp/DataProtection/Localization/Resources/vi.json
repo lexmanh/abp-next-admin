@@ -1,0 +1,16 @@
+{
+  "culture": "vi",
+  "texts": {
+    "DataProtection:010001": "Quyền truy cập dữ liệu không được cấp cho các tài nguyên được bảo vệ!",
+    "DisplayName:LastModifierId": "Mã người sửa đổi cuối cùng",
+    "DisplayName:LastModificationTime": "Thời gian sửa đổi lần cuối",
+    "DisplayName:CreatorId": "Mã người tạo",
+    "DisplayName:CreationTime": "Thời gian tạo",
+    "DataAccessStrategy:All": "Tất cả",
+    "DataAccessStrategy:Custom": "Tùy chỉnh",
+    "DataAccessStrategy:CurrentUser": "Người dùng hiện tại",
+    "DataAccessStrategy:CurrentRoles": "Vai trò hiện tại",
+    "DataAccessStrategy:CurrentOrganizationUnits": "Đơn vị tổ chức hiện tại",
+    "DataAccessStrategy:CurrentAndSubOrganizationUnits": "Đơn vị tổ chức hiện tại và các đơn vị con"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "culture": "vi",
+  "texts": {
+    "FeaturesLimitException": "Dịch vụ đã vượt quá số lần gọi tối đa {0}. Vui lòng xin phép phù hợp"
+  }
+}

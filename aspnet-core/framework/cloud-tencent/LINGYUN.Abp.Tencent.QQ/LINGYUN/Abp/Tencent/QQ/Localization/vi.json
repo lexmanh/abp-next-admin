@@ -1,0 +1,16 @@
+{
+  "culture": "vi",
+  "texts": {
+    "Features:TencentQQ": "Kết nối QQ",
+    "Features:TencentQQEnable": "Bật Kết nối QQ",
+    "Features:TencentQQEnable.Desc": "Bật để hỗ trợ đăng nhập nhanh qua kết nối QQ.",
+    "DisplayName:TenantCloud.QQConnect": "Kết nối QQ",
+    "Description:TenantCloud.QQConnect": "Truy cập nền tảng mở Internet QQ",
+    "DisplayName:QQConnect.AppId": "AppId",
+    "Description:QQConnect.AppId": "Định danh ứng dụng cần thiết để truy cập đăng nhập QQ có thể được đăng ký tại Trung tâm Quản lý Kết nối QQ.",
+    "DisplayName:QQConnect.AppKey": "AppKey",
+    "Description:QQConnect.AppKey": "Khi truy cập tài nguyên người dùng, nó được sử dụng để xác minh tính hợp lệ của ứng dụng và đăng ký tại Trung tâm Quản lý Kết nối QQ.",
+    "DisplayName:QQConnect.IsMobile": "Có chuyển đổi phong cách hay không",
+    "Description:QQConnect.IsMobile": "Phong cách được sử dụng cho hiển thị, mặc định hiển thị như phong cách trên PC."
+  }
+}

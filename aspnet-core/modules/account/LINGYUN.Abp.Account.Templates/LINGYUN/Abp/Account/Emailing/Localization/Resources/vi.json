@@ -1,0 +1,16 @@
+{
+  "culture": "vi",
+  "texts": {
+    "TextTemplate:Abp.Account.MailSecurityVerifyLink": "Mẫu xác thực bảo mật thư",
+    "TextTemplate:Abp.Account.MailConfirmLink": "Mẫu xác nhận thư",
+    "MailSecurityVerify": "Xác minh bảo mật thư",
+    "VerifyMyEmailAddress": "Xin chào {0}<br/><p>Mã xác thực bảo mật email của bạn như sau. Vui lòng nhập mã xác thực để tiến hành bước tiếp theo.</p><p>Nếu không phải bạn thực hiện hành động này, vui lòng bỏ qua email này.</p>",
+    "MailSecurityVerifyRemarks": "<p>(Nếu không phải dưới dạng liên kết, sao chép địa chỉ vào thanh địa chỉ trình duyệt để truy cập tiếp)</p><p>Cảm ơn bạn đã ghé thăm và chúc vui vẻ!</p>",
+    "ClickToValidation": "Nhấp vào liên kết xác thực",
+    "Validation": "Xác thực",
+    "EmailConfirm": "Xác nhận email",
+    "EmailConfirmInfo": "Chúng tôi đã nhận được yêu cầu xác nhận email! Nếu bạn đã khởi tạo yêu cầu này, vui lòng nhấp vào liên kết dưới đây để xác nhận địa chỉ email.",
+    "ConfirmMyEmail": "Liên kết email của tôi",
+    "YourEmailIsSuccessfullyConfirm": "Địa chỉ email của bạn đã được liên kết thành công."
+  }
+}

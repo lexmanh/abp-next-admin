@@ -1,0 +1,8 @@
+{
+  "culture": "vi",
+  "texts": {
+    "TenantUsageMonitoringJob": "Công việc giám sát sử dụng của người thuê",
+    "Saas:AdminEmail": "Email quản trị viên",
+    "Saas:TenantId": "Id người thuê"
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "culture": "vi",
+  "texts": {
+    "Gdpr:010001": "Bạn đã gửi yêu cầu tải xuống dữ liệu cá nhân, vui lòng thử lại sau {RequestTimeInterval}.",
+    "Gdpr:010002": "Dữ liệu cá nhân của bạn đang được chuẩn bị, vui lòng thử tải xuống lại sau {ReadyTime}.",
+    "DisplayName:PersonalData": "Dữ liệu cá nhân",
+    "DisplayName:Provider": "Nhà cung cấp",
+    "DisplayName:UserId": "Id người dùng",
+    "DisplayName:CreationTime": "Thời gian tạo",
+    "DisplayName:ReadyTime": "Thời gian sẵn sàng",
+    "PersonalData:Empty": "Không có",
+    "Preparing": "Đang chuẩn bị",
+    "Download": "Tải xuống",
+    "RequestPersonalData": "Yêu cầu dữ liệu cá nhân",
+    "DeletePersonalData": "Xóa dữ liệu cá nhân",
+    "DeletePersonalAccount": "Xóa tài khoản",
+    "RequestedSuccessfully": "Yêu cầu thành công",
+    "DeletePersonalAccountWarning": "Hành động này sẽ xóa tài khoản của bạn (bao gồm cả dữ liệu cá nhân của bạn) và bạn sẽ không thể đăng nhập vào ứng dụng nữa!",
+    "PersonalAccountDeleteRequestReceived": "Yêu cầu xóa tài khoản của bạn đang được xử lý và dữ liệu cá nhân của bạn sẽ bị xóa vào cuối quá trình xóa.",
+    "DeletePersonalDataWarning": "Hành động này sẽ xóa dữ liệu cá nhân tài khoản của bạn, và việc xóa một số dữ liệu có thể ảnh hưởng đến trải nghiệm trang!",
+    "PersonalDataDeleteRequestReceived": "Yêu cầu xóa dữ liệu cá nhân của bạn đang được xử lý, và bạn có thể cần đăng nhập lại vào ứng dụng sau khi quá trình xóa hoàn tất.",
+    "PersonalDataPrepareRequestReceived": "Yêu cầu dữ liệu cá nhân của bạn đang được xử lý và nếu dữ liệu đã sẵn sàng, bạn có thể tải xuống tại trang này.",
+    "Accept": "Chấp nhận",
+    "PersonalData": "Dữ liệu cá nhân",
+    "CookiePolicy": "Chính sách Cookie",
+    "PrivacyPolicy": "Chính sách bảo mật",
+    "ThisWebsiteUsesCookie": "Trang web này sử dụng cookie để đảm bảo bạn có trải nghiệm tốt nhất trên trang web.",
+    "CookieConsentAgreePolicy": "Nếu bạn tiếp tục duyệt, bạn đồng ý với {0} của chúng tôi.",
+    "CookieConsentAgreePolicies": "Nếu bạn tiếp tục duyệt, bạn đồng ý với {0} và {1} của chúng tôi."
+  }
+}

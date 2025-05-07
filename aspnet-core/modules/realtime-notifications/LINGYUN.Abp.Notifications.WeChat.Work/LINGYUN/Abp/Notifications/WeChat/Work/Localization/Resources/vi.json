@@ -1,0 +1,8 @@
+{
+  "culture": "vi",
+  "texts": {
+    "Notification:WeChatWork": "WeCom",
+    "Notification:WeChatWorkTest": "Kiểm tra thông báo WeCom",
+    "Notification:WeChatWorkTestDesc": "Được sử dụng để kiểm tra gửi thông báo wecom"
+  }
+}

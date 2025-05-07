@@ -1,0 +1,14 @@
+{
+  "culture": "vi",
+  "texts": {
+    "PersonalData:UserName": "Tên người dùng",
+    "PersonalData:Name": "Tên",
+    "PersonalData:Surname": "Họ",
+    "PersonalData:Email": "Email",
+    "PersonalData:PhoneNumber": "Số điện thoại",
+    "PersonalData:CreationTime": "Thời gian đăng ký",
+    "PersonalData:AvatarUrl": "Ảnh đại diện",
+    "PersonalData:Picture": "Hình ảnh",
+    "PersonalData:Website": "Trang web"
+  }
+}

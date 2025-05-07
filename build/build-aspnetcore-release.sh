@@ -10,7 +10,7 @@ cp -r -f Dockerfile ../../Publish/identityserver/Dockerfile
 
 
 echo "Start building an identity authentication management service"
-cd $workdir"/aspnet-core/services/identity-server/LINGYUN.Abp.IdentityServer4.HttpApi.Host"
+cd $workdir"/aspnet-core/services/identityserver/LINGYUN.Abp.IdentityServer4.HttpApi.Host"
 
 dotnet restore
 dotnet publish -c Release -o ../../Publish/identityserver4-admin --no-cache --no-restore

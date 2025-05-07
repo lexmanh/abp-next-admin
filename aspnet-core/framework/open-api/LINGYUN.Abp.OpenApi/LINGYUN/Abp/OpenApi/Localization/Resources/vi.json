@@ -1,0 +1,15 @@
+{
+  "culture": "vi",
+  "texts": {
+    "AbpOpenApi:9100": "appKey {AppKey} không hợp lệ.",
+    "AbpOpenApi:9101": "Không tìm thấy appKey.",
+    "AbpOpenApi:9110": "Ký không hợp lệ.",
+    "AbpOpenApi:9111": "Không tìm thấy ký.",
+    "AbpOpenApi:9210": "Yêu cầu đã hết thời gian hoặc phiên đã hết hạn.",
+    "AbpOpenApi:9211": "Không tìm thấy dấu thời gian.",
+    "AbpOpenApi:9220": "Yêu cầu được khởi xướng lặp lại.",
+    "AbpOpenApi:9221": "Không tìm thấy nonce.",
+    "AbpOpenApi:9300": "Khách hàng không nằm trong phạm vi được phép.",
+    "AbpOpenApi:9400": "IP của khách hàng không nằm trong phạm vi được phép."
+  }
+}

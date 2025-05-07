@@ -1,0 +1,7 @@
+{
+  "culture": "vi",
+  "texts": {
+    "NewTenantRegisteredNotificationTitle": "Thông báo tạo người thuê mới",
+    "NewTenantRegisteredNotificationMessage": "Tạo thành công người thuê mới, tên người thuê: {Name}!"
+  }
+}
