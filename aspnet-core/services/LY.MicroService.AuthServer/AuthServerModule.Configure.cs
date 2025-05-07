@@ -1,4 +1,4 @@
-﻿using DotNetCore.CAP;
+using DotNetCore.CAP;
 using LINGYUN.Abp.Localization.CultureMap;
 using LINGYUN.Abp.LocalizationManagement;
 using LINGYUN.Abp.OpenIddict.AspNetCore.Session;
@@ -266,6 +266,7 @@ public partial class AuthServerModule
         {
             options.Languages.Add(new LanguageInfo("en", "en", "English"));
             options.Languages.Add(new LanguageInfo("zh-Hans", "zh-Hans", "简体中文"));
+            options.Languages.Add(new LanguageInfo("vi", "vi", "Tiếng Việt"));
 
             options.Resources
                 .Get<AccountResource>()

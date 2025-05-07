@@ -1,4 +1,4 @@
-﻿using DotNetCore.CAP;
+using DotNetCore.CAP;
 using LINGYUN.Abp.Dapr.Client.ClientProxying;
 using LINGYUN.Abp.ExceptionHandling;
 using LINGYUN.Abp.ExceptionHandling.Emailing;
@@ -304,6 +304,7 @@ public partial class ProjectNameHttpApiHostModule
         {
             options.Languages.Add(new LanguageInfo("en", "en", "English"));
             options.Languages.Add(new LanguageInfo("zh-Hans", "zh-Hans", "简体中文"));
+            options.Languages.Add(new LanguageInfo("vi", "vi", "Tiếng Việt"));
         });
 
         Configure<AbpLocalizationCultureMapOptions>(options =>

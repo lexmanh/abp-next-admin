@@ -1,4 +1,4 @@
-﻿using LINGYUN.Abp.AspNetCore.Mvc.GlobalFeatures;
+using LINGYUN.Abp.AspNetCore.Mvc.GlobalFeatures;
 using LINGYUN.Abp.AspNetCore.Mvc.Localization;
 using LINGYUN.Abp.AspNetCore.Mvc.Results;
 using LINGYUN.Abp.AspNetCore.Mvc.Wrapper;
@@ -111,6 +111,7 @@ namespace LINGYUN.Abp.AspNetCore.Mvc
 
                 options.Languages.Add(new LanguageInfo("en", "en", "English"));
                 options.Languages.Add(new LanguageInfo("zh-Hans", "zh-Hans", "简体中文"));
+                options.Languages.Add(new LanguageInfo("vi", "vi", "Tiếng Việt"));
             });
 
             Configure<RazorPagesOptions>(options =>

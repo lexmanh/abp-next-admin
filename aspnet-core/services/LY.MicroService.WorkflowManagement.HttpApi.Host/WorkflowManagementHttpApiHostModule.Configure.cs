@@ -1,4 +1,4 @@
-﻿using DotNetCore.CAP;
+using DotNetCore.CAP;
 using Elsa;
 using Elsa.Options;
 using Elsa.Rebus.RabbitMq;
@@ -428,6 +428,7 @@ public partial class WorkflowManagementHttpApiHostModule
         {
             options.Languages.Add(new LanguageInfo("en", "en", "English"));
             options.Languages.Add(new LanguageInfo("zh-Hans", "zh-Hans", "简体中文"));
+            options.Languages.Add(new LanguageInfo("vi", "vi", "Tiếng Việt"));
         });
 
         Configure<AbpLocalizationCultureMapOptions>(options =>

@@ -1,4 +1,4 @@
-﻿using DotNetCore.CAP;
+using DotNetCore.CAP;
 using LINGYUN.Abp.Account.Web;
 using LINGYUN.Abp.Account.Web.IdentityServer;
 using LINGYUN.Abp.IdentityServer.IdentityResources;
@@ -268,6 +268,7 @@ public partial class IdentityServerModule
         {
             options.Languages.Add(new LanguageInfo("en", "en", "English"));
             options.Languages.Add(new LanguageInfo("zh-Hans", "zh-Hans", "简体中文"));
+            options.Languages.Add(new LanguageInfo("vi", "vi", "Tiếng Việt"));
 
             options.Resources
                 .Get<AccountResource>()

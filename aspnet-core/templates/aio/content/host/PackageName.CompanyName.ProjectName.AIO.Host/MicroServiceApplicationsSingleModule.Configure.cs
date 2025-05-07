@@ -1,4 +1,4 @@
-﻿using Elsa;
+using Elsa;
 using Elsa.Options;
 using Hangfire;
 using Hangfire.Redis.StackExchange;
@@ -757,6 +757,7 @@ public partial class MicroServiceApplicationsSingleModule
         {
             options.Languages.Add(new LanguageInfo("en", "en", "English"));
             options.Languages.Add(new LanguageInfo("zh-Hans", "zh-Hans", "简体中文"));
+            options.Languages.Add(new LanguageInfo("vi", "vi", "Tiếng Việt"));
 
             options
                 .AddLanguagesMapOrUpdate(
