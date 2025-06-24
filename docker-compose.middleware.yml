@@ -65,14 +65,18 @@ services:
       - abp-next-admin
 
   abp-elasticsearch:
-    image: elasticsearch:7.16.3
+    image: elasticsearch:8.18.2
     container_name: abp-elasticsearch
     restart: always
     environment:
+      - "TZ=Asia/Ho_Chi_Minh"
       - "cluster.name=elasticsearch"
       - "discovery.type=single-node"
-      - "ES_JAVA_OPTS=-Xms15g -Xmx15g"
-      - TZ=Asia/Ho_Chi_Minh
+      - "ES_JAVA_OPTS=-Xms4g -Xmx4g"
+      - "xpack.security.autoconfiguration.enabled=false"
+      - "xpack.security.enabled=false"
+      - "xpack.security.transport.ssl.enabled=false"
+      - "xpack.security.enrollment.enabled=true"
     volumes:
       - ./deploy/middleware/elasticsearch/plugins:/usr/share/elasticsearch/plugins
       - esdata:/usr/share/elasticsearch/data:rw
@@ -82,7 +86,7 @@ services:
       - abp-next-admin
 
   abp-kibana:
-    image: kibana:7.16.3
+    image: kibana:8.18.2
     container_name: abp-kibana
     restart: always
     depends_on:
@@ -98,7 +102,7 @@ services:
       - "host.docker.internal:host-gateway"
 
   abp-logstash:
-    image: logstash:7.16.3
+    image: logstash:8.18.2
     container_name: abp-logstash
     restart: always
     environment:

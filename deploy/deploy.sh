@@ -38,7 +38,7 @@ sleep 5
 echo "Migrate database..."
 cd "$buildPath" || exit 1 # Chú ý: đường dẫn này có thể cần xem lại nếu buildPath không chứa các project migration
 
- Cập nhật vòng lặp cho migrationProjectPaths
+# Cập nhật vòng lặp cho migrationProjectPaths
 for migProjectPath in "${migrationProjectPaths[@]}"; do
     echo "Chạy migration cho: $migProjectPath"
     # Kiểm tra xem có cần cd vào thư mục gốc của dự án migration không, 
@@ -127,7 +127,7 @@ pnpm build
 ## Running application
 echo "Chạy ứng dụng với Docker Compose..."
 cd "$rootFolder" || exit 1
-docker compose -f ./docker-compose.yml -f ./docker-compose.override.yml -f ./docker-compose.override.configuration.yml up -d --build
+docker compose -f ./docker-compose.yml -f ./docker-compose.override.yml -f ./docker-compose.override.configuration.yml up -d --build 
 
 cd "$deployPath" || exit 1 # Quay lại thư mục deploy ban đầu
 echo "Ứng dụng đang chạy..."
