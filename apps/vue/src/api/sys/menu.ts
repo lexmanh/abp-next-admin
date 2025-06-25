@@ -6,7 +6,11 @@ import { RouteItem } from './model/menuModel';
  */
 
 export const getMenuList = () => {
-  return defHttp.get<ListResultDto<RouteItem>>({
+  const menus = defHttp.get<ListResultDto<RouteItem>>({
     url: `/api/platform/menus/by-current-user?framework=Vue Vben Admin`,
   });
+  
+  console.log('getMenuList', {menus});
+  
+  return menus;
 };

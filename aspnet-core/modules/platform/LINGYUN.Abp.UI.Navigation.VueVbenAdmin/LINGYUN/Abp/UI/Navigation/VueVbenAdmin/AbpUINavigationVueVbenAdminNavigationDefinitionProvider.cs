@@ -9,6 +9,7 @@ public class AbpUINavigationVueVbenAdminNavigationDefinitionProvider : Navigatio
 {
     public override void Define(INavigationDefinitionContext context)
     {
+        // TODO: Temporary commented out, need to be implemented later
         context.Add(GetDashboard());
         context.Add(GetManage());
         context.Add(GetSaas());

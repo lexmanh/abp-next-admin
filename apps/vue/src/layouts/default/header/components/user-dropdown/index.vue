@@ -13,7 +13,7 @@
       <Menu @click="handleMenuClick">
         <MenuItem
           key="center"
-          :text="t('AbpAccount.PersonalInfo')"
+          :text="t('AbpUi.PersonalInfo')"
           icon="ant-design:profile-outlined"
         />
         <MenuItem

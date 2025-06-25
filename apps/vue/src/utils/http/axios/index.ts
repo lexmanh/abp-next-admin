@@ -1,26 +1,26 @@
 // axios配置  可自行根据项目进行更改，只需更改该文件即可，其他文件可以不动
 // The axios configuration can be changed according to the project, just change the file, other files can be left unchanged
 
-import type { AxiosResponse } from 'axios';
-import type { RequestOptions, Result } from '/#/axios';
-import type { AxiosTransform, CreateAxiosOptions } from './axiosTransform';
-import { VAxios } from './Axios';
-import { checkResponse } from './checkStatus';
-import { useGlobSetting } from '/@/hooks/setting';
-import { useMessage } from '/@/hooks/web/useMessage';
-import { RequestEnum, ResultEnum, ContentTypeEnum } from '/@/enums/httpEnum';
-import { isString } from '/@/utils/is';
-import { getToken } from '/@/utils/auth';
-import { useI18n } from '/@/hooks/web/useI18n';
-import { setObjToUrlParams, deepMerge } from '/@/utils';
-import { useErrorLogStoreWithOut } from '/@/store/modules/errorLog';
-import { joinTimestamp, formatRequestDate } from './helper';
-import { useLocaleStoreWithOut } from '/@/store/modules/locale';
+import type {AxiosResponse} from 'axios';
+import type {RequestOptions, Result} from '/#/axios';
+import type {AxiosTransform, CreateAxiosOptions} from './axiosTransform';
+import {VAxios} from './Axios';
+import {checkResponse} from './checkStatus';
+import {useGlobSetting} from '/@/hooks/setting';
+import {useMessage} from '/@/hooks/web/useMessage';
+import {RequestEnum, ResultEnum, ContentTypeEnum} from '/@/enums/httpEnum';
+import {isString} from '/@/utils/is';
+import {getToken} from '/@/utils/auth';
+import {useI18n} from '/@/hooks/web/useI18n';
+import {setObjToUrlParams, deepMerge} from '/@/utils';
+import {useErrorLogStoreWithOut} from '/@/store/modules/errorLog';
+import {joinTimestamp, formatRequestDate} from './helper';
+import {useLocaleStoreWithOut} from '/@/store/modules/locale';
 import axios from 'axios';
 
 const globSetting = useGlobSetting();
 const urlPrefix = globSetting.urlPrefix;
-const { createMessage, createErrorModal } = useMessage();
+const {createMessage, createErrorModal} = useMessage();
 
 /**
  * @description: 数据处理，方便区分多种处理方式
@@ -30,14 +30,14 @@ const transform: AxiosTransform = {
    * @description: 处理请求数据。如果数据不是预期格式，可直接抛出错误
    */
   transformRequestHook: (res: AxiosResponse<Result>, options: RequestOptions) => {
-    const { t } = useI18n();
-    const { isReturnNativeResponse } = options;
+    const {t} = useI18n();
+    const {isReturnNativeResponse} = options;
     // 是否返回原生响应头 比如：需要获取响应头时使用该属性
     if (isReturnNativeResponse) {
       return res;
     }
 
-    const { data } = res;
+    const {data} = res;
 
     // 对包装结果处理
     if (res.headers['_abpwrapresult'] === 'true') {
@@ -46,7 +46,7 @@ const transform: AxiosTransform = {
         throw new Error(t('sys.api.apiRequestFailed'));
       }
 
-      const { code, result, message, details } = data;
+      const {code, result, message, details} = data;
       const hasSuccess = data && Reflect.has(data, 'code') && code === ResultEnum.CODE;
       if (hasSuccess) {
         return result;
@@ -55,7 +55,7 @@ const transform: AxiosTransform = {
       const title = details ? message : t('sys.api.errorTip');
       const content = details ? details : message;
       if (options.errorMessageMode === 'modal') {
-        createErrorModal({ title: title, content: content });
+        createErrorModal({title: title, content: content});
       } else if (options.errorMessageMode === 'message') {
         createMessage.error(content);
       }
@@ -68,7 +68,7 @@ const transform: AxiosTransform = {
 
   // 请求之前处理config
   beforeRequestHook: (config, options) => {
-    const { apiUrl, joinPrefix, joinParamsToUrl, formatDate, joinTime = true, urlPrefix } = options;
+    const {apiUrl, joinPrefix, joinParamsToUrl, formatDate, joinTime = true, urlPrefix} = options;
 
     if (joinPrefix) {
       config.url = `${urlPrefix}${config.url}`;
@@ -142,7 +142,31 @@ const transform: AxiosTransform = {
       if (config.headers['Accept-Language'] == 'zh_CN') {
         config.headers['Accept-Language'] = 'zh-Hans';
       }
+      if (config.headers['Accept-Language'] == 'vi-VN' ||
+        config.headers['Accept-Language'] == 'VN') {
+        config.headers['Accept-Language'] = 'vi';
+      }
     }
+
+    // Remove Cookie and RequestVerificationToken if exist
+    if (config.headers['Cookie']) {
+      console.log('Remove Cookie header from request');
+      delete config.headers['Cookie'];
+    }
+    if (config.headers['RequestVerificationToken']) {
+      console.log('Remove RequestVerificationToken header from request');
+      delete config.headers['RequestVerificationToken'];
+    }
+    
+    // Remove XSRF-TOKEN if exist
+    if (config.headers['XSRF-TOKEN']) {
+      console.log('Remove XSRF-TOKEN header from request');
+      delete config.headers['XSRF-TOKEN'];
+    }
+    
+    // Add flag to indicate that the request is from the frontend
+    config.headers['X-Requested-From'] = 'vue-frontend';
+
     return config;
   },
 
@@ -166,7 +190,7 @@ const transform: AxiosTransform = {
     }
 
     if (error.code && ['ECONNABORTED', 'ETIMEDOUT'].includes(error.code)) {
-      const { t } = useI18n();
+      const {t} = useI18n();
       const timeout = t('sys.api.apiTimeoutMessage');
       createMessage.error(timeout);
       return Promise.reject(timeout);
@@ -178,7 +202,7 @@ const transform: AxiosTransform = {
 };
 
 function createAxios(opt?: Partial<CreateAxiosOptions>) {
-  return new VAxios(
+  let axios = new VAxios(
     deepMerge(
       {
         // See https://developer.mozilla.org/en-US/docs/Web/HTTP/Authentication#authentication_schemes
@@ -238,7 +262,19 @@ function createAxios(opt?: Partial<CreateAxiosOptions>) {
       opt || {},
     ),
   );
+
+  // Remove header Cookie and RequestVerificationToken if exist
+  // axios.axiosInstance.interceptors.request.use((config) => {
+  //   if (config.headers) {
+  //     delete config.headers.Cookie;
+  //     delete config.headers.RequestVerificationToken;
+  //   }
+  //   return config;
+  // });
+
+  return axios;
 }
+
 export const defHttp = createAxios();
 
 // other api url

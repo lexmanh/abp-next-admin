@@ -233,7 +233,7 @@ public class VueVbenAdmin5NavigationSeedContributor : NavigationSeedContributor
             .SeedAsync(
                 "UI Framework",
                 CodeNumberGenerator.CreateCode(30),
-                "UI框架",
+                "Khung giao diện",
                 "UI Framework",
                 null,
                 tenantId,
@@ -255,7 +255,7 @@ public class VueVbenAdmin5NavigationSeedContributor : NavigationSeedContributor
     {
         var layout = await RouteDataSeeder.SeedLayoutAsync(
            Options.LayoutName,
-           Options.LayoutPath, // 路由层面已经处理好了,只需要传递LAYOUT可自动引用布局
+           Options.LayoutPath,
            Options.LayoutName,
            data.Id,
            uiDataItem.Name,
@@ -273,8 +273,8 @@ public class VueVbenAdmin5NavigationSeedContributor : NavigationSeedContributor
             .SeedAsync(
                 Options.LayoutName,
                 CodeNumberGenerator.CreateCode(40),
-                "Vben5 Admin 布局约束",
-                "Vben5 Admin模板布局约束",
+                "Ràng buộc bố cục Vben5 Admin",
+                "Ràng buộc bố cục mẫu Vben5 Admin",
                 null,
                 tenantId,
                 true);
@@ -282,183 +282,183 @@ public class VueVbenAdmin5NavigationSeedContributor : NavigationSeedContributor
         data.AddItem(
             GuidGenerator,
             "title",
-            "标题",
+            "Tiêu đề",
             "",
             ValueType.String,
-            "用于配置页面的标题，会在菜单和标签页中显示。一般会配合国际化使用。",
+            "Dùng để cấu hình tiêu đề trang, sẽ hiển thị trong menu và trang tab. Thường được sử dụng cùng với quốc tế hóa.",
             isStatic: true);
         data.AddItem(
             GuidGenerator,
             "icon",
-            "图标",
+            "Biểu tượng",
             "",
             ValueType.String,
-            "用于配置页面的图标，会在菜单和标签页中显示。一般会配合图标库使用，如果是http链接，会自动加载图片。",
+            "Dùng để cấu hình biểu tượng trang, sẽ hiển thị trong menu và trang tab. Thường được sử dụng cùng với thư viện biểu tượng, nếu là liên kết http, sẽ tự động tải hình ảnh.",
             isStatic: true);
         data.AddItem(
             GuidGenerator,
             "activeIcon",
-            "激活图标",
+            "Biểu tượng kích hoạt",
             "",
             ValueType.String,
-            "用于配置页面的激活图标，会在菜单中显示。一般会配合图标库使用，如果是http链接，会自动加载图片。",
+            "Dùng để cấu hình biểu tượng kích hoạt của trang, sẽ hiển thị trong menu. Thường được sử dụng cùng với thư viện biểu tượng, nếu là liên kết http, sẽ tự động tải hình ảnh.",
             isStatic: true);
         data.AddItem(
             GuidGenerator,
             "keepAlive",
-            "是否开启缓存",
+            "Có bật bộ nhớ đệm không",
             "true",
             ValueType.Boolean,
-            "用于配置页面是否开启缓存，开启后页面会缓存，不会重新加载，仅在标签页启用时有效。",
+            "Dùng để cấu hình xem trang có bật bộ nhớ đệm hay không, khi bật thì trang sẽ được lưu vào bộ nhớ đệm, không tải lại, chỉ có hiệu lực khi trang tab được bật.",
             isStatic: true);
         data.AddItem(
             GuidGenerator,
             "hideInMenu",
-            "是否在菜单中隐藏",
+            "Có ẩn trong menu không",
             "false",
             ValueType.Boolean,
-            "用于配置页面是否在菜单中隐藏，隐藏后页面不会在菜单中显示。",
+            "Dùng để cấu hình xem trang có được ẩn trong menu hay không, khi ẩn thì trang sẽ không hiển thị trong menu.",
             isStatic: true);
         data.AddItem(
             GuidGenerator,
             "hideInTab",
-            "是否在标签页中隐藏",
+            "Có ẩn trong trang tab không",
             "false",
             ValueType.Boolean,
-            "用于配置页面是否在标签页中隐藏，隐藏后页面不会在标签页中显示。",
+            "Dùng để cấu hình xem trang có được ẩn trong trang tab hay không, khi ẩn thì trang sẽ không hiển thị trong trang tab.",
             isStatic: true);
         data.AddItem(
             GuidGenerator,
             "hideInBreadcrumb",
-            "是否在面包屑中隐藏",
+            "Có ẩn trong breadcrumb không",
             "false",
             ValueType.Boolean,
-            "用于配置页面是否在面包屑中隐藏，隐藏后页面不会在面包屑中显示。",
+            "Dùng để cấu hình xem trang có được ẩn trong breadcrumb hay không, khi ẩn thì trang sẽ không hiển thị trong breadcrumb.",
             isStatic: true);
         data.AddItem(
             GuidGenerator,
             "hideChildrenInMenu",
-            "是否隐藏子菜单",
+            "Có ẩn menu con không",
             "false",
             ValueType.Boolean,
-            "用于配置页面的子页面是否在菜单中隐藏，隐藏后子页面不会在菜单中显示。",
+            "Dùng để cấu hình xem các trang con của trang có được ẩn trong menu hay không, khi ẩn thì các trang con sẽ không hiển thị trong menu.",
             isStatic: true);
         data.AddItem(
             GuidGenerator,
             "authority",
-            "页面权限",
+            "Quyền trang",
             "",
             ValueType.Array,
-            "用于配置页面的权限，只有拥有对应权限的用户才能访问页面，不配置则不需要权限。",
+            "Dùng để cấu hình quyền của trang, chỉ người dùng có quyền tương ứng mới có thể truy cập trang, nếu không cấu hình thì không cần quyền.",
             isStatic: true);
         data.AddItem(
             GuidGenerator,
             "badge",
-            "页面徽标",
+            "Huy hiệu trang",
             "",
             ValueType.String,
-            "用于配置页面的徽标，会在菜单显示。",
+            "Dùng để cấu hình huy hiệu của trang, sẽ hiển thị trong menu.",
             isStatic: true);
         data.AddItem(
            GuidGenerator,
            "badgeType",
-           "徽标类型",
+           "Loại huy hiệu",
            "normal",
            ValueType.String,
-           "用于配置页面的徽标类型，dot 为小红点，normal 为文本。",
+           "Dùng để cấu hình loại huy hiệu của trang, dot là chấm đỏ, normal là văn bản.",
             isStatic: true);
         data.AddItem(
             GuidGenerator,
             "badgeVariants",
-            "徽标颜色",
+            "Màu huy hiệu",
             "success",
             ValueType.String,
-            "用于配置页面的徽标颜色,'default' | 'destructive' | 'primary' | 'success' | 'warning' | string",
+            "Dùng để cấu hình màu huy hiệu của trang, 'default' | 'destructive' | 'primary' | 'success' | 'warning' | string",
             isStatic: true);
         data.AddItem(
             GuidGenerator,
             "activePath",
-            "当前激活的菜单",
+            "Menu hiện tại được kích hoạt",
             "",
             ValueType.String,
-            "用于配置当前激活的菜单，有时候页面没有显示在菜单内，需要激活父级菜单时使用。",
+            "Dùng để cấu hình menu hiện tại được kích hoạt, đôi khi trang không hiển thị trong menu, cần kích hoạt menu cấp trên thì sử dụng.",
             isStatic: true);
         data.AddItem(
             GuidGenerator,
             "affixTab",
-            "是否固定标签页",
+            "Có cố định trang tab không",
             "false",
             ValueType.Boolean,
-            "用于配置页面是否固定标签页，固定后页面不可关闭。",
+            "Dùng để cấu hình xem trang có cố định trang tab hay không, khi cố định thì trang không thể đóng.",
             isStatic: true);
         data.AddItem(
             GuidGenerator,
             "affixTabOrder",
-            "固定标签页排序,",
+            "Sắp xếp trang tab cố định",
             "0",
             ValueType.Numeic,
-            "用于配置页面固定标签页的排序, 采用升序排序。",
+            "Dùng để cấu hình sắp xếp trang tab cố định, sử dụng sắp xếp tăng dần.",
             isStatic: true);
         data.AddItem(
             GuidGenerator,
             "iframeSrc",
-            "内嵌页面地址",
+            "Địa chỉ trang nhúng",
             "",
             ValueType.String,
-            "用于配置内嵌页面的 iframe 地址，设置后会在当前页面内嵌对应的页面。",
+            "Dùng để cấu hình địa chỉ iframe của trang nhúng, khi thiết lập thì trang tương ứng sẽ được nhúng trong trang hiện tại.",
             isStatic: true);
         data.AddItem(
             GuidGenerator,
             "ignoreAccess",
-            "是否忽略权限",
+            "Có bỏ qua quyền không",
             "false",
             ValueType.Boolean,
-            "用于配置页面是否忽略权限，直接可以访问。",
+            "Dùng để cấu hình xem trang có bỏ qua quyền hay không, có thể truy cập trực tiếp.",
             isStatic: true);
         data.AddItem(
             GuidGenerator,
             "link",
-            "外链跳转路径",
+            "Đường dẫn chuyển hướng ngoài",
             "",
             ValueType.String,
-            "用于配置外链跳转路径，会在新窗口打开。",
+            "Dùng để cấu hình đường dẫn chuyển hướng ngoài, sẽ mở trong cửa sổ mới.",
             isStatic: true);
         data.AddItem(
             GuidGenerator,
             "maxNumOfOpenTab",
-            "标签页最大打开数量",
+            "Số lượng tối đa trang tab mở",
             "-1",
             ValueType.Numeic,
-            "用于配置标签页最大打开数量，设置后会在打开新标签页时自动关闭最早打开的标签页(仅在打开同名标签页时生效)。",
+            "Dùng để cấu hình số lượng tối đa trang tab có thể mở, khi thiết lập thì sẽ tự động đóng trang tab mở sớm nhất khi mở trang tab mới (chỉ có hiệu lực khi mở trang tab cùng tên).",
             isStatic: true);
         data.AddItem(
             GuidGenerator,
             "menuVisibleWithForbidden",
-            "是否可见菜单无权限",
+            "Có hiển thị menu khi không có quyền không",
             "false",
             ValueType.Boolean,
-            "用于配置页面在菜单可以看到，但是访问会被重定向到403。");
+            "Dùng để cấu hình xem trang có thể hiển thị trong menu nhưng truy cập sẽ bị chuyển hướng đến 403.");
         data.AddItem(
             GuidGenerator,
             "openInNewWindow",
-            "是否在新页面打开",
+            "Có mở trong cửa sổ mới không",
             "false",
             ValueType.Boolean,
-            "设置为 true 时，会在新窗口打开页面。");
+            "Khi đặt là true, trang sẽ được mở trong cửa sổ mới.");
         data.AddItem(
             GuidGenerator,
             "order",
-            "页面排序",
+            "Sắp xếp trang",
             "0",
             ValueType.Numeic,
-            "用于配置页面的排序，用于路由到菜单排序。注意: 排序仅针对一级菜单有效，二级菜单的排序需要在对应的一级菜单中按代码顺序设置。");
+            "Dùng để cấu hình sắp xếp trang, dùng cho sắp xếp từ đường dẫn đến menu. Lưu ý: sắp xếp chỉ có hiệu lực với menu cấp một, sắp xếp menu cấp hai cần thiết lập theo thứ tự mã trong menu cấp một tương ứng.");
         data.AddItem(
             GuidGenerator,
             "noBasicLayout",
-            "是否不使用基础布局",
+            "Có không sử dụng bố cục cơ bản không",
             "false",
             ValueType.Boolean,
-            "用于配置当前路由不使用基础布局，仅在顶级时生效。默认情况下，所有的路由都会被包裹在基础布局中（包含顶部以及侧边等导航部件），如果你的页面不需要这些部件，可以设置 noBasicLayout 为 true。");
+            "Dùng để cấu hình xem đường dẫn hiện tại có sử dụng bố cục cơ bản hay không, chỉ có hiệu lực khi ở cấp cao nhất. Mặc định, tất cả đường dẫn sẽ được bao bọc trong bố cục cơ bản (bao gồm thanh trên cùng và điều hướng bên cạnh), nếu trang của bạn không cần các thành phần này, có thể đặt noBasicLayout là true.");
 
         return data;
     }

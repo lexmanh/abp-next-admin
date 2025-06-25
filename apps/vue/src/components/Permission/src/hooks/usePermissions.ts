@@ -147,6 +147,9 @@ export function usePermissions({ getPropsRef }: UsePermission) {
       permissionTree.value = [];
       if (key) {
         const props = unref(getPropsRef);
+        
+        console.log('usePermissions', { props, key });
+        
         handleGetPermission(props.providerName, key);
       }
     },

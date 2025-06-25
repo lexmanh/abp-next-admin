@@ -25,7 +25,7 @@ export const useLocaleStore = defineStore({
       return !!state.localInfo?.showPicker;
     },
     getLocale(state): LocaleType {
-      return state.localInfo?.locale ?? 'zh_CN';
+      return state.localInfo?.locale ?? 'vi'; // 'zh_CN';
     },
   },
   actions: {

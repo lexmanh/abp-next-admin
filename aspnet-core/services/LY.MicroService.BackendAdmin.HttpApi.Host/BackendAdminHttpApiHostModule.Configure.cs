@@ -178,10 +178,10 @@ public partial class BackendAdminHttpApiHostModule
 
     private void ConfigureExceptionHandling()
     {
-        // 自定义需要处理的异常
+        // Customize exceptions to be handled
         Configure<AbpExceptionHandlingOptions>(options =>
         {
-            //  加入需要处理的异常类型
+            //  Add exception types to be processed
             options.Handlers.Add<Volo.Abp.Data.AbpDbConcurrencyException>();
             options.Handlers.Add<AbpInitializationException>();
             options.Handlers.Add<ObjectDisposedException>();
@@ -192,7 +192,7 @@ public partial class BackendAdminHttpApiHostModule
             options.Handlers.Add<System.Data.DBConcurrencyException>();
         });
 
-        // 自定义需要发送邮件通知的异常类型
+        // Customize the type of exception that needs to be sent to email notifications
         Configure<AbpEmailExceptionHandlingOptions>(options =>
         {
             // 是否发送堆栈信息
@@ -269,7 +269,7 @@ public partial class BackendAdminHttpApiHostModule
 
     private void ConfigureMultiTenancy(IConfiguration configuration)
     {
-        // 多租户
+        // Multi-tenant
         Configure<AbpMultiTenancyOptions>(options =>
         {
             options.IsEnabled = true;
@@ -303,7 +303,7 @@ public partial class BackendAdminHttpApiHostModule
         Configure<AbpAuditingOptions>(options =>
         {
             options.ApplicationName = ApplicationName;
-            // 是否启用实体变更记录
+            // Whether to enable entity change record
             var allEntitiesSelectorIsEnabled = configuration["Auditing:AllEntitiesSelector"];
             if (allEntitiesSelectorIsEnabled.IsNullOrWhiteSpace() ||
                 (bool.TryParse(allEntitiesSelectorIsEnabled, out var enabled) && enabled))
@@ -347,12 +347,10 @@ public partial class BackendAdminHttpApiHostModule
 
     private void ConfigureLocalization()
     {
-        // 支持本地化语言类型
         Configure<AbpLocalizationOptions>(options =>
-        {
-            options.Languages.Add(new LanguageInfo("en", "en", "English"));
-            options.Languages.Add(new LanguageInfo("zh-Hans", "zh-Hans", "简体中文"));
+        {;
             options.Languages.Add(new LanguageInfo("vi", "vi", "Tiếng Việt"));
+            options.Languages.Add(new LanguageInfo("en", "en", "English"));
 
             options.Resources
                    .Get<IdentityResource>()
@@ -360,27 +358,28 @@ public partial class BackendAdminHttpApiHostModule
             options
                 .AddLanguagesMapOrUpdate(
                     "vue-admin-element-ui",
-                    new NameValue("zh-Hans", "zh"),
+                    new NameValue("vi", "vi"),
+                    new NameValue("vi-VN", "vi"),
                     new NameValue("en", "en"));
 
-            // vben admin 语言映射
+            // vben admin language mapping
             options
                 .AddLanguagesMapOrUpdate(
                     "vben-admin-ui",
-                    new NameValue("zh_CN", "zh-Hans"));
+                    new NameValue("vi-VN", "vi"));
         });
 
-        Configure<AbpLocalizationCultureMapOptions>(options =>
-        {
-            var zhHansCultureMapInfo = new CultureMapInfo
-            {
-                TargetCulture = "zh-Hans",
-                SourceCultures = new string[] { "zh", "zh_CN", "zh-CN" }
-            };
-
-            options.CulturesMaps.Add(zhHansCultureMapInfo);
-            options.UiCulturesMaps.Add(zhHansCultureMapInfo);
-        });
+        // Configure<AbpLocalizationCultureMapOptions>(options =>
+        // {
+        //     var zhHansCultureMapInfo = new CultureMapInfo
+        //     {
+        //         TargetCulture = "zh-Hans",
+        //         SourceCultures = new string[] { "zh", "zh_CN", "zh-CN" }
+        //     };
+        //
+        //     options.CulturesMaps.Add(zhHansCultureMapInfo);
+        //     options.UiCulturesMaps.Add(zhHansCultureMapInfo);
+        // });
 
         Configure<AbpLocalizationManagementOptions>(options =>
         {
@@ -452,7 +451,7 @@ public partial class BackendAdminHttpApiHostModule
         //            httprequestmessage.Headers.TryAddWithoutValidation(AbpHttpWrapConsts.AbpDontWrapResult, "true");
         //        });
         //});
-        // 服务间调用不包装
+        // No packaging when calling between service
         PreConfigure<AbpHttpClientBuilderOptions>(options =>
         {
             options.ProxyClientActions.Add(
