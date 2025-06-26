@@ -23,10 +23,10 @@ export const localeList: DropMenu[] = [
     text: 'Tiếng Việt',
     event: LOCALE.VI_VN,
   },
-  {
-    text: '简体中文',
-    event: LOCALE.ZH_CN,
-  },
+  // {
+  //   text: '简体中文',
+  //   event: LOCALE.ZH_CN,
+  // },
   {
     text: 'English',
     event: LOCALE.EN_US,

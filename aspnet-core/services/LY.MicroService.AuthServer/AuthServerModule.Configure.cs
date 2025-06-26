@@ -265,7 +265,7 @@ public partial class AuthServerModule
         Configure<AbpLocalizationOptions>(options =>
         {
             options.Languages.Add(new LanguageInfo("en", "en", "English"));
-            options.Languages.Add(new LanguageInfo("zh-Hans", "zh-Hans", "简体中文"));
+            // options.Languages.Add(new LanguageInfo("zh-Hans", "zh-Hans", "简体中文"));
             options.Languages.Add(new LanguageInfo("vi", "vi", "Tiếng Việt"));
 
             options.Resources
@@ -283,6 +283,7 @@ public partial class AuthServerModule
 
             options.CulturesMaps.Add(zhHansCultureMapInfo);
             options.UiCulturesMaps.Add(zhHansCultureMapInfo);
+            
         });
 
         Configure<AbpLocalizationManagementOptions>(options =>

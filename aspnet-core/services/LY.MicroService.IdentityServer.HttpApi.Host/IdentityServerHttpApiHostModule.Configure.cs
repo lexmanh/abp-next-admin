@@ -384,7 +384,7 @@ public partial class IdentityServerHttpApiHostModule
         Configure<AbpLocalizationOptions>(options =>
         {
             options.Languages.Add(new LanguageInfo("en", "en", "English"));
-            options.Languages.Add(new LanguageInfo("zh-Hans", "zh-Hans", "简体中文"));
+            // options.Languages.Add(new LanguageInfo("zh-Hans", "zh-Hans", "简体中文"));
             options.Languages.Add(new LanguageInfo("vi", "vi", "Tiếng Việt"));
 
             options.Resources
@@ -392,17 +392,17 @@ public partial class IdentityServerHttpApiHostModule
                    .AddVirtualJson("/Localization/Resources");
         });
 
-        Configure<AbpLocalizationCultureMapOptions>(options =>
-        {
-            var zhHansCultureMapInfo = new CultureMapInfo
-            {
-                TargetCulture = "zh-Hans",
-                SourceCultures = new string[] { "zh", "zh_CN", "zh-CN" }
-            };
-
-            options.CulturesMaps.Add(zhHansCultureMapInfo);
-            options.UiCulturesMaps.Add(zhHansCultureMapInfo);
-        });
+        // Configure<AbpLocalizationCultureMapOptions>(options =>
+        // {
+        //     var zhHansCultureMapInfo = new CultureMapInfo
+        //     {
+        //         TargetCulture = "zh-Hans",
+        //         SourceCultures = new string[] { "zh", "zh_CN", "zh-CN" }
+        //     };
+        //
+        //     options.CulturesMaps.Add(zhHansCultureMapInfo);
+        //     options.UiCulturesMaps.Add(zhHansCultureMapInfo);
+        // });
 
         Configure<AbpLocalizationManagementOptions>(options =>
         {

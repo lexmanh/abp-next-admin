@@ -74,7 +74,7 @@ namespace LINGYUN.Abp.OpenApi
                     ).AddVirtualJson("/LINGYUN/Abp/AspNetCore/Mvc/Localization/Resources");
 
                 options.Languages.Add(new LanguageInfo("en", "en", "English"));
-                options.Languages.Add(new LanguageInfo("zh-Hans", "zh-Hans", "简体中文"));
+                // options.Languages.Add(new LanguageInfo("zh-Hans", "zh-Hans", "简体中文"));
                 options.Languages.Add(new LanguageInfo("vi", "vi", "Tiếng Việt"));
             });
 

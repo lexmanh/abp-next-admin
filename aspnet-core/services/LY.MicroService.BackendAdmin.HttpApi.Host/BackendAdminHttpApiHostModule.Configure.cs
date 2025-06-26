@@ -359,14 +359,13 @@ public partial class BackendAdminHttpApiHostModule
                 .AddLanguagesMapOrUpdate(
                     "vue-admin-element-ui",
                     new NameValue("vi", "vi"),
-                    new NameValue("vi-VN", "vi"),
                     new NameValue("en", "en"));
 
             // vben admin language mapping
             options
                 .AddLanguagesMapOrUpdate(
                     "vben-admin-ui",
-                    new NameValue("vi-VN", "vi"));
+                    new NameValue("vi", "vi"));
         });
 
         // Configure<AbpLocalizationCultureMapOptions>(options =>

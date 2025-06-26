@@ -23,7 +23,7 @@ public class PlatformDomainSharedModule : AbpModule
         Configure<AbpLocalizationOptions>(options =>
         {
             options.Resources
-                .Add<PlatformResource>("en")
+                .Add<PlatformResource>("vi")
                 .AddBaseTypes(typeof(AbpValidationResource))
                 .AddVirtualJson("/LINGYUN/Platform/Localization/Resources");
         });

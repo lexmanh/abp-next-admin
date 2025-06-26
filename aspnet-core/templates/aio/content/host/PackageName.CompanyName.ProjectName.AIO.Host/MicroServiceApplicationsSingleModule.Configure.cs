@@ -756,19 +756,21 @@ public partial class MicroServiceApplicationsSingleModule
         Configure<AbpLocalizationOptions>(options =>
         {
             options.Languages.Add(new LanguageInfo("en", "en", "English"));
-            options.Languages.Add(new LanguageInfo("zh-Hans", "zh-Hans", "简体中文"));
+            // options.Languages.Add(new LanguageInfo("zh-Hans", "zh-Hans", "简体中文"));
             options.Languages.Add(new LanguageInfo("vi", "vi", "Tiếng Việt"));
 
             options
                 .AddLanguagesMapOrUpdate(
                     "vue-admin-element-ui",
                     new NameValue("zh-Hans", "zh"),
+                    new NameValue("vi", "vi"),
                     new NameValue("en", "en"));
 
             // vben admin 语言映射
             options
                 .AddLanguagesMapOrUpdate(
                     "vben-admin-ui",
+                    new NameValue("vi", "vi"),
                     new NameValue("zh_CN", "zh-Hans"));
 
             options.Resources.Get<AbpSettingManagementResource>()

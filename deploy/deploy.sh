@@ -20,39 +20,46 @@ vuePath="$rootFolder/apps/vue"
 
 echo "Thư mục gốc dự án (root): $rootFolder"
 
-# Deploy middleware (Phần này đang được comment)
-echo "Triển khai middleware..."
-cd "$rootFolder" || exit 1
-docker compose -f ./docker-compose.middleware.yml up -d --build
+# Đặt biến môi trường
+initialInfraDatabase=true # Biến này có thể được sử dụng để xác định xem có cần khởi tạo cơ sở dữ liệu hay không
+# Kiểm tra xem có cần khởi tạo cơ sở dữ liệu hay không
+if [ "$initialInfraDatabase" = true ]; then
 
-## Sleep 30s for database initialization (Phần này đang được comment)
-echo "Khởi tạo database..."
-sleep 30
-##  Create database (Phần này đang được comment)
-echo "Tạo database..."
-cd "$aspnetcorePath" || exit 1
-./create-database.sh
+  # Deploy middleware (Phần này đang được comment)
+  echo "Triển khai middleware..."
+  cd "$rootFolder" || exit 1
+  docker compose -f ./docker-compose.middleware.yml up -d --build
+  
+  ## Sleep 30s for database initialization (Phần này đang được comment)
+  echo "Khởi tạo database..."
+  sleep 30
+  ##  Create database (Phần này đang được comment)
+  echo "Tạo database..."
+  cd "$aspnetcorePath" || exit 1
+  ./create-database.sh
+  
+  ## Migrate database (Phần này đang được comment)
+  sleep 5
+  echo "Migrate database..."
+  cd "$buildPath" || exit 1 # Chú ý: đường dẫn này có thể cần xem lại nếu buildPath không chứa các project migration
+  
+  # Cập nhật vòng lặp cho migrationProjectPaths
+  for migProjectPath in "${migrationProjectPaths[@]}"; do
+      echo "Chạy migration cho: $migProjectPath"
+      # Kiểm tra xem có cần cd vào thư mục gốc của dự án migration không, 
+      # hay là $migProjectPath đã là đường dẫn chính xác để chạy.
+      # Thường thì các dự án DbMigrator cần được chạy từ thư mục của chính nó.
+      if [ -d "$migProjectPath" ]; then # Kiểm tra xem migProjectPath có phải là thư mục không
+          cd "$migProjectPath" || { echo "Không thể cd vào $migProjectPath"; continue; }
+          dotnet run --project . --no-build # Chỉ định rõ project file nếu cần, hoặc chạy từ thư mục project
+          # Quay lại buildPath hoặc một thư mục gốc phù hợp sau mỗi lần chạy
+          cd "$buildPath" || { echo "Không thể quay lại $buildPath"; exit 1; }
+      else
+          echo "Đường dẫn migration không hợp lệ: $migProjectPath"
+      fi
+  done
 
-## Migrate database (Phần này đang được comment)
-sleep 5
-echo "Migrate database..."
-cd "$buildPath" || exit 1 # Chú ý: đường dẫn này có thể cần xem lại nếu buildPath không chứa các project migration
-
-# Cập nhật vòng lặp cho migrationProjectPaths
-for migProjectPath in "${migrationProjectPaths[@]}"; do
-    echo "Chạy migration cho: $migProjectPath"
-    # Kiểm tra xem có cần cd vào thư mục gốc của dự án migration không, 
-    # hay là $migProjectPath đã là đường dẫn chính xác để chạy.
-    # Thường thì các dự án DbMigrator cần được chạy từ thư mục của chính nó.
-    if [ -d "$migProjectPath" ]; then # Kiểm tra xem migProjectPath có phải là thư mục không
-        cd "$migProjectPath" || { echo "Không thể cd vào $migProjectPath"; continue; }
-        dotnet run --project . --no-build # Chỉ định rõ project file nếu cần, hoặc chạy từ thư mục project
-        # Quay lại buildPath hoặc một thư mục gốc phù hợp sau mỗi lần chạy
-        cd "$buildPath" || { echo "Không thể quay lại $buildPath"; exit 1; }
-    else
-        echo "Đường dẫn migration không hợp lệ: $migProjectPath"
-    fi
-done
+fi
 
 ## Build and publish .NET projects
 echo "Release các dự án .NET..."

@@ -29,7 +29,7 @@ export function useI18n(namespace?: string): {
       return getKey(namespace, key);
     },
   };
-
+  
   if (!i18n) {
     return normalFn;
   }
