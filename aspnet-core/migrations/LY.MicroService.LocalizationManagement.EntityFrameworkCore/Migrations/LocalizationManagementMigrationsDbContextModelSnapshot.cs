@@ -3,8 +3,8 @@ using System;
 using LY.MicroService.LocalizationManagement.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
-using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
+using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using Volo.Abp.EntityFrameworkCore;
 
 #nullable disable
@@ -18,60 +18,60 @@ namespace LY.MicroService.LocalizationManagement.EntityFrameworkCore.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("_Abp_DatabaseProvider", EfCoreDatabaseProvider.MySql)
-                .HasAnnotation("ProductVersion", "8.0.4")
-                .HasAnnotation("Relational:MaxIdentifierLength", 64);
+                .HasAnnotation("_Abp_DatabaseProvider", EfCoreDatabaseProvider.PostgreSql)
+                .HasAnnotation("ProductVersion", "9.0.2")
+                .HasAnnotation("Relational:MaxIdentifierLength", 63);
 
-            MySqlModelBuilderExtensions.AutoIncrementColumns(modelBuilder);
+            NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
             modelBuilder.Entity("LINGYUN.Abp.LocalizationManagement.Language", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("char(36)");
+                        .HasColumnType("uuid");
 
                     b.Property<DateTime>("CreationTime")
-                        .HasColumnType("datetime(6)")
+                        .HasColumnType("timestamp without time zone")
                         .HasColumnName("CreationTime");
 
                     b.Property<Guid?>("CreatorId")
-                        .HasColumnType("char(36)")
+                        .HasColumnType("uuid")
                         .HasColumnName("CreatorId");
 
                     b.Property<string>("CultureName")
                         .IsRequired()
                         .HasMaxLength(20)
-                        .HasColumnType("varchar(20)")
+                        .HasColumnType("character varying(20)")
                         .HasColumnName("CultureName");
 
                     b.Property<string>("DisplayName")
                         .IsRequired()
                         .HasMaxLength(64)
-                        .HasColumnType("varchar(64)")
+                        .HasColumnType("character varying(64)")
                         .HasColumnName("DisplayName");
 
                     b.Property<bool>("Enable")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("tinyint(1)")
+                        .HasColumnType("boolean")
                         .HasDefaultValue(true);
 
                     b.Property<DateTime?>("LastModificationTime")
-                        .HasColumnType("datetime(6)")
+                        .HasColumnType("timestamp without time zone")
                         .HasColumnName("LastModificationTime");
 
                     b.Property<Guid?>("LastModifierId")
-                        .HasColumnType("char(36)")
+                        .HasColumnType("uuid")
                         .HasColumnName("LastModifierId");
 
                     b.Property<string>("TwoLetterISOLanguageName")
                         .HasMaxLength(30)
-                        .HasColumnType("varchar(30)")
+                        .HasColumnType("character varying(30)")
                         .HasColumnName("TwoLetterISOLanguageName");
 
                     b.Property<string>("UiCultureName")
                         .IsRequired()
                         .HasMaxLength(20)
-                        .HasColumnType("varchar(20)")
+                        .HasColumnType("character varying(20)")
                         .HasColumnName("UiCultureName");
 
                     b.HasKey("Id");
@@ -85,48 +85,48 @@ namespace LY.MicroService.LocalizationManagement.EntityFrameworkCore.Migrations
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("char(36)");
+                        .HasColumnType("uuid");
 
                     b.Property<DateTime>("CreationTime")
-                        .HasColumnType("datetime(6)")
+                        .HasColumnType("timestamp without time zone")
                         .HasColumnName("CreationTime");
 
                     b.Property<Guid?>("CreatorId")
-                        .HasColumnType("char(36)")
+                        .HasColumnType("uuid")
                         .HasColumnName("CreatorId");
 
                     b.Property<string>("DefaultCultureName")
                         .HasMaxLength(64)
-                        .HasColumnType("varchar(64)")
+                        .HasColumnType("character varying(64)")
                         .HasColumnName("DefaultCultureName");
 
                     b.Property<string>("Description")
                         .HasMaxLength(64)
-                        .HasColumnType("varchar(64)")
+                        .HasColumnType("character varying(64)")
                         .HasColumnName("Description");
 
                     b.Property<string>("DisplayName")
                         .HasMaxLength(64)
-                        .HasColumnType("varchar(64)")
+                        .HasColumnType("character varying(64)")
                         .HasColumnName("DisplayName");
 
                     b.Property<bool>("Enable")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("tinyint(1)")
+                        .HasColumnType("boolean")
                         .HasDefaultValue(true);
 
                     b.Property<DateTime?>("LastModificationTime")
-                        .HasColumnType("datetime(6)")
+                        .HasColumnType("timestamp without time zone")
                         .HasColumnName("LastModificationTime");
 
                     b.Property<Guid?>("LastModifierId")
-                        .HasColumnType("char(36)")
+                        .HasColumnType("uuid")
                         .HasColumnName("LastModifierId");
 
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(50)
-                        .HasColumnType("varchar(50)")
+                        .HasColumnType("character varying(50)")
                         .HasColumnName("Name");
 
                     b.HasKey("Id");
@@ -140,28 +140,28 @@ namespace LY.MicroService.LocalizationManagement.EntityFrameworkCore.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                        .HasColumnType("integer");
 
-                    MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
                     b.Property<string>("CultureName")
                         .IsRequired()
                         .HasMaxLength(20)
-                        .HasColumnType("varchar(20)")
+                        .HasColumnType("character varying(20)")
                         .HasColumnName("CultureName");
 
                     b.Property<string>("Key")
                         .IsRequired()
                         .HasMaxLength(512)
-                        .HasColumnType("varchar(512)")
+                        .HasColumnType("character varying(512)")
                         .HasColumnName("Key");
 
                     b.Property<string>("ResourceName")
-                        .HasColumnType("longtext");
+                        .HasColumnType("text");
 
                     b.Property<string>("Value")
                         .HasMaxLength(2048)
-                        .HasColumnType("varchar(2048)")
+                        .HasColumnType("character varying(2048)")
                         .HasColumnName("Value");
 
                     b.HasKey("Id");

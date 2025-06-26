@@ -43,6 +43,22 @@ services:
     networks:
       - abp-next-admin
 
+  abp-postgres:
+    image: postgres:16.9
+    hostname: abp-postgres
+    container_name: abp-postgres
+    ports:
+      - "5432:5432"
+    environment:
+      - TZ=Asia/Ho_Chi_Minh
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=123456
+    volumes:
+      - ./deploy/middleware/postgres/data:/var/lib/postgresql/data
+    restart: always
+    networks:
+      - abp-next-admin
+
   abp-rabbitmq:
     image: rabbitmq:management
     hostname: abp-rabbitmq

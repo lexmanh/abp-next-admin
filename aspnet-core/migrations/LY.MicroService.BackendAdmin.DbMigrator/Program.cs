@@ -17,7 +17,7 @@ public class Program
 #if DEBUG
                 .MinimumLevel.Override("LY.MicroService.BackendAdmin.DbMigrator", LogEventLevel.Debug)
 #else
-                .MinimumLevel.Override("LY.MicroService.BackendAdmin.DbMigrator", LogEventLevel.Information)
+                .MinimumLevel.Override("LY.MicroService.BackendAdmin.DbMigrator", LogEventLevel.Trace)
 #endif
                 .Enrich.FromLogContext()
             .WriteTo.Console(outputTemplate: "{Timestamp:yyyy-MM-dd HH:mm:ss} [{Level:u3}] [{SourceContext}] [{ProcessId}] [{ThreadId}] - {Message:lj}{NewLine}{Exception}")

@@ -13,7 +13,13 @@ public class WebhooksManagementMigrationsDbContextFactory : IDesignTimeDbContext
         var connectionString = configuration.GetConnectionString("Default");
 
         var builder = new DbContextOptionsBuilder<WebhooksManagementMigrationsDbContext>()
-            .UseMySql(connectionString, ServerVersion.AutoDetect(connectionString));
+            // .UseMySql(connectionString, ServerVersion.AutoDetect(connectionString))
+            // Use PostgreSQL
+            .UseNpgsql(connectionString, npgsqlOptions =>
+            {
+                System.AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
+            })
+            ;
 
         return new WebhooksManagementMigrationsDbContext(builder!.Options);
     }

@@ -14,7 +14,13 @@ public class RealtimeMessageMigrationsDbContextFactory : IDesignTimeDbContextFac
         var connectionString = configuration.GetConnectionString("Realtime");
 
         var builder = new DbContextOptionsBuilder<RealtimeMessageMigrationsDbContext>()
-            .UseMySql(connectionString, ServerVersion.AutoDetect(connectionString));
+            // .UseMySql(connectionString, ServerVersion.AutoDetect(connectionString))
+            // Use PostgreSQL
+            .UseNpgsql(connectionString, npgsqlOptions =>
+            {
+                System.AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
+            })
+            ;
 
         return new RealtimeMessageMigrationsDbContext(builder!.Options);
     }

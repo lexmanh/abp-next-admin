@@ -390,7 +390,7 @@ public partial class RealtimeMessageHttpApiHostModule
 
     private void ConfigureLocalization()
     {
-        // 支持本地化语言类型
+        // Support localized language types
         Configure<AbpLocalizationOptions>(options =>
         {
             options.Languages.Add(new LanguageInfo("en", "en", "English"));
@@ -475,7 +475,7 @@ public partial class RealtimeMessageHttpApiHostModule
         //            httprequestmessage.Headers.TryAddWithoutValidation(AbpHttpWrapConsts.AbpDontWrapResult, "true");
         //        });
         //});
-        // 服务间调用不包装
+        // No packaging when calling between service
         PreConfigure<AbpHttpClientBuilderOptions>(options =>
         {
             options.ProxyClientActions.Add(

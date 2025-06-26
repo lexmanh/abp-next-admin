@@ -12,6 +12,9 @@ echo "$2 đang cập nhật cấu trúc db"
 # Chuyển đến thư mục migrations/$1
 cd ./migrations/$1 || { echo "Không tìm thấy thư mục migrations/$1"; exit 1; }
 
+# Thiết lập biến môi trường ASPNETCORE_ENVIRONMENT
+database="PostgreSql" # Biến này có thể được sử dụng để xác định loại cơ sở dữ liệu
+
 # Kiểm tra tham số $3
 case "$3" in
   "--run"|"")

@@ -100,12 +100,16 @@ public partial class WechatManagementHttpApiHostModule
         // 配置Ef
         Configure<AbpDbContextOptions>(options =>
         {
-            options.UseMySQL(
-                mysql =>
-                {
-                    // see: https://github.com/PomeloFoundation/Pomelo.EntityFrameworkCore.MySql/issues/1960
-                    mysql.TranslateParameterizedCollectionsToConstants();
-                });
+            // options.UseMySQL(
+            //     mysql =>
+            //     {
+            //         // see: https://github.com/PomeloFoundation/Pomelo.EntityFrameworkCore.MySql/issues/1960
+            //         mysql.TranslateParameterizedCollectionsToConstants();
+            //     });
+            
+            
+            AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
+            options.UseNpgsql();
         });
     }
 
@@ -325,7 +329,7 @@ public partial class WechatManagementHttpApiHostModule
 
     private void ConfigureLocalization()
     {
-        // 支持本地化语言类型
+        // Support localized language types
         Configure<AbpLocalizationOptions>(options =>
         {
             options.Languages.Add(new LanguageInfo("en", "en", "English"));
@@ -388,7 +392,7 @@ public partial class WechatManagementHttpApiHostModule
         //            httprequestmessage.Headers.TryAddWithoutValidation(AbpHttpWrapConsts.AbpDontWrapResult, "true");
         //        });
         //});
-        // 服务间调用不包装
+        // No packaging when calling between service
         PreConfigure<AbpHttpClientBuilderOptions>(options =>
         {
             options.ProxyClientActions.Add(

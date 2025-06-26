@@ -4,6 +4,7 @@ using LY.MicroService.WebhooksManagement.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
+using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using Volo.Abp.EntityFrameworkCore;
 
 #nullable disable
@@ -17,45 +18,47 @@ namespace LY.MicroService.WebhooksManagement.EntityFrameworkCore.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("_Abp_DatabaseProvider", EfCoreDatabaseProvider.MySql)
-                .HasAnnotation("ProductVersion", "8.0.0")
-                .HasAnnotation("Relational:MaxIdentifierLength", 64);
+                .HasAnnotation("_Abp_DatabaseProvider", EfCoreDatabaseProvider.PostgreSql)
+                .HasAnnotation("ProductVersion", "9.0.2")
+                .HasAnnotation("Relational:MaxIdentifierLength", 63);
+
+            NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
             modelBuilder.Entity("LINGYUN.Abp.WebhooksManagement.WebhookDefinitionRecord", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("char(36)");
+                        .HasColumnType("uuid");
 
                     b.Property<string>("Description")
                         .HasMaxLength(256)
-                        .HasColumnType("varchar(256)");
+                        .HasColumnType("character varying(256)");
 
                     b.Property<string>("DisplayName")
                         .IsRequired()
                         .HasMaxLength(256)
-                        .HasColumnType("varchar(256)");
+                        .HasColumnType("character varying(256)");
 
                     b.Property<string>("ExtraProperties")
-                        .HasColumnType("longtext")
+                        .HasColumnType("text")
                         .HasColumnName("ExtraProperties");
 
                     b.Property<string>("GroupName")
                         .IsRequired()
                         .HasMaxLength(128)
-                        .HasColumnType("varchar(128)");
+                        .HasColumnType("character varying(128)");
 
                     b.Property<bool>("IsEnabled")
-                        .HasColumnType("tinyint(1)");
+                        .HasColumnType("boolean");
 
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(128)
-                        .HasColumnType("varchar(128)");
+                        .HasColumnType("character varying(128)");
 
                     b.Property<string>("RequiredFeatures")
                         .HasMaxLength(256)
-                        .HasColumnType("varchar(256)");
+                        .HasColumnType("character varying(256)");
 
                     b.HasKey("Id");
 
@@ -71,34 +74,34 @@ namespace LY.MicroService.WebhooksManagement.EntityFrameworkCore.Migrations
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("char(36)");
+                        .HasColumnType("uuid");
 
                     b.Property<DateTime>("CreationTime")
-                        .HasColumnType("datetime(6)")
+                        .HasColumnType("timestamp without time zone")
                         .HasColumnName("CreationTime");
 
                     b.Property<string>("Data")
                         .HasMaxLength(2147483647)
-                        .HasColumnType("longtext")
+                        .HasColumnType("text")
                         .HasColumnName("Data");
 
                     b.Property<DateTime?>("DeletionTime")
-                        .HasColumnType("datetime(6)")
+                        .HasColumnType("timestamp without time zone")
                         .HasColumnName("DeletionTime");
 
                     b.Property<bool>("IsDeleted")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("tinyint(1)")
+                        .HasColumnType("boolean")
                         .HasDefaultValue(false)
                         .HasColumnName("IsDeleted");
 
                     b.Property<Guid?>("TenantId")
-                        .HasColumnType("char(36)");
+                        .HasColumnType("uuid");
 
                     b.Property<string>("WebhookName")
                         .IsRequired()
                         .HasMaxLength(100)
-                        .HasColumnType("varchar(100)")
+                        .HasColumnType("character varying(100)")
                         .HasColumnName("WebhookName");
 
                     b.HasKey("Id");
@@ -110,21 +113,21 @@ namespace LY.MicroService.WebhooksManagement.EntityFrameworkCore.Migrations
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("char(36)");
+                        .HasColumnType("uuid");
 
                     b.Property<string>("DisplayName")
                         .IsRequired()
                         .HasMaxLength(256)
-                        .HasColumnType("varchar(256)");
+                        .HasColumnType("character varying(256)");
 
                     b.Property<string>("ExtraProperties")
-                        .HasColumnType("longtext")
+                        .HasColumnType("text")
                         .HasColumnName("ExtraProperties");
 
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(128)
-                        .HasColumnType("varchar(128)");
+                        .HasColumnType("character varying(128)");
 
                     b.HasKey("Id");
 
@@ -138,45 +141,45 @@ namespace LY.MicroService.WebhooksManagement.EntityFrameworkCore.Migrations
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("char(36)");
+                        .HasColumnType("uuid");
 
                     b.Property<DateTime>("CreationTime")
-                        .HasColumnType("datetime(6)")
+                        .HasColumnType("timestamp without time zone")
                         .HasColumnName("CreationTime");
 
                     b.Property<DateTime?>("LastModificationTime")
-                        .HasColumnType("datetime(6)")
+                        .HasColumnType("timestamp without time zone")
                         .HasColumnName("LastModificationTime");
 
                     b.Property<string>("RequestHeaders")
                         .HasMaxLength(2147483647)
-                        .HasColumnType("longtext")
+                        .HasColumnType("text")
                         .HasColumnName("RequestHeaders");
 
                     b.Property<string>("Response")
                         .HasMaxLength(2147483647)
-                        .HasColumnType("longtext")
+                        .HasColumnType("text")
                         .HasColumnName("Response");
 
                     b.Property<string>("ResponseHeaders")
                         .HasMaxLength(2147483647)
-                        .HasColumnType("longtext")
+                        .HasColumnType("text")
                         .HasColumnName("ResponseHeaders");
 
                     b.Property<int?>("ResponseStatusCode")
-                        .HasColumnType("int");
+                        .HasColumnType("integer");
 
                     b.Property<bool>("SendExactSameData")
-                        .HasColumnType("tinyint(1)");
+                        .HasColumnType("boolean");
 
                     b.Property<Guid?>("TenantId")
-                        .HasColumnType("char(36)");
+                        .HasColumnType("uuid");
 
                     b.Property<Guid>("WebhookEventId")
-                        .HasColumnType("char(36)");
+                        .HasColumnType("uuid");
 
                     b.Property<Guid>("WebhookSubscriptionId")
-                        .HasColumnType("char(36)");
+                        .HasColumnType("uuid");
 
                     b.HasKey("Id");
 
@@ -189,55 +192,55 @@ namespace LY.MicroService.WebhooksManagement.EntityFrameworkCore.Migrations
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("char(36)");
+                        .HasColumnType("uuid");
 
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken()
                         .HasMaxLength(40)
-                        .HasColumnType("varchar(40)")
+                        .HasColumnType("character varying(40)")
                         .HasColumnName("ConcurrencyStamp");
 
                     b.Property<DateTime>("CreationTime")
-                        .HasColumnType("datetime(6)")
+                        .HasColumnType("timestamp without time zone")
                         .HasColumnName("CreationTime");
 
                     b.Property<Guid?>("CreatorId")
-                        .HasColumnType("char(36)")
+                        .HasColumnType("uuid")
                         .HasColumnName("CreatorId");
 
                     b.Property<string>("Description")
                         .HasMaxLength(128)
-                        .HasColumnType("varchar(128)")
+                        .HasColumnType("character varying(128)")
                         .HasColumnName("Description");
 
                     b.Property<string>("Headers")
                         .HasMaxLength(2147483647)
-                        .HasColumnType("longtext")
+                        .HasColumnType("text")
                         .HasColumnName("Headers");
 
                     b.Property<bool>("IsActive")
-                        .HasColumnType("tinyint(1)");
+                        .HasColumnType("boolean");
 
                     b.Property<string>("Secret")
                         .HasMaxLength(128)
-                        .HasColumnType("varchar(128)")
+                        .HasColumnType("character varying(128)")
                         .HasColumnName("Secret");
 
                     b.Property<Guid?>("TenantId")
-                        .HasColumnType("char(36)");
+                        .HasColumnType("uuid");
 
                     b.Property<int?>("TimeoutDuration")
-                        .HasColumnType("int");
+                        .HasColumnType("integer");
 
                     b.Property<string>("WebhookUri")
                         .IsRequired()
                         .HasMaxLength(255)
-                        .HasColumnType("varchar(255)")
+                        .HasColumnType("character varying(255)")
                         .HasColumnName("WebhookUri");
 
                     b.Property<string>("Webhooks")
                         .HasMaxLength(2147483647)
-                        .HasColumnType("longtext")
+                        .HasColumnType("text")
                         .HasColumnName("Webhooks");
 
                     b.HasKey("Id");

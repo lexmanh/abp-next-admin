@@ -367,19 +367,21 @@ public partial class BackendAdminHttpApiHostModule
                     "vben-admin-ui",
                     new NameValue("vi", "vi"));
         });
+        
+        // LINGYUN.Abp.LocalizationManagement.StaticLocalizationSaver
 
-        // Configure<AbpLocalizationCultureMapOptions>(options =>
-        // {
-        //     var zhHansCultureMapInfo = new CultureMapInfo
-        //     {
-        //         TargetCulture = "zh-Hans",
-        //         SourceCultures = new string[] { "zh", "zh_CN", "zh-CN" }
-        //     };
-        //
-        //     options.CulturesMaps.Add(zhHansCultureMapInfo);
-        //     options.UiCulturesMaps.Add(zhHansCultureMapInfo);
-        // });
-
+        Configure<AbpLocalizationCultureMapOptions>(options =>
+        {
+            var zhHansCultureMapInfo = new CultureMapInfo
+            {
+                TargetCulture = "zh-Hans",
+                SourceCultures = new string[] { "zh", "zh_CN", "zh-CN" }
+            };
+        
+            options.CulturesMaps.Add(zhHansCultureMapInfo);
+            options.UiCulturesMaps.Add(zhHansCultureMapInfo);
+        });
+        
         Configure<AbpLocalizationManagementOptions>(options =>
         {
             options.SaveStaticLocalizationsToDatabase = true;

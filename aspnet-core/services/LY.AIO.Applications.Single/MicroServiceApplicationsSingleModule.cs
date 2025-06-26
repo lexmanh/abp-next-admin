@@ -124,7 +124,7 @@ using Volo.Abp.SettingManagement;
 using Volo.Abp.SettingManagement.EntityFrameworkCore;
 using Volo.Abp.Threading;
 // using LINGYUN.Abp.Elsa.EntityFrameworkCore.MySql;
-using Volo.Abp.EntityFrameworkCore.MySQL;
+using Volo.Abp.EntityFrameworkCore.PostgreSql; // using Volo.Abp.EntityFrameworkCore.MySQL;
 
 namespace LY.AIO.Applications.Single;
 
@@ -234,7 +234,7 @@ namespace LY.AIO.Applications.Single;
     typeof(AbpPermissionManagementDomainOrganizationUnitsModule), // 组织机构权限管理
 
     // typeof(AbpEntityFrameworkCorePostgreSqlModule),
-    typeof(AbpEntityFrameworkCoreMySQLModule),
+    typeof(AbpEntityFrameworkCorePostgreSqlModule), // typeof(AbpEntityFrameworkCoreMySQLModule),
 
     typeof(AbpAliyunSmsModule),
     typeof(AbpAliyunSettingManagementModule),

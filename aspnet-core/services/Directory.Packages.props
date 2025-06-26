@@ -86,7 +86,7 @@
 		<PackageVersion Include="LINGYUN.Abp.Elsa.Activities.Sms" Version="$(LYAbpPackageVersion)" />
 		<PackageVersion Include="LINGYUN.Abp.Elsa.Activities.Webhooks" Version="$(LYAbpPackageVersion)" />
 		<PackageVersion Include="LINGYUN.Abp.Elsa.Activities" Version="$(LYAbpPackageVersion)" />
-<!--		<PackageVersion Include="LINGYUN.Abp.Elsa.EntityFrameworkCore.MySql" Version="$(LYAbpPackageVersion)" />-->
+		<PackageVersion Include="LINGYUN.Abp.Elsa.EntityFrameworkCore.MySql" Version="$(LYAbpPackageVersion)" />
 		<PackageVersion Include="LINGYUN.Abp.Elsa.EntityFrameworkCore.PostgreSql" Version="$(LYAbpPackageVersion)" />
 		<PackageVersion Include="LINGYUN.Abp.Elsa.EntityFrameworkCore" Version="$(LYAbpPackageVersion)" />
 		<PackageVersion Include="LINGYUN.Abp.Elsa.Server" Version="$(LYAbpPackageVersion)" />

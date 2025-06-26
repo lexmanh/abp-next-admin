@@ -4,6 +4,7 @@ using LY.MicroService.TaskManagement.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
+using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using Volo.Abp.EntityFrameworkCore;
 
 #nullable disable
@@ -17,65 +18,67 @@ namespace LY.MicroService.TaskManagement.EntityFrameworkCore.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("_Abp_DatabaseProvider", EfCoreDatabaseProvider.MySql)
-                .HasAnnotation("ProductVersion", "7.0.10")
-                .HasAnnotation("Relational:MaxIdentifierLength", 64);
+                .HasAnnotation("_Abp_DatabaseProvider", EfCoreDatabaseProvider.PostgreSql)
+                .HasAnnotation("ProductVersion", "9.0.2")
+                .HasAnnotation("Relational:MaxIdentifierLength", 63);
+
+            NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
             modelBuilder.Entity("LINGYUN.Abp.TaskManagement.BackgroundJobAction", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("char(36)");
+                        .HasColumnType("uuid");
 
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken()
                         .IsRequired()
                         .HasMaxLength(40)
-                        .HasColumnType("varchar(40)")
+                        .HasColumnType("character varying(40)")
                         .HasColumnName("ConcurrencyStamp");
 
                     b.Property<DateTime>("CreationTime")
-                        .HasColumnType("datetime(6)")
+                        .HasColumnType("timestamp without time zone")
                         .HasColumnName("CreationTime");
 
                     b.Property<Guid?>("CreatorId")
-                        .HasColumnType("char(36)")
+                        .HasColumnType("uuid")
                         .HasColumnName("CreatorId");
 
                     b.Property<string>("ExtraProperties")
                         .IsRequired()
-                        .HasColumnType("longtext")
+                        .HasColumnType("text")
                         .HasColumnName("ExtraProperties");
 
                     b.Property<bool>("IsEnabled")
-                        .HasColumnType("tinyint(1)");
+                        .HasColumnType("boolean");
 
                     b.Property<string>("JobId")
                         .IsRequired()
                         .HasMaxLength(255)
-                        .HasColumnType("varchar(255)")
+                        .HasColumnType("character varying(255)")
                         .HasColumnName("JobId");
 
                     b.Property<DateTime?>("LastModificationTime")
-                        .HasColumnType("datetime(6)")
+                        .HasColumnType("timestamp without time zone")
                         .HasColumnName("LastModificationTime");
 
                     b.Property<Guid?>("LastModifierId")
-                        .HasColumnType("char(36)")
+                        .HasColumnType("uuid")
                         .HasColumnName("LastModifierId");
 
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(100)
-                        .HasColumnType("varchar(100)")
+                        .HasColumnType("character varying(100)")
                         .HasColumnName("Name");
 
                     b.Property<string>("Paramters")
-                        .HasColumnType("longtext")
+                        .HasColumnType("text")
                         .HasColumnName("Paramters");
 
                     b.Property<Guid?>("TenantId")
-                        .HasColumnType("char(36)")
+                        .HasColumnType("uuid")
                         .HasColumnName("TenantId");
 
                     b.HasKey("Id");
@@ -88,128 +91,128 @@ namespace LY.MicroService.TaskManagement.EntityFrameworkCore.Migrations
             modelBuilder.Entity("LINGYUN.Abp.TaskManagement.BackgroundJobInfo", b =>
                 {
                     b.Property<string>("Id")
-                        .HasColumnType("varchar(255)");
+                        .HasColumnType("text");
 
                     b.Property<string>("Args")
-                        .HasColumnType("longtext")
+                        .HasColumnType("text")
                         .HasColumnName("Args");
 
                     b.Property<DateTime>("BeginTime")
-                        .HasColumnType("datetime(6)");
+                        .HasColumnType("timestamp without time zone");
 
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken()
                         .IsRequired()
                         .HasMaxLength(40)
-                        .HasColumnType("varchar(40)")
+                        .HasColumnType("character varying(40)")
                         .HasColumnName("ConcurrencyStamp");
 
                     b.Property<DateTime>("CreationTime")
-                        .HasColumnType("datetime(6)")
+                        .HasColumnType("timestamp without time zone")
                         .HasColumnName("CreationTime");
 
                     b.Property<Guid?>("CreatorId")
-                        .HasColumnType("char(36)")
+                        .HasColumnType("uuid")
                         .HasColumnName("CreatorId");
 
                     b.Property<string>("Cron")
                         .HasMaxLength(50)
-                        .HasColumnType("varchar(50)")
+                        .HasColumnType("character varying(50)")
                         .HasColumnName("Cron");
 
                     b.Property<string>("Description")
                         .HasMaxLength(255)
-                        .HasColumnType("varchar(255)")
+                        .HasColumnType("character varying(255)")
                         .HasColumnName("Description");
 
                     b.Property<DateTime?>("EndTime")
-                        .HasColumnType("datetime(6)");
+                        .HasColumnType("timestamp without time zone");
 
                     b.Property<string>("ExtraProperties")
                         .IsRequired()
-                        .HasColumnType("longtext")
+                        .HasColumnType("text")
                         .HasColumnName("ExtraProperties");
 
                     b.Property<string>("Group")
                         .IsRequired()
                         .HasMaxLength(100)
-                        .HasColumnType("varchar(100)")
+                        .HasColumnType("character varying(100)")
                         .HasColumnName("Group");
 
                     b.Property<int>("Interval")
-                        .HasColumnType("int");
+                        .HasColumnType("integer");
 
                     b.Property<bool>("IsAbandoned")
-                        .HasColumnType("tinyint(1)");
+                        .HasColumnType("boolean");
 
                     b.Property<bool>("IsEnabled")
-                        .HasColumnType("tinyint(1)");
+                        .HasColumnType("boolean");
 
                     b.Property<int>("JobType")
-                        .HasColumnType("int");
+                        .HasColumnType("integer");
 
                     b.Property<DateTime?>("LastModificationTime")
-                        .HasColumnType("datetime(6)")
+                        .HasColumnType("timestamp without time zone")
                         .HasColumnName("LastModificationTime");
 
                     b.Property<Guid?>("LastModifierId")
-                        .HasColumnType("char(36)")
+                        .HasColumnType("uuid")
                         .HasColumnName("LastModifierId");
 
                     b.Property<DateTime?>("LastRunTime")
-                        .HasColumnType("datetime(6)");
+                        .HasColumnType("timestamp without time zone");
 
                     b.Property<int>("LockTimeOut")
-                        .HasColumnType("int");
+                        .HasColumnType("integer");
 
                     b.Property<int>("MaxCount")
-                        .HasColumnType("int");
+                        .HasColumnType("integer");
 
                     b.Property<int>("MaxTryCount")
-                        .HasColumnType("int");
+                        .HasColumnType("integer");
 
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(100)
-                        .HasColumnType("varchar(100)")
+                        .HasColumnType("character varying(100)")
                         .HasColumnName("Name");
 
                     b.Property<DateTime?>("NextRunTime")
-                        .HasColumnType("datetime(6)");
+                        .HasColumnType("timestamp without time zone");
 
                     b.Property<string>("NodeName")
                         .HasMaxLength(128)
-                        .HasColumnType("varchar(128)")
+                        .HasColumnType("character varying(128)")
                         .HasColumnName("NodeName");
 
                     b.Property<int>("Priority")
-                        .HasColumnType("int");
+                        .HasColumnType("integer");
 
                     b.Property<string>("Result")
                         .HasMaxLength(1000)
-                        .HasColumnType("varchar(1000)")
+                        .HasColumnType("character varying(1000)")
                         .HasColumnName("Result");
 
                     b.Property<int>("Source")
-                        .HasColumnType("int");
+                        .HasColumnType("integer");
 
                     b.Property<int>("Status")
-                        .HasColumnType("int");
+                        .HasColumnType("integer");
 
                     b.Property<Guid?>("TenantId")
-                        .HasColumnType("char(36)")
+                        .HasColumnType("uuid")
                         .HasColumnName("TenantId");
 
                     b.Property<int>("TriggerCount")
-                        .HasColumnType("int");
+                        .HasColumnType("integer");
 
                     b.Property<int>("TryCount")
-                        .HasColumnType("int");
+                        .HasColumnType("integer");
 
                     b.Property<string>("Type")
                         .IsRequired()
                         .HasMaxLength(1000)
-                        .HasColumnType("varchar(1000)")
+                        .HasColumnType("character varying(1000)")
                         .HasColumnName("Type");
 
                     b.HasKey("Id");
@@ -225,41 +228,43 @@ namespace LY.MicroService.TaskManagement.EntityFrameworkCore.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("bigint");
 
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<long>("Id"));
+
                     b.Property<string>("Exception")
                         .HasMaxLength(2000)
-                        .HasColumnType("varchar(2000)")
+                        .HasColumnType("character varying(2000)")
                         .HasColumnName("Exception");
 
                     b.Property<string>("JobGroup")
                         .HasMaxLength(100)
-                        .HasColumnType("varchar(100)")
+                        .HasColumnType("character varying(100)")
                         .HasColumnName("JobGroup");
 
                     b.Property<string>("JobId")
                         .HasMaxLength(255)
-                        .HasColumnType("varchar(255)")
+                        .HasColumnType("character varying(255)")
                         .HasColumnName("JobId");
 
                     b.Property<string>("JobName")
                         .HasMaxLength(100)
-                        .HasColumnType("varchar(100)")
+                        .HasColumnType("character varying(100)")
                         .HasColumnName("JobName");
 
                     b.Property<string>("JobType")
                         .HasMaxLength(1000)
-                        .HasColumnType("varchar(1000)")
+                        .HasColumnType("character varying(1000)")
                         .HasColumnName("JobType");
 
                     b.Property<string>("Message")
                         .HasMaxLength(1000)
-                        .HasColumnType("varchar(1000)")
+                        .HasColumnType("character varying(1000)")
                         .HasColumnName("Message");
 
                     b.Property<DateTime>("RunTime")
-                        .HasColumnType("datetime(6)");
+                        .HasColumnType("timestamp without time zone");
 
                     b.Property<Guid?>("TenantId")
-                        .HasColumnType("char(36)")
+                        .HasColumnType("uuid")
                         .HasColumnName("TenantId");
 
                     b.HasKey("Id");

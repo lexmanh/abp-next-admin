@@ -13,7 +13,13 @@ public class AuthServerMigrationsDbContextFactory : IDesignTimeDbContextFactory<
         var connectionString = configuration.GetConnectionString("Identity");
 
         var builder = new DbContextOptionsBuilder<AuthServerMigrationsDbContext>()
-            .UseMySql(connectionString, ServerVersion.AutoDetect(connectionString));
+            // .UseMySql(connectionString, ServerVersion.AutoDetect(connectionString))
+            // Use PostgreSQL
+            .UseNpgsql(connectionString, npgsqlOptions =>
+            {
+                System.AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
+            })
+            ;
 
         return new AuthServerMigrationsDbContext(builder!.Options);
     }

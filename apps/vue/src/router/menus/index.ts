@@ -70,9 +70,6 @@ async function getAsyncMenus() {
     return menuFilter(permissionStore.getFrontMenuList);
   }
   
-  // DEBUG: Write staticMenus
-  console.log('Static Menus:', {staticMenus});
-  
   return staticMenus;
   
 }
@@ -80,9 +77,6 @@ async function getAsyncMenus() {
 export const getMenus = async (): Promise<Menu[]> => {
   const menus = await getAsyncMenus();
 
-  // DEBUG: Write staticMenus
-  console.log('Static Menus:', {menus});
-  
   if (isRoleMode()) {
     const routes = router.getRoutes();
     return filter(menus, basicFilter(routes));

@@ -27,7 +27,7 @@ using Volo.Abp.AspNetCore.Serilog;
 using Volo.Abp.Autofac;
 using Volo.Abp.Caching.StackExchangeRedis;
 using Volo.Abp.DistributedLocking;
-using Volo.Abp.EntityFrameworkCore.MySQL;
+using Volo.Abp.EntityFrameworkCore.PostgreSql; // using Volo.Abp.EntityFrameworkCore.MySQL;
 using Volo.Abp.FeatureManagement.EntityFrameworkCore;
 using Volo.Abp.Http.Client.IdentityModel.Web;
 using Volo.Abp.MailKit;
@@ -54,7 +54,7 @@ namespace LY.MicroService.WechatManagement;
     typeof(AbpPermissionManagementEntityFrameworkCoreModule),
     typeof(AbpSettingManagementEntityFrameworkCoreModule),
     typeof(AbpLocalizationManagementEntityFrameworkCoreModule),
-    typeof(AbpEntityFrameworkCoreMySQLModule),
+    typeof(AbpEntityFrameworkCorePostgreSqlModule), // typeof(AbpEntityFrameworkCoreMySQLModule),
     typeof(AbpAspNetCoreAuthenticationJwtBearerModule),
     typeof(AbpAuthorizationOrganizationUnitsModule),
     typeof(AbpEmailingExceptionHandlingModule),

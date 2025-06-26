@@ -40,7 +40,7 @@ services:
       - CAP__RabbitMQ__ExchangeName=LINGYUN.Abp.Application
       - CAP__RabbitMQ__VirtualHost=/
       - CAP__MySql__TableNamePrefix=auth
-      - CAP__MySql__ConnectionString=Server=host.docker.internal;Database=Platform-v70;User Id=root;Password=123456
+      - CAP__MySql__ConnectionString=Server=host.docker.internal;Database=Platform-V70;User Id=root;Password=123456
       - DistributedCache__HideErrors=true
       - DistributedCache__KeyPrefix=LINGYUN.Abp.Application
       - DistributedCache__GlobalCacheEntryOptions__SlidingExpiration=30:00:00
@@ -98,7 +98,7 @@ services:
       - CAP__RabbitMQ__ExchangeName=LINGYUN.Abp.Application
       - CAP__RabbitMQ__VirtualHost=/
       - CAP__MySql__TableNamePrefix=ida
-      - CAP__MySql__ConnectionString=Server=host.docker.internal;Database=Platform-v70;User Id=root;Password=123456
+      - CAP__MySql__ConnectionString=Server=host.docker.internal;Database=Platform-V70;User Id=root;Password=123456
       - DistributedCache__HideErrors=true
       - DistributedCache__KeyPrefix=LINGYUN.Abp.Application
       - DistributedCache__GlobalCacheEntryOptions__SlidingExpiration=30:00:00
@@ -153,7 +153,7 @@ services:
       - CAP__RabbitMQ__ExchangeName=LINGYUN.Abp.Application
       - CAP__RabbitMQ__VirtualHost=/
       - CAP__MySql__TableNamePrefix=admin
-      - CAP__MySql__ConnectionString=Server=host.docker.internal;Database=Platform-v70;User Id=root;Password=123456
+      - CAP__MySql__ConnectionString=Server=host.docker.internal;Database=Platform-V70;User Id=root;Password=123456
       - DistributedCache__HideErrors=true
       - DistributedCache__KeyPrefix=LINGYUN.Abp.Application
       - DistributedCache__GlobalCacheEntryOptions__SlidingExpiration=30:00:00
@@ -211,7 +211,7 @@ services:
       - CAP__RabbitMQ__ExchangeName=LINGYUN.Abp.Application
       - CAP__RabbitMQ__VirtualHost=/
       - CAP__MySql__TableNamePrefix=lta
-      - CAP__MySql__ConnectionString=Server=host.docker.internal;Database=Platform-v70;User Id=root;Password=123456
+      - CAP__MySql__ConnectionString=Server=host.docker.internal;Database=Platform-V70;User Id=root;Password=123456
       - DistributedCache__HideErrors=true
       - DistributedCache__KeyPrefix=LINGYUN.Abp.Application
       - DistributedCache__GlobalCacheEntryOptions__SlidingExpiration=30:00:00
@@ -276,7 +276,7 @@ services:
       - CAP__RabbitMQ__ExchangeName=LINGYUN.Abp.Application
       - CAP__RabbitMQ__VirtualHost=/
       - CAP__MySql__TableNamePrefix=platform
-      - CAP__MySql__ConnectionString=Server=host.docker.internal;Database=Platform-v70;User Id=root;Password=123456
+      - CAP__MySql__ConnectionString=Server=host.docker.internal;Database=Platform-V70;User Id=root;Password=123456
       - DistributedCache__HideErrors=true
       - DistributedCache__KeyPrefix=LINGYUN.Abp.Application
       - DistributedCache__GlobalCacheEntryOptions__SlidingExpiration=30:00:00
@@ -331,7 +331,7 @@ services:
       - CAP__RabbitMQ__ExchangeName=LINGYUN.Abp.Application
       - CAP__RabbitMQ__VirtualHost=/
       - CAP__MySql__TableNamePrefix=messages
-      - CAP__MySql__ConnectionString=Server=host.docker.internal;Database=Platform-v70;User Id=root;Password=123456
+      - CAP__MySql__ConnectionString=Server=host.docker.internal;Database=Platform-V70;User Id=root;Password=123456
       - DistributedCache__HideErrors=true
       - DistributedCache__KeyPrefix=LINGYUN.Abp.Application
       - DistributedCache__GlobalCacheEntryOptions__SlidingExpiration=30:00:00
@@ -388,7 +388,7 @@ services:
       - CAP__RabbitMQ__ExchangeName=LINGYUN.Abp.Application
       - CAP__RabbitMQ__VirtualHost=/
       - CAP__MySql__TableNamePrefix=messages
-      - CAP__MySql__ConnectionString=Server=host.docker.internal;Database=Platform-v70;User Id=root;Password=123456
+      - CAP__MySql__ConnectionString=Server=host.docker.internal;Database=Platform-V70;User Id=root;Password=123456
       - DistributedCache__HideErrors=true
       - DistributedCache__KeyPrefix=LINGYUN.Abp.Application
       - DistributedCache__GlobalCacheEntryOptions__SlidingExpiration=30:00:00
@@ -443,7 +443,7 @@ services:
       - CAP__RabbitMQ__ExchangeName=LINGYUN.Abp.Application
       - CAP__RabbitMQ__VirtualHost=/
       - CAP__MySql__TableNamePrefix=webhook
-      - CAP__MySql__ConnectionString=Server=host.docker.internal;Database=Platform-v70;User Id=root;Password=123456
+      - CAP__MySql__ConnectionString=Server=host.docker.internal;Database=Platform-V70;User Id=root;Password=123456
       - DistributedCache__HideErrors=true
       - DistributedCache__KeyPrefix=LINGYUN.Abp.Application
       - DistributedCache__GlobalCacheEntryOptions__SlidingExpiration=30:00:00
@@ -499,7 +499,7 @@ services:
       - CAP__RabbitMQ__ExchangeName=LINGYUN.Abp.Application
       - CAP__RabbitMQ__VirtualHost=/
       - CAP__MySql__TableNamePrefix=workflow
-      - CAP__MySql__ConnectionString=Server=host.docker.internal;Database=Platform-v70;User Id=root;Password=123456
+      - CAP__MySql__ConnectionString=Server=host.docker.internal;Database=Platform-V70;User Id=root;Password=123456
       - DistributedCache__HideErrors=true
       - DistributedCache__KeyPrefix=LINGYUN.Abp.Application
       - DistributedCache__GlobalCacheEntryOptions__SlidingExpiration=30:00:00
@@ -564,7 +564,7 @@ services:
       - CAP__RabbitMQ__ExchangeName=LINGYUN.Abp.Application
       - CAP__RabbitMQ__VirtualHost=/
       - CAP__MySql__TableNamePrefix=wechat
-      - CAP__MySql__ConnectionString=Server=host.docker.internal;Database=Platform-v70;User Id=root;Password=123456
+      - CAP__MySql__ConnectionString=Server=host.docker.internal;Database=Platform-V70;User Id=root;Password=123456
       - DistributedCache__HideErrors=true
       - DistributedCache__KeyPrefix=LINGYUN.Abp.Application
       - DistributedCache__GlobalCacheEntryOptions__SlidingExpiration=30:00:00

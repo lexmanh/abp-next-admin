@@ -358,7 +358,7 @@ public partial class LocalizationManagementHttpApiHostModule
         //            httprequestmessage.Headers.TryAddWithoutValidation(AbpHttpWrapConsts.AbpDontWrapResult, "true");
         //        });
         //});
-        // 服务间调用不包装
+        // No packaging when calling between service
         PreConfigure<AbpHttpClientBuilderOptions>(options =>
         {
             options.ProxyClientActions.Add(

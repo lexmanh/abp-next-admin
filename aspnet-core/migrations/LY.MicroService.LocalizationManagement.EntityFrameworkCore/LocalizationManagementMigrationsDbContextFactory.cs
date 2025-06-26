@@ -13,7 +13,10 @@ public class LocalizationManagementMigrationsDbContextFactory : IDesignTimeDbCon
         var connectionString = configuration.GetConnectionString("Default");
 
         var builder = new DbContextOptionsBuilder<LocalizationManagementMigrationsDbContext>()
-            .UseMySql(connectionString, ServerVersion.AutoDetect(connectionString));
+            // .UseMySql(connectionString, ServerVersion.AutoDetect(connectionString))
+            // Use PostgreSQL
+            .UseNpgsql(connectionString)
+            ;
 
         return new LocalizationManagementMigrationsDbContext(builder!.Options);
     }

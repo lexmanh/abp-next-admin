@@ -4,7 +4,7 @@ using LINGYUN.Abp.TaskManagement.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Volo.Abp.Data;
 using Volo.Abp.EntityFrameworkCore;
-using Volo.Abp.EntityFrameworkCore.MySQL;
+using Volo.Abp.EntityFrameworkCore.PostgreSql; // using Volo.Abp.EntityFrameworkCore.MySQL;
 using Volo.Abp.FeatureManagement.EntityFrameworkCore;
 using Volo.Abp.Modularity;
 using Volo.Abp.PermissionManagement.EntityFrameworkCore;
@@ -15,7 +15,7 @@ namespace LY.MicroService.TaskManagement.EntityFrameworkCore;
 [DependsOn(
     typeof(AbpSaasEntityFrameworkCoreModule),
     typeof(TaskManagementEntityFrameworkCoreModule),
-    typeof(AbpEntityFrameworkCoreMySQLModule),
+    typeof(AbpEntityFrameworkCorePostgreSqlModule), // typeof(AbpEntityFrameworkCoreMySQLModule),
     typeof(AbpSettingManagementEntityFrameworkCoreModule),
     typeof(AbpPermissionManagementEntityFrameworkCoreModule),
     typeof(AbpFeatureManagementEntityFrameworkCoreModule),
@@ -29,12 +29,23 @@ public class TaskManagementMigrationsEntityFrameworkCoreModule : AbpModule
 
         Configure<AbpDbContextOptions>(options =>
         {
-            options.UseMySQL(
-                mysql =>
+            // Try to get Database Provider from the connection string
+            // ...
+            
+            // options.UseMySQL(
+            //     mysql =>
+            //     {
+            //         // see: https://github.com/PomeloFoundation/Pomelo.EntityFrameworkCore.MySql/issues/1960
+            //         mysql.TranslateParameterizedCollectionsToConstants();
+            //     });
+            
+            // Use PostgreSQL
+            options.UseNpgsql(
+                _ =>
                 {
-                    // see: https://github.com/PomeloFoundation/Pomelo.EntityFrameworkCore.MySql/issues/1960
-                    mysql.TranslateParameterizedCollectionsToConstants();
+                    System.AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
                 });
+            
         });
 
         Configure<AbpDbConnectionOptions>(options =>

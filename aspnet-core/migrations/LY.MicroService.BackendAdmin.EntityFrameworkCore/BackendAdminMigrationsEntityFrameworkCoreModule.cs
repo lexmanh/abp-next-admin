@@ -3,6 +3,7 @@ using LINGYUN.Abp.DataProtectionManagement.EntityFrameworkCore;
 using LINGYUN.Abp.Saas.EntityFrameworkCore;
 using LINGYUN.Abp.TextTemplating.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
+using System;
 using Volo.Abp.Data;
 using Volo.Abp.EntityFrameworkCore;
 using Volo.Abp.FeatureManagement.EntityFrameworkCore;
@@ -29,12 +30,15 @@ public class BackendAdminMigrationsEntityFrameworkCoreModule : AbpModule
 
         Configure<AbpDbContextOptions>(options =>
         {
-            options.UseMySQL(
-                mysql =>
-                {
-                    // see: https://github.com/PomeloFoundation/Pomelo.EntityFrameworkCore.MySql/issues/1960
-                    mysql.TranslateParameterizedCollectionsToConstants();
-                });
+            // options.UseMySQL(
+            //     mysql =>
+            //     {
+            //         // see: https://github.com/PomeloFoundation/Pomelo.EntityFrameworkCore.MySql/issues/1960
+            //         mysql.TranslateParameterizedCollectionsToConstants();
+            //     });
+            
+            AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
+            options.UseNpgsql();
         });
 
         Configure<AbpDbConnectionOptions>(options =>

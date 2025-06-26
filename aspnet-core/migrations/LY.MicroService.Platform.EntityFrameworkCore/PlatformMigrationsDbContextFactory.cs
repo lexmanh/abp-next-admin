@@ -13,7 +13,9 @@ public class PlatformMigrationsDbContextFactory : IDesignTimeDbContextFactory<Pl
         var connectionString = configuration.GetConnectionString("Default");
 
         var builder = new DbContextOptionsBuilder<PlatformMigrationsDbContext>()
-            .UseMySql(connectionString, ServerVersion.AutoDetect(connectionString));
+                // .UseMySql(connectionString, ServerVersion.AutoDetect(connectionString))
+                .UseNpgsql(connectionString)
+            ;
 
         return new PlatformMigrationsDbContext(builder!.Options);
     }

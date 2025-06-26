@@ -21,15 +21,15 @@ vuePath="$rootFolder/apps/vue"
 echo "Thư mục gốc dự án (root): $rootFolder"
 
 # Đặt biến môi trường
-initialInfraDatabase=true # Biến này có thể được sử dụng để xác định xem có cần khởi tạo cơ sở dữ liệu hay không
+initialize=1 # Biến này có thể được sử dụng để xác định xem có cần khởi tạo cơ sở dữ liệu hay không
 # Kiểm tra xem có cần khởi tạo cơ sở dữ liệu hay không
-if [ "$initialInfraDatabase" = true ]; then
+if [ "$initialize" -eq 1 ]; then
 
   # Deploy middleware (Phần này đang được comment)
   echo "Triển khai middleware..."
   cd "$rootFolder" || exit 1
   docker compose -f ./docker-compose.middleware.yml up -d --build
-  
+
   ## Sleep 30s for database initialization (Phần này đang được comment)
   echo "Khởi tạo database..."
   sleep 30
@@ -51,7 +51,8 @@ if [ "$initialInfraDatabase" = true ]; then
       # Thường thì các dự án DbMigrator cần được chạy từ thư mục của chính nó.
       if [ -d "$migProjectPath" ]; then # Kiểm tra xem migProjectPath có phải là thư mục không
           cd "$migProjectPath" || { echo "Không thể cd vào $migProjectPath"; continue; }
-          dotnet run --project . --no-build # Chỉ định rõ project file nếu cần, hoặc chạy từ thư mục project
+          # dotnet run --project . --no-build # Chỉ định rõ project file nếu cần, hoặc chạy từ thư mục project
+          dotnet run --no-build # Chạy migration với môi trường đã thiết lập
           # Quay lại buildPath hoặc một thư mục gốc phù hợp sau mỗi lần chạy
           cd "$buildPath" || { echo "Không thể quay lại $buildPath"; exit 1; }
       else
@@ -63,19 +64,11 @@ fi
 
 ## Build and publish .NET projects
 echo "Release các dự án .NET..."
-if [ ! -d "$buildPath" ]; then
-    echo "Lỗi: Thư mục build '$buildPath' không tồn tại."
-    exit 1
-fi
+#if [ ! -d "$buildPath" ]; then
+#    echo "Lỗi: Thư mục build '$buildPath' không tồn tại."
+#    exit 1
+#fi
 cd "$buildPath" || exit 1
-
-# In ra tất cả các dịch vụ và đường dẫn của chúng từ các mảng mới
-echo "Các dịch vụ sẽ được xử lý:"
-for i in "${!servicePaths[@]}"; do # Lặp qua các chỉ mục của mảng servicePaths
-    echo "  Dịch vụ: ${serviceNames[i]}, Đường dẫn: ${servicePaths[i]}"
-done
-
-echo "" # Thêm dòng trống cho dễ đọc
 
 for i in "${!servicePaths[@]}"; do # Lặp qua các chỉ mục
     current_service_name="${serviceNames[i]}"
@@ -111,21 +104,21 @@ for i in "${!servicePaths[@]}"; do # Lặp qua các chỉ mục
     echo "" # Thêm dòng trống
 done
 
-## Build and publish Vue projects
-echo "Build dự án frontend Vue..."
-if [ ! -d "$vuePath" ]; then
-    echo "Lỗi: Thư mục Vue '$vuePath' không tồn tại."
-    exit 1
-fi
-cd "$vuePath" || exit 1
-# Kiểm tra sự tồn tại của pnpm trước khi chạy
-if ! command -v pnpm &> /dev/null
-then
-    echo "Lỗi: Lệnh 'pnpm' không tìm thấy. Vui lòng cài đặt pnpm."
-    exit 1
-fi
-pnpm install
-pnpm build
+### Build and publish Vue projects
+#echo "Build dự án frontend Vue..."
+#if [ ! -d "$vuePath" ]; then
+#    echo "Lỗi: Thư mục Vue '$vuePath' không tồn tại."
+#    exit 1
+#fi
+#cd "$vuePath" || exit 1
+## Kiểm tra sự tồn tại của pnpm trước khi chạy
+#if ! command -v pnpm &> /dev/null
+#then
+#    echo "Lỗi: Lệnh 'pnpm' không tìm thấy. Vui lòng cài đặt pnpm."
+#    exit 1
+#fi
+#pnpm install
+#pnpm build
 
 ## Copy Vue project to publish path (Phần này có thể cần nếu bạn có bước copy riêng sau build)
 # echo "Sao chép dự án Vue đã build..."
@@ -134,7 +127,11 @@ pnpm build
 ## Running application
 echo "Chạy ứng dụng với Docker Compose..."
 cd "$rootFolder" || exit 1
-docker compose -f ./docker-compose.yml -f ./docker-compose.override.yml -f ./docker-compose.override.configuration.yml up -d --build 
+docker compose -f ./docker-compose.yml \
+  -f ./docker-compose.override.yml \
+  -f ./docker-compose.override.configuration.yml \
+  -f ./docker-compose.override.configuration.postgres.yml \
+  up -d --build 
 
 cd "$deployPath" || exit 1 # Quay lại thư mục deploy ban đầu
 echo "Ứng dụng đang chạy..."

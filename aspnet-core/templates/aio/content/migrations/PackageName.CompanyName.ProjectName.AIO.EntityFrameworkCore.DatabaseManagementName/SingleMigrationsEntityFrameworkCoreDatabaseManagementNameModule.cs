@@ -2,7 +2,7 @@
 using PackageName.CompanyName.ProjectName.EntityFrameworkCore;
 using Volo.Abp.EntityFrameworkCore;
 #if MySQL
-using Volo.Abp.EntityFrameworkCore.MySQL;
+using Volo.Abp.EntityFrameworkCore.PostgreSql; // using Volo.Abp.EntityFrameworkCore.MySQL;
 #elif SqlServer 
 using Volo.Abp.EntityFrameworkCore.SqlServer;
 using Microsoft.EntityFrameworkCore.Infrastructure;
@@ -21,7 +21,7 @@ namespace PackageName.CompanyName.ProjectName.AIO.EntityFrameworkCore.DatabaseMa
 
 [DependsOn(
 #if MySQL
-    typeof(AbpEntityFrameworkCoreMySQLModule),
+    typeof(AbpEntityFrameworkCorePostgreSqlModule), // typeof(AbpEntityFrameworkCoreMySQLModule),
 #elif SqlServer
     typeof(AbpEntityFrameworkCoreSqlServerModule),
 #elif Sqlite

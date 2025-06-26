@@ -23,7 +23,8 @@
 			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 		</PackageReference>
 		<PackageReference Include="Volo.Abp.Autofac" />
-		<PackageReference Include="Volo.Abp.EntityFrameworkCore.MySql" />
+<!--		<PackageReference Include="Volo.Abp.EntityFrameworkCore.MySql" />-->
+		<PackageReference Include="Volo.Abp.EntityFrameworkCore.PostgreSql" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -31,6 +32,18 @@
 		<Content Remove="Logs\**" />
 		<EmbeddedResource Remove="Logs\**" />
 		<None Remove="Logs\**" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<None Remove="appsettings.json" />
+		<Content Include="appsettings.json">
+			<CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<None Remove="appsettings.MySql.json" />
+		<Content Include="appsettings.MySql.json">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
 	</ItemGroup>
 
 	<ItemGroup>

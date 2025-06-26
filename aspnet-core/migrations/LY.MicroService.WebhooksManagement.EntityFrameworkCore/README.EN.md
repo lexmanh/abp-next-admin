@@ -19,7 +19,7 @@ Webhooks Management Database Migration Module, providing database migration func
 [DependsOn(
     typeof(AbpSaasEntityFrameworkCoreModule),
     typeof(WebhooksManagementEntityFrameworkCoreModule),
-    typeof(AbpEntityFrameworkCoreMySQLModule),
+    typeof(AbpEntityFrameworkCorePostgreSqlModule), // typeof(AbpEntityFrameworkCoreMySQLModule),
     typeof(AbpSettingManagementEntityFrameworkCoreModule),
     typeof(AbpPermissionManagementEntityFrameworkCoreModule),
     typeof(AbpFeatureManagementEntityFrameworkCoreModule),

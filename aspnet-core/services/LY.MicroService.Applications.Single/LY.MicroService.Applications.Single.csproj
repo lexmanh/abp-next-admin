@@ -124,6 +124,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
+		<ProjectReference Include="..\..\migrations\LY.MicroService.Applications.Single.EntityFrameworkCore.PostgreSql\LY.MicroService.Applications.Single.EntityFrameworkCore.PostgreSql.csproj" />
 		<ProjectReference Include="..\..\modules\account\LINGYUN.Abp.Account.Application.Contracts\LINGYUN.Abp.Account.Application.Contracts.csproj" />
 		<ProjectReference Include="..\..\modules\account\LINGYUN.Abp.Account.Application\LINGYUN.Abp.Account.Application.csproj" />
 		<ProjectReference Include="..\..\modules\account\LINGYUN.Abp.Account.Emailing\LINGYUN.Abp.Account.Emailing.csproj" />

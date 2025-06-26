@@ -13,7 +13,9 @@ public class BackendAdminMigrationsDbContextFactory : IDesignTimeDbContextFactor
         var connectionString = configuration.GetConnectionString("Default");
 
         var builder = new DbContextOptionsBuilder<BackendAdminMigrationsDbContext>()
-            .UseMySql(connectionString, ServerVersion.AutoDetect(connectionString));
+            // .UseMySql(connectionString, ServerVersion.AutoDetect(connectionString))
+            // Use PostgreSQL
+            .UseNpgsql(connectionString);
 
         return new BackendAdminMigrationsDbContext(builder!.Options);
     }

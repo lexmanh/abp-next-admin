@@ -24,7 +24,7 @@
 		<PackageReference Include="DotNetCore.CAP.RabbitMQ" />
 		<PackageReference Include="DistributedLock.Redis" />
 		<PackageReference Include="Microsoft.AspNetCore.DataProtection.StackExchangeRedis" />
-		<PackageReference Include="Microsoft.EntityFrameworkCore.Relational" VersionOverride="9.0.0.0" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Relational" VersionOverride="9.0.1" />
 		<!--<PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="7.0.5">
 			<PrivateAssets>all</PrivateAssets>
 			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -43,7 +43,7 @@
 		<PackageReference Include="Volo.Abp.AspNetCore.MultiTenancy" />
 		<PackageReference Include="Volo.Abp.AspNetCore.Authentication.JwtBearer" />
 		<PackageReference Include="Volo.Abp.Autofac" />
-		<PackageReference Include="Volo.Abp.EntityFrameworkCore.MySQL" />
+		<PackageReference Include="Volo.Abp.EntityFrameworkCore.PostgreSql" />
 		<PackageReference Include="Volo.Abp.Account.Application" />
 		<PackageReference Include="Volo.Abp.Account.HttpApi" />
 		<PackageReference Include="Volo.Abp.Http.Client" />

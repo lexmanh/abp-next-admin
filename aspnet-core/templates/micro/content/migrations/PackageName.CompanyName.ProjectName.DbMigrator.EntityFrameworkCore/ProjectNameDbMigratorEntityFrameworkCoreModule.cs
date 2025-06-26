@@ -6,7 +6,7 @@ using Volo.Abp.Data;
 using Volo.Abp.EntityFrameworkCore;
 using Volo.Abp.Modularity;
 #if MySQL
-using Volo.Abp.EntityFrameworkCore.MySQL;
+using Volo.Abp.EntityFrameworkCore.PostgreSql; // using Volo.Abp.EntityFrameworkCore.MySQL;
 #elif SqlServer 
 using Volo.Abp.EntityFrameworkCore.SqlServer;
 using Microsoft.EntityFrameworkCore.Infrastructure;
@@ -27,7 +27,7 @@ namespace PackageName.CompanyName.ProjectName.EntityFrameworkCore;
     typeof(ProjectNameEntityFrameworkCoreModule),
     typeof(AbpSaasEntityFrameworkCoreModule),
 #if MySQL
-    typeof(AbpEntityFrameworkCoreMySQLModule),
+    typeof(AbpEntityFrameworkCorePostgreSqlModule), // typeof(AbpEntityFrameworkCoreMySQLModule),
 #elif SqlServer
     typeof(AbpEntityFrameworkCoreSqlServerModule),
 #elif Sqlite

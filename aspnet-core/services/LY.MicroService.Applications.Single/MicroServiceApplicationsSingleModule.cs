@@ -1,3 +1,5 @@
+using LY.MicroService.Applications.Single.EntityFrameworkCore.PostgreSql;
+
 namespace LY.MicroService.Applications.Single;
 
 [DependsOn(
@@ -367,9 +369,11 @@ namespace LY.MicroService.Applications.Single;
     typeof(AbpMailKitModule),
     typeof(AbpAutofacModule),
 
-    // 取消注释使用MySql
-     typeof(SingleMigrationsEntityFrameworkCoreMySqlModule)
-    // 取消注释使用SqlServer
+    // use MySql
+     // typeof(SingleMigrationsEntityFrameworkCoreMySqlModule)
+    // Use PostgreSql
+    typeof(SingleMigrationsEntityFrameworkCorePostgreSqlModule)
+    // Use SqlServer
     //typeof(SingleMigrationsEntityFrameworkCoreSqlServerModule)
     )]
 public partial class MicroServiceApplicationsSingleModule : AbpModule

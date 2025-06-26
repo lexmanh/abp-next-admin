@@ -134,12 +134,15 @@ public partial class AuthServerHttpApiHostModule
         // 配置Ef
         Configure<AbpDbContextOptions>(options =>
         {
-            options.UseMySQL(
-                mysql =>
-                {
-                    // see: https://github.com/PomeloFoundation/Pomelo.EntityFrameworkCore.MySql/issues/1960
-                    mysql.TranslateParameterizedCollectionsToConstants();
-                });
+            // options.UseMySQL(
+            //     mysql =>
+            //     {
+            //         // see: https://github.com/PomeloFoundation/Pomelo.EntityFrameworkCore.MySql/issues/1960
+            //         mysql.TranslateParameterizedCollectionsToConstants();
+            //     });
+            
+            AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
+            options.UseNpgsql();
         });
 
         Configure<AbpDbConnectionOptions>(options =>
@@ -396,7 +399,7 @@ public partial class AuthServerHttpApiHostModule
 
     private void ConfigureLocalization()
     {
-        // 支持本地化语言类型
+        // Support localized language types
         Configure<AbpLocalizationOptions>(options =>
         {
             options.Languages.Add(new LanguageInfo("en", "en", "English"));
@@ -481,7 +484,7 @@ public partial class AuthServerHttpApiHostModule
         //            httprequestmessage.Headers.TryAddWithoutValidation(AbpHttpWrapConsts.AbpDontWrapResult, "true");
         //        });
         //});
-        // 服务间调用不包装
+        // No packaging when calling between service
         PreConfigure<AbpHttpClientBuilderOptions>(options =>
         {
             options.ProxyClientActions.Add(

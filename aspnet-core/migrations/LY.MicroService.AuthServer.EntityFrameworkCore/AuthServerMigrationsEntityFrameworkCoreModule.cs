@@ -9,7 +9,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Volo.Abp.Authorization;
 using Volo.Abp.Data;
 using Volo.Abp.EntityFrameworkCore;
-using Volo.Abp.EntityFrameworkCore.MySQL;
+using Volo.Abp.EntityFrameworkCore.PostgreSql; // using Volo.Abp.EntityFrameworkCore.MySQL;
 using Volo.Abp.FeatureManagement.EntityFrameworkCore;
 using Volo.Abp.Modularity;
 using Volo.Abp.OpenIddict.EntityFrameworkCore;
@@ -30,7 +30,7 @@ namespace LY.MicroService.AuthServer.EntityFrameworkCore;
     typeof(AbpFeatureManagementEntityFrameworkCoreModule),
     typeof(AbpTextTemplatingEntityFrameworkCoreModule),
     typeof(PlatformEntityFrameworkCoreModule),
-    typeof(AbpEntityFrameworkCoreMySQLModule),
+    typeof(AbpEntityFrameworkCorePostgreSqlModule), // typeof(AbpEntityFrameworkCoreMySQLModule),
     typeof(AbpDataDbMigratorModule)
     )]
 public class AuthServerMigrationsEntityFrameworkCoreModule : AbpModule
@@ -41,12 +41,18 @@ public class AuthServerMigrationsEntityFrameworkCoreModule : AbpModule
 
         Configure<AbpDbContextOptions>(options =>
         {
-            options.UseMySQL(
-                mysql =>
-                {
-                    // see: https://github.com/PomeloFoundation/Pomelo.EntityFrameworkCore.MySql/issues/1960
-                    mysql.TranslateParameterizedCollectionsToConstants();
-                });
+            // options.UseMySQL(
+            //     mysql =>
+            //     {
+            //         // see: https://github.com/PomeloFoundation/Pomelo.EntityFrameworkCore.MySql/issues/1960
+            //         mysql.TranslateParameterizedCollectionsToConstants();
+            //     });
+            
+            // Use PostgreSQL
+            options.UseNpgsql(npgsqlOptions =>
+            {
+                System.AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
+            });
         });
 
         Configure<AbpDbConnectionOptions>(options =>

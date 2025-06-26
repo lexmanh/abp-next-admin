@@ -76,7 +76,7 @@ public partial class PlatformManagementHttpApiHostModule
 
         PreConfigure<AbpSerilogEnrichersUniqueIdOptions>(options =>
         {
-            // 以开放端口区别，应在0-31之间
+            // Different from open ports, it should be between 0-31
             options.SnowflakeIdOptions.WorkerId = 25;
             options.SnowflakeIdOptions.WorkerIdBits = 5;
             options.SnowflakeIdOptions.DatacenterId = 1;
@@ -115,7 +115,7 @@ public partial class PlatformManagementHttpApiHostModule
 
     private void ConfigureJsonSerializer(IConfiguration configuration)
     {
-        // 统一时间日期格式
+        // Unified time and date format
         Configure<AbpJsonOptions>(options =>
         {
             var jsonConfiguration = configuration.GetSection("Json");
@@ -124,7 +124,7 @@ public partial class PlatformManagementHttpApiHostModule
                 jsonConfiguration.Bind(options);
             }
         });
-        // 中文序列化的编码问题
+        // Coding issues in Chinese serialization
         Configure<AbpSystemTextJsonSerializerOptions>(options =>
         {
             options.JsonSerializerOptions.Encoder = JavaScriptEncoder.Create(UnicodeRanges.All);
@@ -177,10 +177,10 @@ public partial class PlatformManagementHttpApiHostModule
 
     private void ConfigureExceptionHandling()
     {
-        // 自定义需要处理的异常
+        // Customize exceptions to be handled
         Configure<AbpExceptionHandlingOptions>(options =>
         {
-            //  加入需要处理的异常类型
+            //  Add exception types to be processed
             options.Handlers.Add<Volo.Abp.Data.AbpDbConcurrencyException>();
             options.Handlers.Add<AbpInitializationException>();
             options.Handlers.Add<ObjectDisposedException>();
@@ -190,16 +190,16 @@ public partial class PlatformManagementHttpApiHostModule
             options.Handlers.Add<Microsoft.EntityFrameworkCore.DbUpdateException>();
             options.Handlers.Add<System.Data.DBConcurrencyException>();
         });
-        // 自定义需要发送邮件通知的异常类型
+        // Customize the type of exception that needs to be sent to email notifications
         Configure<AbpEmailExceptionHandlingOptions>(options =>
         {
-            // 是否发送堆栈信息
+            // Whether to send stack information
             options.SendStackTrace = true;
         });
 
         Configure<Volo.Abp.AspNetCore.ExceptionHandling.AbpExceptionHandlingOptions>(options =>
         {
-            // 是否发送错误详情
+            // Whether to send error details
             options.SendExceptionsDetailsToClients = false;
             options.SendStackTraceToClients = false;
         });
@@ -210,7 +210,7 @@ public partial class PlatformManagementHttpApiHostModule
         Configure<AbpAuditingOptions>(options =>
         {
             options.ApplicationName = ApplicationName;
-            // 是否启用实体变更记录
+            // Whether to enable entity change record
             var allEntitiesSelectorIsEnabled = configuration["Auditing:AllEntitiesSelector"];
             if (allEntitiesSelectorIsEnabled.IsNullOrWhiteSpace() ||
                 (bool.TryParse(allEntitiesSelectorIsEnabled, out var enabled) && enabled))
@@ -281,7 +281,7 @@ public partial class PlatformManagementHttpApiHostModule
 
     private void ConfigureMultiTenancy(IConfiguration configuration)
     {
-        // 多租户
+        // Multi-tenant
         Configure<AbpMultiTenancyOptions>(options =>
         {
             options.IsEnabled = true;
@@ -344,7 +344,7 @@ public partial class PlatformManagementHttpApiHostModule
 
     private void ConfigureLocalization()
     {
-        // 支持本地化语言类型
+        // Support localized language types
         Configure<AbpLocalizationOptions>(options =>
         {
             options.Languages.Add(new LanguageInfo("en", "en", "English"));
@@ -443,7 +443,7 @@ public partial class PlatformManagementHttpApiHostModule
         //            httprequestmessage.Headers.TryAddWithoutValidation(AbpHttpWrapConsts.AbpDontWrapResult, "true");
         //        });
         //});
-        // 服务间调用不包装
+        // No packaging when calling between service
         PreConfigure<AbpHttpClientBuilderOptions>(options =>
         {
             options.ProxyClientActions.Add(

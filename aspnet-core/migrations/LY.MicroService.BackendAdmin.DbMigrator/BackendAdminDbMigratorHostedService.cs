@@ -37,10 +37,18 @@ public class BackendAdminDbMigratorHostedService : IHostedService
         });
         await application.InitializeAsync();
 
-        await application
-            .ServiceProvider
-            .GetRequiredService<BackendAdminDbMigrationService>()
-            .CheckAndApplyDatabaseMigrationsAsync();
+        try
+        {
+            await application
+                .ServiceProvider
+                .GetRequiredService<BackendAdminDbMigrationService>()
+                .CheckAndApplyDatabaseMigrationsAsync();
+        }
+        catch (Exception ex)
+        {
+            Log.Fatal(ex, "An error occurred while migrating the database.");
+            throw;
+        }
 
         await application.ShutdownAsync();
 

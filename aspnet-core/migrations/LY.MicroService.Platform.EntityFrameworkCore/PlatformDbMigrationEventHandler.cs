@@ -72,7 +72,8 @@ public class PlatformDbMigrationEventHandler :
 
                 using var uow = UnitOfWorkManager.Begin(requiresNew: true, isTransactional: true);
                 var buildr = new DbContextOptionsBuilder();
-                buildr.UseMySql(eventData.DefaultConnectionString, ServerVersion.AutoDetect(eventData.DefaultConnectionString));
+                buildr.UseNpgsql(eventData.DefaultConnectionString);
+                // buildr.UseMySql(eventData.DefaultConnectionString, ServerVersion.AutoDetect(eventData.DefaultConnectionString));
                 await using var dbConnection = new DbContext(buildr.Options);
                 if ((await dbConnection.Database.GetAppliedMigrationsAsync()).Any())
                 {

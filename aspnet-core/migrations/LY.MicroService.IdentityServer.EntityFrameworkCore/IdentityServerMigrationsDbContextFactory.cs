@@ -13,7 +13,13 @@ public class IdentityServerMigrationsDbContextFactory : IDesignTimeDbContextFact
         var connectionString = configuration.GetConnectionString("Identity");
 
         var builder = new DbContextOptionsBuilder<IdentityServerMigrationsDbContext>()
-            .UseMySql(connectionString, ServerVersion.AutoDetect(connectionString));
+            // .UseMySql(connectionString, ServerVersion.AutoDetect(connectionString))
+            // Use PostgreSQL
+            .UseNpgsql(connectionString, npgsqlOptions =>
+            {
+                System.AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
+            })
+            ;
 
         return new IdentityServerMigrationsDbContext(builder!.Options);
     }

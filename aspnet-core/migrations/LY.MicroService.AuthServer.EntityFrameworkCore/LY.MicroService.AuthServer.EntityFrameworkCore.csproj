@@ -16,6 +16,7 @@
 		</PackageReference>
 		<PackageReference Include="Volo.Abp.Authorization" />
 		<PackageReference Include="Volo.Abp.EntityFrameworkCore.MySql" />
+		<PackageReference Include="Volo.Abp.EntityFrameworkCore.PostgreSql" />
 		<PackageReference Include="Volo.Abp.OpenIddict.EntityFrameworkCore" />
 		<PackageReference Include="Volo.Abp.FeatureManagement.EntityFrameworkCore" />
 		<PackageReference Include="Volo.Abp.SettingManagement.EntityFrameworkCore" />

@@ -147,7 +147,7 @@ PostgreSQL:
 ```json
 {
   "ConnectionStrings": {
-    "Default": "Host=127.0.0.1;Database=Platform-V70;Username=postgres;Password=123456;"
+    "Default": "Host=127.0.0.1;Port=5432;Database=Platform-V70;User ID=postgres;Password=123456;"
   }
 }
 ```

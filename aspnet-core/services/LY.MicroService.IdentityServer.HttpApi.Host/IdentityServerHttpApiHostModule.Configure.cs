@@ -75,7 +75,7 @@ public partial class IdentityServerHttpApiHostModule
 
         PreConfigure<AbpSerilogEnrichersUniqueIdOptions>(options =>
         {
-            // 以开放端口区别，应在0-31之间
+            // Different from open ports, it should be between 0-31
             options.SnowflakeIdOptions.WorkerId = 15;
             options.SnowflakeIdOptions.WorkerIdBits = 5;
             options.SnowflakeIdOptions.DatacenterId = 1;
@@ -114,15 +114,18 @@ public partial class IdentityServerHttpApiHostModule
 
     private void ConfigureDbContext()
     {
-        // 配置Ef
+        // Configure Ef
         Configure<AbpDbContextOptions>(options =>
         {
-            options.UseMySQL(
-                mysql =>
-                {
-                    // see: https://github.com/PomeloFoundation/Pomelo.EntityFrameworkCore.MySql/issues/1960
-                    mysql.TranslateParameterizedCollectionsToConstants();
-                });
+            // options.UseMySQL(
+            //     mysql =>
+            //     {
+            //         // see: https://github.com/PomeloFoundation/Pomelo.EntityFrameworkCore.MySql/issues/1960
+            //         mysql.TranslateParameterizedCollectionsToConstants();
+            //     });
+            
+            AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
+            options.UseNpgsql();
         });
 
         Configure<AbpDbConnectionOptions>(options =>
@@ -380,7 +383,7 @@ public partial class IdentityServerHttpApiHostModule
 
     private void ConfigureLocalization()
     {
-        // 支持本地化语言类型
+        // Support localized language types
         Configure<AbpLocalizationOptions>(options =>
         {
             options.Languages.Add(new LanguageInfo("en", "en", "English"));
@@ -470,7 +473,7 @@ public partial class IdentityServerHttpApiHostModule
         //            httprequestmessage.Headers.TryAddWithoutValidation(AbpHttpWrapConsts.AbpDontWrapResult, "true");
         //        });
         //});
-        // 服务间调用不包装
+        // No packaging when calling between service
         PreConfigure<AbpHttpClientBuilderOptions>(options =>
         {
             options.ProxyClientActions.Add(

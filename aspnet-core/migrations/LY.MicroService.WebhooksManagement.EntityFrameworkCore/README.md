@@ -19,7 +19,7 @@ Webhooks管理数据迁移模块，提供Webhooks管理系统相关的数据库�
 [DependsOn(
     typeof(AbpSaasEntityFrameworkCoreModule),
     typeof(WebhooksManagementEntityFrameworkCoreModule),
-    typeof(AbpEntityFrameworkCoreMySQLModule),
+    typeof(AbpEntityFrameworkCorePostgreSqlModule), // typeof(AbpEntityFrameworkCoreMySQLModule),
     typeof(AbpSettingManagementEntityFrameworkCoreModule),
     typeof(AbpPermissionManagementEntityFrameworkCoreModule),
     typeof(AbpFeatureManagementEntityFrameworkCoreModule),
