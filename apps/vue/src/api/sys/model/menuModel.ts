@@ -11,6 +11,7 @@ export interface RouteItem {
   fullPath?: string;
   props?: any;
   startup: boolean;
+  code?: string
 }
 
 /**

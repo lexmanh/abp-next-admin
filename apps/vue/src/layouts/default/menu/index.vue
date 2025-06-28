@@ -140,8 +140,12 @@
 
       function renderMenu() {
         const { menus, ...menuProps } = unref(getCommonProps);
-        // console.log(menus);
+        // console.log({menus});
         if (!menus || !menus.length) return null;
+        //! TODO: sort menus
+        // menus.sort((a, b) => {
+        //   return (a.name || '').localeCompare(b.name || '');
+        // });
         return !props.isHorizontal ? (
           <SimpleMenu {...menuProps} isSplitMenu={unref(getSplit)} items={menus} />
         ) : (

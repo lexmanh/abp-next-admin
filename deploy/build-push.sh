@@ -5,8 +5,6 @@
 # Các biến mảng servicePaths, serviceNames, solutionFiles, migrationProjectPaths sẽ được nạp vào đây
 source "$(dirname "$0")/../build/build-aspnetcore-common.sh"
 
-echo "Bắt đầu triển khai container." # "Start deploying containers."
-
 # Xác định rootFolder dựa trên vị trí của script hiện tại, đi lùi một cấp
 # Nếu script này nằm trong thư mục 'deploy', thì rootFolder sẽ là thư mục cha của 'deploy'
 # (thường là thư mục gốc của dự án)
@@ -20,47 +18,23 @@ vuePath="$rootFolder/apps/vue"
 
 echo "Thư mục gốc dự án (root): $rootFolder"
 
-# Đặt biến môi trường
-initialize=1 # Biến này có thể được sử dụng để xác định xem có cần khởi tạo cơ sở dữ liệu hay không
-# Kiểm tra xem có cần khởi tạo cơ sở dữ liệu hay không
-if [ "$initialize" -eq 1 ]; then
+# set env: REGISTRY, TAG = dev
+export REGISTRY="cr.uef.edu.vn/uef" # Thiết lập biến môi trường REGISTRY cho Docker Compose
+# Bạn có thể thay đổi 'your-registry' thành tên registry thực tế của bạn
+# Nếu bạn có một registry cụ thể, hãy thay thế 'your-registry' bằng tên registry của bạn
+# Ví dụ: REGISTRY="docker.io/yourusername" hoặc REGISTRY="registry.example.com/yourproject"
+export TAG="dev" # Thiết lập biến môi trường TAG cho Docker Compose
 
-  # Deploy middleware (Phần này đang được comment)
-  echo "Triển khai middleware..."
-  cd "$rootFolder" || exit 1
-  docker compose -f ./docker-compose.middleware.yml up -d --build
-
-  ## Sleep 30s for database initialization (Phần này đang được comment)
-  echo "Khởi tạo database..."
-  sleep 30
-  ##  Create database (Phần này đang được comment)
-  echo "Tạo database..."
-  cd "$aspnetcorePath" || exit 1
-  ./create-database.sh
-  
-  ## Migrate database (Phần này đang được comment)
-  sleep 5
-  echo "Migrate database..."
-  cd "$buildPath" || exit 1 # Chú ý: đường dẫn này có thể cần xem lại nếu buildPath không chứa các project migration
-  
-  # Cập nhật vòng lặp cho migrationProjectPaths
-  for migProjectPath in "${migrationProjectPaths[@]}"; do
-      echo "Chạy migration cho: $migProjectPath"
-      # Kiểm tra xem có cần cd vào thư mục gốc của dự án migration không, 
-      # hay là $migProjectPath đã là đường dẫn chính xác để chạy.
-      # Thường thì các dự án DbMigrator cần được chạy từ thư mục của chính nó.
-      if [ -d "$migProjectPath" ]; then # Kiểm tra xem migProjectPath có phải là thư mục không
-          cd "$migProjectPath" || { echo "Không thể cd vào $migProjectPath"; continue; }
-          # dotnet run --project . --no-build # Chỉ định rõ project file nếu cần, hoặc chạy từ thư mục project
-          dotnet run --no-build # Chạy migration với môi trường đã thiết lập
-          # Quay lại buildPath hoặc một thư mục gốc phù hợp sau mỗi lần chạy
-          cd "$buildPath" || { echo "Không thể quay lại $buildPath"; exit 1; }
-      else
-          echo "Đường dẫn migration không hợp lệ: $migProjectPath"
-      fi
-  done
-
+# Ensue docker registry is logged in
+if ! docker info &> /dev/null; then
+    echo "Lỗi: Docker không chạy hoặc không thể kết nối đến Docker daemon."
+    exit 1
 fi
+if ! docker login "$REGISTRY"; then
+    echo "Lỗi: Không thể đăng nhập vào Docker registry '$REGISTRY'."
+    exit 1
+fi
+echo "Đang đăng nhập vào Docker registry: $REGISTRY với tag: $TAG"
 
 ## Build and publish .NET projects
 echo "Release các dự án .NET..."
@@ -102,7 +76,25 @@ for i in "${!servicePaths[@]}"; do # Lặp qua các chỉ mục
     fi
     echo "--- Hoàn thành publish cho ${current_service_name} ---"
     echo "" # Thêm dòng trống
+    
+    # build docker image and push to registry
+    echo "Đang build và push Docker image cho dịch vụ '${current_service_name}'..."
+    cd "$publish_target_path" || exit 1
+    docker build -t "${REGISTRY}/abp-next-${current_service_name}:${TAG}" .
+    if [ $? -ne 0 ]; then
+        echo "Lỗi: Không thể build Docker image cho dịch vụ '${current_service_name}'."
+        exit 1
+    fi
+    # Correct tag if needed
+    docker image tag ${current_service_name} "${REGISTRY}/abp-next-${current_service_name}:${TAG}"
+    docker push "${REGISTRY}/abp-next-${current_service_name}:${TAG}"
 done
+
+
+## Running application
+echo "Buid and push Docker images..."
+cd "$rootFolder" || exit 1
+
 
 ## Build and publish Vue projects
 echo "Build dự án frontend Vue..."
@@ -120,22 +112,22 @@ fi
 pnpm install
 pnpm build
 
-## Copy Vue project to publish path (Phần này có thể cần nếu bạn có bước copy riêng sau build)
-# echo "Sao chép dự án Vue đã build..."
-# Ví dụ: cp -r "$vuePath/dist" "$rootFolder/publish/vue-app"
+if [ $? -ne 0 ]; then
+    echo "Lỗi: Không thể build dự án Vue."
+    exit 1
+fi
 
-# set env TAG = dev
-echo "Đang thiết lập biến môi trường TAG..."
-export TAG="dev" # Thiết lập biến môi trường TAG cho Docker Compose
+echo "Dự án Vue đã được build thành công."
 
-## Running application
-echo "Chạy ứng dụng với Docker Compose..."
-cd "$rootFolder" || exit 1
-docker compose -f ./docker-compose.yml \
-  -f ./docker-compose.override.yml \
-  -f ./docker-compose.override.configuration.yml \
-  -f ./docker-compose.override.configuration.postgres.yml \
-  up -d --build 
+# Build Docker image cho Vue app
+echo "Đang build Docker image cho Vue app..."
+docker build -t "${REGISTRY}/abp-next-admin-ui:${TAG}" -f "$vuePath/Dockerfile" "$vuePath"
+if [ $? -ne 0 ]; then
+    echo "Lỗi: Không thể build Docker image cho Vue app."
+    exit 1
+fi
+docker push "${REGISTRY}/abp-next-admin-ui:${TAG}"
+echo "Docker image cho Vue app đã được build và push thành công."
 
-cd "$deployPath" || exit 1 # Quay lại thư mục deploy ban đầu
-echo "Ứng dụng đang chạy..."
+# Done
+echo "Tất cả các dịch vụ đã được build và push thành công."

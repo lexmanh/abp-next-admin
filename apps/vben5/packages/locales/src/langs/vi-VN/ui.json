@@ -1,0 +1,81 @@
+{
+  "formRules": {
+    "required": "Vui lòng nhập {0}",
+    "selectRequired": "Vui lòng chọn {0}"
+  },
+  "placeholder": {
+    "input": "Vui lòng nhập",
+    "select": "Vui lòng chọn"
+  },
+  "captcha": {
+    "title": "Vui lòng hoàn tất xác minh bảo mật",
+    "sliderSuccessText": "Xác minh thành công",
+    "sliderDefaultText": "Vui lòng giữ và kéo thanh trượt",
+    "sliderRotateDefaultTip": "Nhấp vào hình ảnh để làm mới",
+    "sliderRotateFailTip": "Xác minh thất bại",
+    "sliderRotateSuccessTip": "Xác minh thành công, mất {0} giây",
+    "alt": "Hỗ trợ giá trị thuộc tính src của thẻ img",
+    "refreshAriaLabel": "Làm mới mã xác minh",
+    "confirmAriaLabel": "Xác nhận lựa chọn",
+    "confirm": "Xác nhận",
+    "pointAriaLabel": "Nhấp vào điểm",
+    "clickInOrder": "Vui lòng nhấp theo thứ tự"
+  },
+  "iconPicker": {
+    "placeholder": "Chọn một biểu tượng",
+    "search": "Tìm kiếm biểu tượng..."
+  },
+  "fallback": {
+    "pageNotFound": "Ôi! Không tìm thấy trang",
+    "pageNotFoundDesc": "Xin lỗi, chúng tôi không thể tìm thấy trang bạn đang tìm.",
+    "forbidden": "Ôi! Truy cập bị từ chối",
+    "forbiddenDesc": "Xin lỗi, bạn không có quyền truy cập trang này.",
+    "internalError": "Ôi! Có lỗi xảy ra",
+    "internalErrorDesc": "Xin lỗi, máy chủ gặp lỗi.",
+    "offline": "Trang ngoại tuyến",
+    "offlineError": "Ôi! Lỗi mạng",
+    "offlineErrorDesc": "Xin lỗi, không thể kết nối với internet, vui lòng kiểm tra kết nối mạng và thử lại.",
+    "comingSoon": "Sắp ra mắt",
+    "http": {
+      "requestTimeout": "Yêu cầu hết thời gian, vui lòng thử lại sau.",
+      "networkError": "Lỗi mạng, vui lòng kiểm tra kết nối mạng và thử lại.",
+      "badRequest": "Lỗi yêu cầu. Vui lòng kiểm tra dữ liệu nhập và thử lại.",
+      "unauthorized": "Xác thực đăng nhập đã hết hạn, vui lòng đăng nhập lại để tiếp tục.",
+      "forbidden": "Truy cập bị cấm, bạn không có quyền truy cập tài nguyên này.",
+      "notFound": "Không tìm thấy, tài nguyên yêu cầu không tồn tại.",
+      "internalServerError": "Lỗi máy chủ nội bộ, vui lòng thử lại sau."
+    }
+  },
+  "widgets": {
+    "document": "Tài liệu",
+    "qa": "Câu hỏi & Hỗ trợ",
+    "setting": "Cài đặt",
+    "logoutTip": "Bạn có muốn đăng xuất không?",
+    "viewAll": "Xem tất cả tin nhắn",
+    "notifications": "Thông báo",
+    "markAllAsRead": "Đánh dấu tất cả là đã đọc",
+    "clearNotifications": "Xóa tất cả",
+    "checkUpdatesTitle": "Có phiên bản mới",
+    "checkUpdatesDescription": "Nhấp để làm mới để nhận phiên bản mới nhất",
+    "search": {
+      "title": "Tìm kiếm",
+      "searchNavigate": "Tìm kiếm menu điều hướng",
+      "select": "Chọn",
+      "navigate": "Điều hướng",
+      "close": "Đóng",
+      "noResults": "Không tìm thấy kết quả tìm kiếm",
+      "noRecent": "Không có lịch sử tìm kiếm",
+      "recent": "Lịch sử tìm kiếm"
+    },
+    "lockScreen": {
+      "title": "Khóa màn hình",
+      "screenButton": "Khóa",
+      "password": "Mật khẩu",
+      "placeholder": "Vui lòng nhập mật khẩu khóa màn hình",
+      "unlock": "Nhấp để mở khóa",
+      "errorPasswordTip": "Mật khẩu sai, vui lòng nhập lại",
+      "backToLogin": "Quay lại đăng nhập",
+      "entry": "Vào hệ thống"
+    }
+  }
+}

@@ -13,7 +13,7 @@ public class AbpUINavigationVueVbenAdmin5Module : AbpModule
         Configure<AbpNavigationOptions>(options =>
         {
             // Uncomment the following line to enable VueVbenAdmin5 navigation seed contributor
-            // options.NavigationSeedContributors.Add<VueVbenAdmin5NavigationSeedContributor>();
+            options.NavigationSeedContributors.Add<VueVbenAdmin5NavigationSeedContributor>();
         });
     }
 }

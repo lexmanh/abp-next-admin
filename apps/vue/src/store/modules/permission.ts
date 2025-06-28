@@ -198,6 +198,17 @@ export const usePermissionStore = defineStore({
           try {
             this.changePermissionCode();
             const menuResult = await getMenuList();
+            
+            // Sort by menu.meta.orderNo and menu.code
+            menuResult.items.sort((a, b) => {
+              const orderNoA = a.meta?.orderNo || 0;
+              const orderNoB = b.meta?.orderNo || 0;
+              if (orderNoA !== orderNoB) {
+                return orderNoA - orderNoB;
+              }
+              return (a.code || '').localeCompare(b.code || '');
+            });
+            
             const menuList = generateTree(menuResult.items) as RouteItem[];
             routeList = this.filterDynamicRoutes(menuList);
           } catch (error) {

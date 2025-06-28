@@ -94,6 +94,17 @@
 
   function fetchMyMenus() {
     getMenuList().then((res) => {
+
+      // Sort by menu.meta.orderNo and menu.code
+      res.items.sort((a, b) => {
+        const orderNoA = a.meta?.orderNo || 0;
+        const orderNoB = b.meta?.orderNo || 0;
+        if (orderNoA !== orderNoB) {
+          return orderNoA - orderNoB;
+        }
+        return (a.code || '').localeCompare(b.code || '');
+      });
+      
       const treeData = listToTree(res.items, { id: 'id', pid: 'parentId' });
       menuTreeData.value = treeData;
     });

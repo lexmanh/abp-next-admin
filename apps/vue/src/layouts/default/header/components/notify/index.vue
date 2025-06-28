@@ -27,9 +27,9 @@
                   style="width: 50%"
                   type="link"
                   @click="clearMessage"
-                  >清空消息</Button
+                  >Xóa tin nhắn</Button
                 >
-                <Button style="width: 50%" type="link" @click="handleShowMessages">查看更多</Button>
+                <Button style="width: 50%" type="link" @click="handleShowMessages">Xem thêm</Button>
               </ButtonGroup>
             </template>
           </NoticeList>
@@ -82,7 +82,7 @@
   });
 
   function registerSessionEvent() {
-    // 注册用户会话过期事件, 退出登录状态
+    // Registered user session expiration event, logout status
     emitter.on('AbpIdentity.Session.Expiration', (notificationInfo: NotificationInfo) => {
       const { data } = notificationInfo;
       const sessionId = data.extraProperties['SessionId'];

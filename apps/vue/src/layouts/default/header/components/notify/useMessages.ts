@@ -18,15 +18,17 @@ import { useI18n } from '/@/hooks/web/useI18n';
 import { useSignalR } from '/@/hooks/web/useSignalR';
 
 export function useMessages() {
-  const messageRef = ref<TabItem>({
-    key: '2',
-    name: '消息',
-    list: [],
-  });
+  
   const { t } = useI18n();
   const userStore = useUserStoreWithOut();
   const sender = userStore.getUserInfo;
   const { createConfirm, createMessage } = useMessage();
+  
+  const messageRef = ref<TabItem>({
+    key: '2',
+    name: 'Hộp thư',
+    list: [],
+  });
   const signalR = useSignalR({
     autoStart: false,
     serverUrl: '/signalr-hubs/messages',
@@ -68,7 +70,7 @@ export function useMessages() {
   }
 
   function onMessageReceived(message: ChatMessage) {
-    // 处理需要本地化的系统消息
+    // Process system messages that need to be localized
     if (
       message.source === MessageSourceTye.System &&
       (message.extraProperties.L === true || message.extraProperties.L === 'true')
@@ -159,18 +161,18 @@ export function useMessages() {
         break;
     }
   }
-  /** 注册IM事件处理器 */
+  /** Register an IM event handler */
   function _registerIMEventHandler() {
-    // 读取消息事件
+    // Read message events
     emitter.on(ChatEventEnum.USER_MESSAGE_READ, _read);
-    // 读取消息事件
+    // Read message events
     emitter.on(ChatEventEnum.USER_MESSAGE_RECALL, _recall);
-    // 订阅发送消息事件
+    // Subscribe to send message events
     emitter.on(ChatEventEnum.USER_SEND_MESSAGE, _sendMessage);
-    // 订阅通知事件,处理IM相关消息
+    // Subscribe to notification events and process IM-related messages
     emitter.on(NotifyEventEnum.NOTIFICATIONS_RECEVIED, _mapChatNotifyEvent);
   }
-  /** 释放IM事件处理器 */
+  /** Release the IM event handler */
   function _releaseIMEventHandler() {
     emitter.off(ChatEventEnum.USER_MESSAGE_READ, _read);
     emitter.off(ChatEventEnum.USER_MESSAGE_RECALL, _recall);

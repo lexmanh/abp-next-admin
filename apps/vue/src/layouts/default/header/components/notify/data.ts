@@ -3,9 +3,9 @@ import { NotificationContentType } from "/@/api/messages/notifications/model";
 export interface ListItem {
   id: string;
   avatar: string;
-  // 通知的标题内容
+  // Title content of the notification
   title: string;
-  // 是否在标题上显示删除线
+  // Whether to display a delete line on the title
   titleDelete?: boolean;
   datetime: string;
   type: string;

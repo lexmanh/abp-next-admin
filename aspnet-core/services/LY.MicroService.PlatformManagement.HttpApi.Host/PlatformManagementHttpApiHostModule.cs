@@ -22,7 +22,7 @@ using LINGYUN.Abp.Serilog.Enrichers.Application;
 using LINGYUN.Abp.Serilog.Enrichers.UniqueId;
 using LINGYUN.Abp.Sms.Aliyun;
 using LINGYUN.Abp.Telemetry.SkyWalking;
-using LINGYUN.Abp.UI.Navigation.VueVbenAdmin5;
+// using LINGYUN.Abp.UI.Navigation.VueVbenAdmin5;
 using LINGYUN.Platform;
 using LINGYUN.Platform.EntityFrameworkCore;
 using LINGYUN.Platform.HttpApi;
@@ -63,12 +63,12 @@ namespace LY.MicroService.PlatformManagement;
     typeof(AbpAuditLoggingElasticsearchModule),
     typeof(AbpAspNetCoreMultiTenancyModule),
     typeof(AbpAspNetCoreMvcLocalizationModule),
-    typeof(AbpUINavigationVueVbenAdmin5Module),
+    // typeof(AbpUINavigationVueVbenAdmin5Module),
     typeof(PlatformThemeVueVbenAdminModule),
     // typeof(AbpOssManagementAliyunModule),
-    typeof(AbpOssManagementMinioModule),           // Minio存储提供者模块
-    typeof(AbpOssManagementFileSystemModule),           // 本地文件系统提供者模块
-    typeof(AbpOssManagementImagingModule), // 对象存储图形处理模块
+    typeof(AbpOssManagementMinioModule),           // Minio Storage Provider Module
+    typeof(AbpOssManagementFileSystemModule),           // Local file system provider module
+    typeof(AbpOssManagementImagingModule), // Object storage graphics processing module
     typeof(AbpOssManagementApplicationModule),
     typeof(AbpOssManagementHttpApiModule),
     typeof(AbpOssManagementSettingManagementModule),
@@ -91,8 +91,8 @@ namespace LY.MicroService.PlatformManagement;
     typeof(AbpEmailingExceptionHandlingModule),
     typeof(AbpCAPEventBusModule),
     typeof(AbpFeaturesValidationRedisModule),
-    // typeof(AbpFeaturesClientModule),// 当需要客户端特性限制时取消注释此模块
-    // typeof(AbpFeaturesValidationRedisClientModule),// 当需要客户端特性限制时取消注释此模块
+    // typeof(AbpFeaturesClientModule),// Uncomment this module when client feature limitations are required
+    // typeof(AbpFeaturesValidationRedisClientModule),// Uncomment this module when client feature limitations are required
     typeof(AbpCachingStackExchangeRedisModule),
     typeof(AbpLocalizationCultureMapModule),
     typeof(AbpIdentitySessionAspNetCoreModule),
@@ -168,38 +168,24 @@ public partial class PlatformManagementHttpApiHostModule : AbpModule
         var env = context.GetEnvironment();
 
         app.UseForwardedHeaders();
-        // 本地化
         app.UseMapRequestLocalization();
-        // http调用链
         app.UseCorrelationId();
-        // 虚拟文件系统
         app.MapAbpStaticAssets();
-        // 路由
         app.UseRouting();
-        // 跨域
         app.UseCors(DefaultCorsPolicyName);
-        // 认证
         app.UseAuthentication();
         app.UseJwtTokenMiddleware();
-        // 多租户
         app.UseMultiTenancy();
-        // 会话
         app.UseAbpSession();
         app.UseDynamicClaims();
-        // 授权
         app.UseAuthorization();
-        // Swagger
         app.UseSwagger();
-        // Swagger可视化界面
         app.UseSwaggerUI(options =>
         {
             options.SwaggerEndpoint("/swagger/v1/swagger.json", "Support Platform API");
         });
-        // 审计日志
         app.UseAuditing();
-        // 记录请求信息
         app.UseAbpSerilogEnrichers();
-        // 路由
         app.UseConfiguredEndpoints();
     }
 }

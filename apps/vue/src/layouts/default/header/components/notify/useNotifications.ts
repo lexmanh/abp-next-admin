@@ -21,11 +21,14 @@ import successAvatar from '/@/assets/icons/64x64/color-success.png';
 
 import emitter from '/@/utils/eventBus';
 
+// import { useI18n } from '/@/hooks/web/useI18n';
+
 export function useNotifications() {
+  // const { t } = useI18n();
   const { deserialize } = useNotificationSerializer();
   const notifierRef = ref<TabItem>({
     key: '1',
-    name: '通知',
+    name: 'Thông báo',
     list: [],
   });
   const signalR = useSignalR({
@@ -46,7 +49,7 @@ export function useNotifications() {
 
   function onNotifyReceived(notificationInfo: NotificationInfo, notifer?: boolean) {
     if (notifer && notificationInfo.type === NotificationType.ServiceCallback) {
-      // 以通知名称来发起服务端回调
+      // Initiate a server callback with the notification name
       emitter.emit(notificationInfo.name, notificationInfo);
       return;
     }

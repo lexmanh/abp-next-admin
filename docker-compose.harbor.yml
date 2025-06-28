@@ -1,0 +1,36 @@
+services:
+  admin-api:
+    image: cr.uef.edu.vn/uef/abp-next-admin:${TAG}
+
+  sts-api:
+    image: cr.uef.edu.vn/uef/abp-next-authserver-api:${TAG}
+
+  localization-api:
+    image: cr.uef.edu.vn/uef/abp-next-localization:${TAG}
+
+  platform-api:
+    image: cr.uef.edu.vn/uef/abp-next-platform:${TAG}
+
+  messages-api:
+    image: cr.uef.edu.vn/uef/abp-next-messages:${TAG}
+
+  task-api:
+    image: cr.uef.edu.vn/uef/abp-next-task-management:${TAG}
+
+  webhook-api:
+    image: cr.uef.edu.vn/uef/abp-next-webhooks:${TAG}
+
+  workflow-api:
+    image: cr.uef.edu.vn/uef/abp-next-workflow:${TAG}
+
+  wechat-api:
+    image: cr.uef.edu.vn/uef/abp-next-wechat:${TAG}
+
+  sts-server:
+    image: cr.uef.edu.vn/uef/abp-next-authserver:${TAG}
+
+  internal-apigateway:
+    image: cr.uef.edu.vn/uef/abp-next-internal-apigateway:${TAG}
+    
+  ui:
+    image: cr.uef.edu.vn/uef/abp-next-admin-ui:${TAG}
