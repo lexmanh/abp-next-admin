@@ -7,6 +7,7 @@
 		<RootNamespace>LY.MicroService.AuthServer</RootNamespace>
 		<Configurations>Debug;Release;PostgreSQL</Configurations>
 		<Platforms>AnyCPU</Platforms>
+		<ErrorOnDuplicatePublishOutputFiles>false</ErrorOnDuplicatePublishOutputFiles>
 	</PropertyGroup>
 
 	<ItemGroup>
@@ -17,6 +18,7 @@
 		<PackageReference Include="AgileConfig.Client" />
 		<PackageReference Include="DotNetCore.CAP.Dashboard" />
 		<PackageReference Include="DotNetCore.CAP.MySql" />
+		<PackageReference Include="DotNetCore.CAP.PostgreSql" />
 		<PackageReference Include="DotNetCore.CAP.RabbitMQ" />
 		<PackageReference Include="DistributedLock.Redis" />
 		<PackageReference Include="OpenIddict.Validation.DataProtection" />

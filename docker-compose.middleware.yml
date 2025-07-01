@@ -52,7 +52,7 @@ services:
     environment:
       - TZ=Asia/Ho_Chi_Minh
       - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=123456
+      - POSTGRES_PASSWORD=Uef@123
     volumes:
       - ./deploy/middleware/postgres/data:/var/lib/postgresql/data
     restart: always

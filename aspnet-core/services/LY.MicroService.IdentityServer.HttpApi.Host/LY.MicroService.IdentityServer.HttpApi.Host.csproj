@@ -21,6 +21,7 @@
 		<PackageReference Include="AgileConfig.Client" />
 		<PackageReference Include="DotNetCore.CAP.Dashboard" />
 		<PackageReference Include="DotNetCore.CAP.MySql" />
+		<PackageReference Include="DotNetCore.CAP.PostgreSql" />
 		<PackageReference Include="DotNetCore.CAP.RabbitMQ" />
 		<PackageReference Include="DistributedLock.Redis" />
 		<PackageReference Include="Microsoft.AspNetCore.DataProtection.StackExchangeRedis" />

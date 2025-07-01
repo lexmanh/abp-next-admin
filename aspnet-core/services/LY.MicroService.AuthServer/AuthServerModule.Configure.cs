@@ -91,9 +91,13 @@ public partial class AuthServerModule
         PreConfigure<CapOptions>(options =>
         {
             options
-            .UseMySql(mySqlOptions =>
+            // .UseMySql(mySqlOptions =>
+            // {
+            //     configuration.GetSection("CAP:MySql").Bind(mySqlOptions);
+            // })
+            .UsePostgreSql(postgresOptions =>
             {
-                configuration.GetSection("CAP:MySql").Bind(mySqlOptions);
+                configuration.GetSection("CAP:PostgreSql").Bind(postgresOptions);
             })
             .UseRabbitMQ(rabbitMQOptions =>
             {

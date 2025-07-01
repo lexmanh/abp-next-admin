@@ -7,7 +7,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace LY.MicroService.LocalizationManagement.EntityFrameworkCore.Migrations
 {
     /// <inheritdoc />
-    public partial class InitialLocalizationManagement : Migration
+    public partial class InitialLocalization : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -22,9 +22,9 @@ namespace LY.MicroService.LocalizationManagement.EntityFrameworkCore.Migrations
                     UiCultureName = table.Column<string>(type: "character varying(20)", maxLength: 20, nullable: false),
                     DisplayName = table.Column<string>(type: "character varying(64)", maxLength: 64, nullable: false),
                     TwoLetterISOLanguageName = table.Column<string>(type: "character varying(30)", maxLength: 30, nullable: true),
-                    CreationTime = table.Column<DateTime>(type: "timestamp without time zone", nullable: false),
+                    CreationTime = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
                     CreatorId = table.Column<Guid>(type: "uuid", nullable: true),
-                    LastModificationTime = table.Column<DateTime>(type: "timestamp without time zone", nullable: true),
+                    LastModificationTime = table.Column<DateTime>(type: "timestamp with time zone", nullable: true),
                     LastModifierId = table.Column<Guid>(type: "uuid", nullable: true)
                 },
                 constraints: table =>
@@ -42,9 +42,9 @@ namespace LY.MicroService.LocalizationManagement.EntityFrameworkCore.Migrations
                     DisplayName = table.Column<string>(type: "character varying(64)", maxLength: 64, nullable: true),
                     Description = table.Column<string>(type: "character varying(64)", maxLength: 64, nullable: true),
                     DefaultCultureName = table.Column<string>(type: "character varying(64)", maxLength: 64, nullable: true),
-                    CreationTime = table.Column<DateTime>(type: "timestamp without time zone", nullable: false),
+                    CreationTime = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
                     CreatorId = table.Column<Guid>(type: "uuid", nullable: true),
-                    LastModificationTime = table.Column<DateTime>(type: "timestamp without time zone", nullable: true),
+                    LastModificationTime = table.Column<DateTime>(type: "timestamp with time zone", nullable: true),
                     LastModifierId = table.Column<Guid>(type: "uuid", nullable: true)
                 },
                 constraints: table =>

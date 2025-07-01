@@ -9,7 +9,7 @@ public partial class PlatformManagementHttpApiHostModule
     {
         if (isDevelopment)
         {
-            services.AddHostedService<PlatformManagementDataSeederWorker>();
+            // services.AddHostedService<PlatformManagementDataSeederWorker>();
         }
     }
 }

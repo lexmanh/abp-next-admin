@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Builder;
+﻿using LY.MicroService.AuthServer.EntityFrameworkCore;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -42,12 +43,12 @@ public class Program
                 AuthServerModule.ApplicationName = Environment.GetEnvironmentVariable("APPLICATION_NAME")
                     ?? AuthServerModule.ApplicationName;
                 options.ApplicationName = AuthServerModule.ApplicationName;
-                // 从环境变量取用户机密配置, 适用于容器测试
+                // Get user confidential configuration from environment variables, suitable for container testing
                 options.Configuration.UserSecretsId = Environment.GetEnvironmentVariable("APPLICATION_USER_SECRETS_ID");
-                // 如果容器没有指定用户机密, 从项目读取
+                // If the container does not specify a user secret, read from the project
                 options.Configuration.UserSecretsAssembly = typeof(AuthServerModule).Assembly;
-                // 搜索 Modules 目录下所有文件作为插件
-                // 取消显示引用所有其他项目的模块，改为通过插件的形式引用
+                // Search all files in the Modules directory as plug-ins
+                // Undisplay modules that reference all other projects and refer to them via plug-ins instead.
                 var pluginFolder = Path.Combine(
                         Directory.GetCurrentDirectory(), "Modules");
                 DirectoryHelper.CreateIfNotExists(pluginFolder);
@@ -57,6 +58,11 @@ public class Program
             });
             var app = builder.Build();
             await app.InitializeApplicationAsync();
+            using (var scope = app.Services.CreateScope())
+            {
+                var migrationService = scope.ServiceProvider.GetRequiredService<AuthServerDbMigrationService>();
+                await migrationService.CheckAndApplyDatabaseMigrationsAsync();
+            }
             await app.RunAsync();
             return 0;
         }

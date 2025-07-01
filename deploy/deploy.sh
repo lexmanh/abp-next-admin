@@ -21,7 +21,7 @@ vuePath="$rootFolder/apps/vue"
 echo "Thư mục gốc dự án (root): $rootFolder"
 
 # Đặt biến môi trường
-initialize=1 # Biến này có thể được sử dụng để xác định xem có cần khởi tạo cơ sở dữ liệu hay không
+initialize=0 # Biến này có thể được sử dụng để xác định xem có cần khởi tạo cơ sở dữ liệu hay không
 # Kiểm tra xem có cần khởi tạo cơ sở dữ liệu hay không
 if [ "$initialize" -eq 1 ]; then
 
@@ -104,21 +104,27 @@ for i in "${!servicePaths[@]}"; do # Lặp qua các chỉ mục
     echo "" # Thêm dòng trống
 done
 
-## Build and publish Vue projects
-echo "Build dự án frontend Vue..."
-if [ ! -d "$vuePath" ]; then
-    echo "Lỗi: Thư mục Vue '$vuePath' không tồn tại."
-    exit 1
+initializeVue=0 # Biến này có thể được sử dụng để xác định xem có cần khởi tạo cơ sở dữ liệu hay không
+# Kiểm tra xem có cần khởi tạo cơ sở dữ liệu hay không
+if [ "$initializeVue" -eq 1 ]; then
+
+    ## Build and publish Vue projects
+    echo "Build dự án frontend Vue..."
+    if [ ! -d "$vuePath" ]; then
+        echo "Lỗi: Thư mục Vue '$vuePath' không tồn tại."
+        exit 1
+    fi
+    cd "$vuePath" || exit 1
+    # Kiểm tra sự tồn tại của pnpm trước khi chạy
+    if ! command -v pnpm &> /dev/null
+    then
+        echo "Lỗi: Lệnh 'pnpm' không tìm thấy. Vui lòng cài đặt pnpm."
+        exit 1
+    fi
+    pnpm install
+    pnpm build
+
 fi
-cd "$vuePath" || exit 1
-# Kiểm tra sự tồn tại của pnpm trước khi chạy
-if ! command -v pnpm &> /dev/null
-then
-    echo "Lỗi: Lệnh 'pnpm' không tìm thấy. Vui lòng cài đặt pnpm."
-    exit 1
-fi
-pnpm install
-pnpm build
 
 ## Copy Vue project to publish path (Phần này có thể cần nếu bạn có bước copy riêng sau build)
 # echo "Sao chép dự án Vue đã build..."

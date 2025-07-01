@@ -18,12 +18,58 @@ vuePath="$rootFolder/apps/vue"
 
 echo "Thư mục gốc dự án (root): $rootFolder"
 
+## Sleep 30s for database initialization (Phần này đang được comment)
+#echo "Khởi tạo database..."
+#sleep 30
+###  Create database (Phần này đang được comment)
+#echo "Tạo database..."
+#cd "$aspnetcorePath" || exit 1
+#./create-database.sh
+
+## Migrate database (Phần này đang được comment)
+sleep 5
+echo "Migrate database..."
+cd "$buildPath" || exit 1 # Chú ý: đường dẫn này có thể cần xem lại nếu buildPath không chứa các project migration
+
+# Cập nhật vòng lặp cho migrationProjectPaths
+#for migProjectPath in "${migrationProjectPaths[@]}"; do
+for i in "${!migrationProjectPaths[@]}"; do # Lặp qua các chỉ mục
+    migProjectPath="${migrationProjectPaths[i]}" # Lấy đường dẫn từ mảng
+    echo "Chạy migration cho: $migProjectPath"
+    # Kiểm tra xem có cần cd vào thư mục gốc của dự án migration không, 
+    # hay là $migProjectPath đã là đường dẫn chính xác để chạy.
+    # Thường thì các dự án DbMigrator cần được chạy từ thư mục của chính nó.
+    if [ -d "$migProjectPath" ]; then # Kiểm tra xem migProjectPath có phải là thư mục không
+        cd "$migProjectPath" || { echo "Không thể cd vào $migProjectPath"; continue; }
+        mig_service_name="${migrationProjectNames[i]}"
+        # dotnet run --project . --no-build # Chỉ định rõ project file nếu cần, hoặc chạy từ thư mục project
+        # dotnet run --no-build # Chạy migration với môi trường đã thiết lập
+
+        # publish migration project to ./Publish
+        migrator_publish_target_path="$rootFolder/aspnet-core/services/Publish/${mig_service_name}/DbMigrator/"
+        echo "Đang publish migration project '${migProjectPath}' đến '${migrator_publish_target_path}'"
+        # Đảm bảo thư mục publish tồn tại
+        mkdir -p "${migrator_publish_target_path}"
+        # Thực hiện publish
+        dotnet publish "$migProjectPath" -c Release -o "$migrator_publish_target_path" --no-cache
+        
+        # Quay lại buildPath hoặc một thư mục gốc phù hợp sau mỗi lần chạy
+        cd "$buildPath" || { echo "Không thể quay lại $buildPath"; exit 1; }
+    else
+        echo "Đường dẫn migration không hợp lệ: $migProjectPath"
+    fi
+done
+
+
 # set env: REGISTRY, TAG = dev
 export REGISTRY="cr.uef.edu.vn/uef" # Thiết lập biến môi trường REGISTRY cho Docker Compose
 # Bạn có thể thay đổi 'your-registry' thành tên registry thực tế của bạn
 # Nếu bạn có một registry cụ thể, hãy thay thế 'your-registry' bằng tên registry của bạn
 # Ví dụ: REGISTRY="docker.io/yourusername" hoặc REGISTRY="registry.example.com/yourproject"
 export TAG="dev" # Thiết lập biến môi trường TAG cho Docker Compose
+# create temporary tag based on current time
+current_time=$(date +%Y%m%d)
+CTAG="${TAG}-${current_time}"
 
 # Ensue docker registry is logged in
 if ! docker info &> /dev/null; then
@@ -77,24 +123,45 @@ for i in "${!servicePaths[@]}"; do # Lặp qua các chỉ mục
     echo "--- Hoàn thành publish cho ${current_service_name} ---"
     echo "" # Thêm dòng trống
     
-    # build docker image and push to registry
-    echo "Đang build và push Docker image cho dịch vụ '${current_service_name}'..."
-    cd "$publish_target_path" || exit 1
-    docker build -t "${REGISTRY}/abp-next-${current_service_name}:${TAG}" .
-    if [ $? -ne 0 ]; then
-        echo "Lỗi: Không thể build Docker image cho dịch vụ '${current_service_name}'."
-        exit 1
-    fi
-    # Correct tag if needed
-    docker image tag ${current_service_name} "${REGISTRY}/abp-next-${current_service_name}:${TAG}"
-    docker push "${REGISTRY}/abp-next-${current_service_name}:${TAG}"
+    current_image_name="abp-next-${current_service_name}" # Tên image sẽ được sử dụng trong Docker build
+    
+   # clean up old images
+   echo "Đang dọn dẹp các Docker image cũ cho dịch vụ '${current_image_name}'..."
+   docker image prune -f --filter "label=service=${current_image_name}"
+   
+   # Build Docker image
+   cd "$publish_target_path" || exit 1
+   echo "Đang build Docker image cho dịch vụ '${current_image_name}' với tag '${CTAG}'..."
+   docker build -t "${current_image_name}:${CTAG}" .
+   if [ $? -ne 0 ]; then
+       echo "Lỗi: Không thể build Docker image cho dịch vụ '${current_image_name}'."
+       exit 1
+   fi
+   
+   # Correct tag if needed
+   echo "Đang gán tags cho Docker image '${current_image_name}' với tag '${CTAG}', '${TAG}' và 'latest'..."
+   docker image tag "${current_image_name}:${CTAG}" "${REGISTRY}/${current_image_name}:${CTAG}"
+   docker image tag "${current_image_name}:${CTAG}" "${REGISTRY}/${current_image_name}:${TAG}"
+   docker image tag "${current_image_name}:${CTAG}" "${REGISTRY}/${current_image_name}:latest"
+   
+   echo "Đang push tất cả các Docker image cho dịch vụ '${current_image_name}'..."
+   docker push -a "${REGISTRY}/${current_image_name}"
+   
+   if [ $? -ne 0 ]; then
+       echo "Lỗi: Không thể push Docker image cho dịch vụ '${current_image_name}'."
+       exit 1
+   fi
+   
+   echo "Docker image cho dịch vụ '${current_image_name}' đã được build và push thành công."
+   # Clean up temporary images
+   echo "Đang dọn dẹp các Docker image tạm thời cho dịch vụ '${current_image_name}'..."
+   docker image prune -f --filter "label=service=${current_image_name}"
+   echo "--- Hoàn thành build và push cho ${current_image_name} ---"
 done
-
 
 ## Running application
 echo "Buid and push Docker images..."
 cd "$rootFolder" || exit 1
-
 
 ## Build and publish Vue projects
 echo "Build dự án frontend Vue..."
@@ -119,15 +186,35 @@ fi
 
 echo "Dự án Vue đã được build thành công."
 
+# Clean up old images
+echo "Đang dọn dẹp các Docker image cũ cho abp-next-admin-ui..."
+docker image prune -f --filter "label=service=abp-next-admin-ui"
+
 # Build Docker image cho Vue app
-echo "Đang build Docker image cho Vue app..."
+echo "Đang build Docker image cho abp-next-admin-ui..."
 docker build -t "${REGISTRY}/abp-next-admin-ui:${TAG}" -f "$vuePath/Dockerfile" "$vuePath"
 if [ $? -ne 0 ]; then
-    echo "Lỗi: Không thể build Docker image cho Vue app."
+    echo "Lỗi: Không thể build Docker image cho abp-next-admin-ui."
     exit 1
 fi
+
+# Correct tag if needed
+echo "Đang gán tags cho Docker image abp-next-admin-ui với tag '${CTAG}', '${TAG}' và 'latest'..."
+docker image tag "${REGISTRY}/abp-next-admin-ui:${TAG}" "${REGISTRY}/abp-next-admin-ui:${CTAG}"
+docker image tag "${REGISTRY}/abp-next-admin-ui:${TAG}" "${REGISTRY}/abp-next-admin-ui:latest"
+
+echo "Đang push Docker image abp-next-admin-ui với tag '${TAG}'..."
 docker push "${REGISTRY}/abp-next-admin-ui:${TAG}"
-echo "Docker image cho Vue app đã được build và push thành công."
+
+if [ $? -ne 0 ]; then
+    echo "Lỗi: Không thể push Docker image abp-next-admin-ui."
+    exit 1
+fi
+
+echo "Docker image cho abp-next-admin-ui đã được build và push thành công."
+# Clean up temporary images
+echo "Đang dọn dẹp các Docker image tạm thời cho abp-next-admin-ui..."
+docker image prune -f --filter "label=service=abp-next-admin-ui"
 
 # Done
 echo "Tất cả các dịch vụ đã được build và push thành công."

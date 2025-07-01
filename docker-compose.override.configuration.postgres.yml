@@ -2,213 +2,234 @@
 services:
   sts-server:
     environment:
-      - ConnectionStrings__Default=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=IdentityServer-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-123456}
-      - ConnectionStrings__AbpAuditLogging=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-123456}
-      - ConnectionStrings__AbpOpenIddict=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=AuthServer-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-123456}
-      - ConnectionStrings__AbpIdentity=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=IdentityServer-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-123456}
-      - ConnectionStrings__AbpIdentityServer=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=IdentityServer-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-123456}
-      - ConnectionStrings__AbpSaas=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-123456}
-      - ConnectionStrings__AbpTenantManagement=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-123456}
-      - ConnectionStrings__AbpFeatureManagement=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-123456}
-      - ConnectionStrings__AbpSettingManagement=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-123456}
-      - ConnectionStrings__AbpPermissionManagement=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-123456}
-      - ConnectionStrings__AbpLocalizationManagement=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-123456}
-      - ConnectionStrings__AbpTextTemplating=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-123456}
-      - ConnectionStrings__TaskManagement=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-123456}
-      - ConnectionStrings__Workflow=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Workflow-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-123456}
-      - ConnectionStrings__Notifications=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Messages-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-123456}
-      - ConnectionStrings__MessageService=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Messages-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-123456}
-      - ConnectionStrings__WebhooksManagement=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-123456}
-      - ConnectionStrings__AppPlatform=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-123456}
+      - ConnectionStrings__Default=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=IdentityServer-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-Uef@123}
+      - ConnectionStrings__AbpAuditLogging=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-Uef@123}
+      - ConnectionStrings__AbpOpenIddict=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=AuthServer-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-Uef@123}
+      - ConnectionStrings__AbpIdentity=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=IdentityServer-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-Uef@123}
+      - ConnectionStrings__AbpIdentityServer=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=IdentityServer-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-Uef@123}
+      - ConnectionStrings__AbpSaas=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-Uef@123}
+      - ConnectionStrings__AbpTenantManagement=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-Uef@123}
+      - ConnectionStrings__AbpFeatureManagement=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-Uef@123}
+      - ConnectionStrings__AbpSettingManagement=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-Uef@123}
+      - ConnectionStrings__AbpPermissionManagement=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-Uef@123}
+      - ConnectionStrings__AbpLocalizationManagement=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-Uef@123}
+      - ConnectionStrings__AbpTextTemplating=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-Uef@123}
+      - ConnectionStrings__TaskManagement=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-Uef@123}
+      - ConnectionStrings__Workflow=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Workflow-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-Uef@123}
+      - ConnectionStrings__Notifications=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Messages-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-Uef@123}
+      - ConnectionStrings__MessageService=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Messages-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-Uef@123}
+      - ConnectionStrings__WebhooksManagement=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-Uef@123}
+      - ConnectionStrings__AppPlatform=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-Uef@123}
+      - CAP__PostgreSql__TableNamePrefix=auth
+      - CAP__PostgreSql__ConnectionString=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-Uef@123}
+  
   sts-api:
     environment:
-      - ConnectionStrings__Default=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=IdentityServer-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-123456}
-      - ConnectionStrings__AbpAuditLogging=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-123456}
-      - ConnectionStrings__AbpOpenIddict=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=AuthServer-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-123456}
-      - ConnectionStrings__AbpIdentity=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=IdentityServer-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-123456}
-      - ConnectionStrings__AbpIdentityServer=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=IdentityServer-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-123456}
-      - ConnectionStrings__AbpSaas=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-123456}
-      - ConnectionStrings__AbpTenantManagement=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-123456}
-      - ConnectionStrings__AbpFeatureManagement=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-123456}
-      - ConnectionStrings__AbpSettingManagement=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-123456}
-      - ConnectionStrings__AbpPermissionManagement=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-123456}
-      - ConnectionStrings__AbpLocalizationManagement=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-123456}
-      - ConnectionStrings__AbpTextTemplating=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-123456}
-      - ConnectionStrings__TaskManagement=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-123456}
-      - ConnectionStrings__Workflow=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Workflow-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-123456}
-      - ConnectionStrings__Notifications=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Messages-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-123456}
-      - ConnectionStrings__MessageService=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Messages-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-123456}
-      - ConnectionStrings__WebhooksManagement=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-123456}
-      - ConnectionStrings__AppPlatform=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-123456}
-
+      - ConnectionStrings__Default=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=IdentityServer-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-Uef@123}
+      - ConnectionStrings__AbpAuditLogging=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-Uef@123}
+      - ConnectionStrings__AbpOpenIddict=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=AuthServer-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-Uef@123}
+      - ConnectionStrings__AbpIdentity=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=IdentityServer-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-Uef@123}
+      - ConnectionStrings__AbpIdentityServer=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=IdentityServer-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-Uef@123}
+      - ConnectionStrings__AbpSaas=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-Uef@123}
+      - ConnectionStrings__AbpTenantManagement=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-Uef@123}
+      - ConnectionStrings__AbpFeatureManagement=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-Uef@123}
+      - ConnectionStrings__AbpSettingManagement=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-Uef@123}
+      - ConnectionStrings__AbpPermissionManagement=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-Uef@123}
+      - ConnectionStrings__AbpLocalizationManagement=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-Uef@123}
+      - ConnectionStrings__AbpTextTemplating=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-Uef@123}
+      - ConnectionStrings__TaskManagement=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-Uef@123}
+      - ConnectionStrings__Workflow=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Workflow-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-Uef@123}
+      - ConnectionStrings__Notifications=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Messages-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-Uef@123}
+      - ConnectionStrings__MessageService=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Messages-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-Uef@123}
+      - ConnectionStrings__WebhooksManagement=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-Uef@123}
+      - ConnectionStrings__AppPlatform=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-Uef@123}
+      - CAP__PostgreSql__TableNamePrefix=ida
+      - CAP__PostgreSql__ConnectionString=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-Uef@123}
+  
   admin-api:
     environment:
-      - ConnectionStrings__Default=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-123456}
-      - ConnectionStrings__AbpAuditLogging=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-123456}
-      - ConnectionStrings__AbpOpenIddict=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=AuthServer-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-123456}
-      - ConnectionStrings__AbpIdentity=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=IdentityServer-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-123456}
-      - ConnectionStrings__AbpIdentityServer=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=IdentityServer-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-123456}
-      - ConnectionStrings__AbpSaas=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-123456}
-      - ConnectionStrings__AbpTenantManagement=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-123456}
-      - ConnectionStrings__AbpFeatureManagement=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-123456}
-      - ConnectionStrings__AbpSettingManagement=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-123456}
-      - ConnectionStrings__AbpPermissionManagement=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-123456}
-      - ConnectionStrings__AbpLocalizationManagement=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-123456}
-      - ConnectionStrings__AbpTextTemplating=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-123456}
-      - ConnectionStrings__TaskManagement=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-123456}
-      - ConnectionStrings__Workflow=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Workflow-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-123456}
-      - ConnectionStrings__Notifications=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Messages-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-123456}
-      - ConnectionStrings__MessageService=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Messages-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-123456}
-      - ConnectionStrings__WebhooksManagement=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-123456}
-      - ConnectionStrings__AppPlatform=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-123456}
-  
+      - ConnectionStrings__Default=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-Uef@123}
+      - ConnectionStrings__AbpAuditLogging=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-Uef@123}
+      - ConnectionStrings__AbpOpenIddict=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=AuthServer-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-Uef@123}
+      - ConnectionStrings__AbpIdentity=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=IdentityServer-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-Uef@123}
+      - ConnectionStrings__AbpIdentityServer=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=IdentityServer-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-Uef@123}
+      - ConnectionStrings__AbpSaas=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-Uef@123}
+      - ConnectionStrings__AbpTenantManagement=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-Uef@123}
+      - ConnectionStrings__AbpFeatureManagement=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-Uef@123}
+      - ConnectionStrings__AbpSettingManagement=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-Uef@123}
+      - ConnectionStrings__AbpPermissionManagement=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-Uef@123}
+      - ConnectionStrings__AbpLocalizationManagement=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-Uef@123}
+      - ConnectionStrings__AbpTextTemplating=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-Uef@123}
+      - ConnectionStrings__TaskManagement=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-Uef@123}
+      - ConnectionStrings__Workflow=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Workflow-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-Uef@123}
+      - ConnectionStrings__Notifications=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Messages-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-Uef@123}
+      - ConnectionStrings__MessageService=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Messages-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-Uef@123}
+      - ConnectionStrings__WebhooksManagement=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-Uef@123}
+      - ConnectionStrings__AppPlatform=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-Uef@123}
+      - CAP__PostgreSql__TableNamePrefix=admin
+      - CAP__PostgreSql__ConnectionString=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-Uef@123}
+
   localization-api:
     environment:
-      - ConnectionStrings__Default=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-123456}
-      - ConnectionStrings__AbpAuditLogging=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-123456}
-      - ConnectionStrings__AbpOpenIddict=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=AuthServer-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-123456}
-      - ConnectionStrings__AbpIdentity=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=IdentityServer-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-123456}
-      - ConnectionStrings__AbpIdentityServer=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=IdentityServer-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-123456}
-      - ConnectionStrings__AbpSaas=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-123456}
-      - ConnectionStrings__AbpTenantManagement=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-123456}
-      - ConnectionStrings__AbpFeatureManagement=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-123456}
-      - ConnectionStrings__AbpSettingManagement=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-123456}
-      - ConnectionStrings__AbpPermissionManagement=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-123456}
-      - ConnectionStrings__AbpLocalizationManagement=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-123456}
-      - ConnectionStrings__AbpTextTemplating=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-123456}
-      - ConnectionStrings__TaskManagement=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-123456}
-      - ConnectionStrings__Workflow=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Workflow-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-123456}
-      - ConnectionStrings__Notifications=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Messages-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-123456}
-      - ConnectionStrings__MessageService=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Messages-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-123456}
-      - ConnectionStrings__WebhooksManagement=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-123456}
-      - ConnectionStrings__AppPlatform=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-123456}
-
+      - ConnectionStrings__Default=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-Uef@123}
+      - ConnectionStrings__AbpAuditLogging=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-Uef@123}
+      - ConnectionStrings__AbpOpenIddict=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=AuthServer-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-Uef@123}
+      - ConnectionStrings__AbpIdentity=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=IdentityServer-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-Uef@123}
+      - ConnectionStrings__AbpIdentityServer=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=IdentityServer-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-Uef@123}
+      - ConnectionStrings__AbpSaas=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-Uef@123}
+      - ConnectionStrings__AbpTenantManagement=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-Uef@123}
+      - ConnectionStrings__AbpFeatureManagement=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-Uef@123}
+      - ConnectionStrings__AbpSettingManagement=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-Uef@123}
+      - ConnectionStrings__AbpPermissionManagement=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-Uef@123}
+      - ConnectionStrings__AbpLocalizationManagement=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-Uef@123}
+      - ConnectionStrings__AbpTextTemplating=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-Uef@123}
+      - ConnectionStrings__TaskManagement=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-Uef@123}
+      - ConnectionStrings__Workflow=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Workflow-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-Uef@123}
+      - ConnectionStrings__Notifications=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Messages-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-Uef@123}
+      - ConnectionStrings__MessageService=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Messages-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-Uef@123}
+      - ConnectionStrings__WebhooksManagement=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-Uef@123}
+      - ConnectionStrings__AppPlatform=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-Uef@123}
+      - CAP__PostgreSql__TableNamePrefix=lta
+      - CAP__PostgreSql__ConnectionString=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-Uef@123}
+  
   platform-api:
     environment:
-      - ConnectionStrings__Default=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-123456}
-      - ConnectionStrings__AbpAuditLogging=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-123456}
-      - ConnectionStrings__AbpOpenIddict=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=AuthServer-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-123456}
-      - ConnectionStrings__AbpIdentity=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=IdentityServer-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-123456}
-      - ConnectionStrings__AbpIdentityServer=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=IdentityServer-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-123456}
-      - ConnectionStrings__AbpSaas=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-123456}
-      - ConnectionStrings__AbpTenantManagement=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-123456}
-      - ConnectionStrings__AbpFeatureManagement=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-123456}
-      - ConnectionStrings__AbpSettingManagement=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-123456}
-      - ConnectionStrings__AbpPermissionManagement=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-123456}
-      - ConnectionStrings__AbpLocalizationManagement=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-123456}
-      - ConnectionStrings__AbpTextTemplating=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-123456}
-      - ConnectionStrings__TaskManagement=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-123456}
-      - ConnectionStrings__Workflow=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Workflow-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-123456}
-      - ConnectionStrings__Notifications=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Messages-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-123456}
-      - ConnectionStrings__MessageService=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Messages-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-123456}
-      - ConnectionStrings__WebhooksManagement=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-123456}
-      - ConnectionStrings__AppPlatform=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-123456}
-
+      - ConnectionStrings__Default=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-Uef@123}
+      - ConnectionStrings__AbpAuditLogging=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-Uef@123}
+      - ConnectionStrings__AbpOpenIddict=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=AuthServer-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-Uef@123}
+      - ConnectionStrings__AbpIdentity=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=IdentityServer-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-Uef@123}
+      - ConnectionStrings__AbpIdentityServer=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=IdentityServer-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-Uef@123}
+      - ConnectionStrings__AbpSaas=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-Uef@123}
+      - ConnectionStrings__AbpTenantManagement=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-Uef@123}
+      - ConnectionStrings__AbpFeatureManagement=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-Uef@123}
+      - ConnectionStrings__AbpSettingManagement=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-Uef@123}
+      - ConnectionStrings__AbpPermissionManagement=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-Uef@123}
+      - ConnectionStrings__AbpLocalizationManagement=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-Uef@123}
+      - ConnectionStrings__AbpTextTemplating=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-Uef@123}
+      - ConnectionStrings__TaskManagement=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-Uef@123}
+      - ConnectionStrings__Workflow=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Workflow-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-Uef@123}
+      - ConnectionStrings__Notifications=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Messages-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-Uef@123}
+      - ConnectionStrings__MessageService=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Messages-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-Uef@123}
+      - ConnectionStrings__WebhooksManagement=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-Uef@123}
+      - ConnectionStrings__AppPlatform=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-Uef@123}
+      - CAP__PostgreSql__TableNamePrefix=platform
+      - CAP__PostgreSql__ConnectionString=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-Uef@123}
+  
   messages-api:
     environment:
-      - ConnectionStrings__Default=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Messages-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-123456}
-      - ConnectionStrings__AbpAuditLogging=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-123456}
-      - ConnectionStrings__AbpOpenIddict=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=AuthServer-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-123456}
-      - ConnectionStrings__AbpIdentity=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=IdentityServer-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-123456}
-      - ConnectionStrings__AbpIdentityServer=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=IdentityServer-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-123456}
-      - ConnectionStrings__AbpSaas=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-123456}
-      - ConnectionStrings__AbpTenantManagement=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-123456}
-      - ConnectionStrings__AbpFeatureManagement=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-123456}
-      - ConnectionStrings__AbpSettingManagement=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-123456}
-      - ConnectionStrings__AbpPermissionManagement=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-123456}
-      - ConnectionStrings__AbpLocalizationManagement=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-123456}
-      - ConnectionStrings__AbpTextTemplating=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-123456}
-      - ConnectionStrings__TaskManagement=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-123456}
-      - ConnectionStrings__Workflow=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Workflow-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-123456}
-      - ConnectionStrings__Notifications=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Messages-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-123456}
-      - ConnectionStrings__MessageService=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Messages-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-123456}
-      - ConnectionStrings__WebhooksManagement=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-123456}
-      - ConnectionStrings__AppPlatform=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-123456}
-
+      - ConnectionStrings__Default=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Messages-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-Uef@123}
+      - ConnectionStrings__AbpAuditLogging=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-Uef@123}
+      - ConnectionStrings__AbpOpenIddict=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=AuthServer-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-Uef@123}
+      - ConnectionStrings__AbpIdentity=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=IdentityServer-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-Uef@123}
+      - ConnectionStrings__AbpIdentityServer=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=IdentityServer-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-Uef@123}
+      - ConnectionStrings__AbpSaas=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-Uef@123}
+      - ConnectionStrings__AbpTenantManagement=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-Uef@123}
+      - ConnectionStrings__AbpFeatureManagement=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-Uef@123}
+      - ConnectionStrings__AbpSettingManagement=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-Uef@123}
+      - ConnectionStrings__AbpPermissionManagement=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-Uef@123}
+      - ConnectionStrings__AbpLocalizationManagement=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-Uef@123}
+      - ConnectionStrings__AbpTextTemplating=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-Uef@123}
+      - ConnectionStrings__TaskManagement=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-Uef@123}
+      - ConnectionStrings__Workflow=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Workflow-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-Uef@123}
+      - ConnectionStrings__Notifications=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Messages-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-Uef@123}
+      - ConnectionStrings__MessageService=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Messages-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-Uef@123}
+      - ConnectionStrings__WebhooksManagement=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-Uef@123}
+      - ConnectionStrings__AppPlatform=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-Uef@123}
+      - CAP__PostgreSql__TableNamePrefix=messages
+      - CAP__PostgreSql__ConnectionString=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-Uef@123}
+  
   task-api:
     environment:
-      - ConnectionStrings__Default=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-123456}
-      - ConnectionStrings__AbpAuditLogging=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-123456}
-      - ConnectionStrings__AbpOpenIddict=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=AuthServer-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-123456}
-      - ConnectionStrings__AbpIdentity=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=IdentityServer-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-123456}
-      - ConnectionStrings__AbpIdentityServer=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=IdentityServer-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-123456}
-      - ConnectionStrings__AbpSaas=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-123456}
-      - ConnectionStrings__AbpTenantManagement=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-123456}
-      - ConnectionStrings__AbpFeatureManagement=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-123456}
-      - ConnectionStrings__AbpSettingManagement=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-123456}
-      - ConnectionStrings__AbpPermissionManagement=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-123456}
-      - ConnectionStrings__AbpLocalizationManagement=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-123456}
-      - ConnectionStrings__AbpTextTemplating=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-123456}
-      - ConnectionStrings__TaskManagement=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-123456}
-      - ConnectionStrings__Workflow=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Workflow-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-123456}
-      - ConnectionStrings__Notifications=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Messages-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-123456}
-      - ConnectionStrings__MessageService=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Messages-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-123456}
-      - ConnectionStrings__WebhooksManagement=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-123456}
-      - ConnectionStrings__AppPlatform=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-123456}
-
+      - ConnectionStrings__Default=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-Uef@123}
+      - ConnectionStrings__AbpAuditLogging=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-Uef@123}
+      - ConnectionStrings__AbpOpenIddict=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=AuthServer-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-Uef@123}
+      - ConnectionStrings__AbpIdentity=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=IdentityServer-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-Uef@123}
+      - ConnectionStrings__AbpIdentityServer=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=IdentityServer-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-Uef@123}
+      - ConnectionStrings__AbpSaas=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-Uef@123}
+      - ConnectionStrings__AbpTenantManagement=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-Uef@123}
+      - ConnectionStrings__AbpFeatureManagement=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-Uef@123}
+      - ConnectionStrings__AbpSettingManagement=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-Uef@123}
+      - ConnectionStrings__AbpPermissionManagement=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-Uef@123}
+      - ConnectionStrings__AbpLocalizationManagement=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-Uef@123}
+      - ConnectionStrings__AbpTextTemplating=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-Uef@123}
+      - ConnectionStrings__TaskManagement=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-Uef@123}
+      - ConnectionStrings__Workflow=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Workflow-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-Uef@123}
+      - ConnectionStrings__Notifications=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Messages-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-Uef@123}
+      - ConnectionStrings__MessageService=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Messages-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-Uef@123}
+      - ConnectionStrings__WebhooksManagement=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-Uef@123}
+      - ConnectionStrings__AppPlatform=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-Uef@123}
+      - CAP__PostgreSql__TableNamePrefix=task
+      - CAP__PostgreSql__ConnectionString=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-Uef@123}
+  
   webhook-api:
     environment:
-      - ConnectionStrings__Default=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-123456}
-      - ConnectionStrings__AbpAuditLogging=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-123456}
-      - ConnectionStrings__AbpOpenIddict=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=AuthServer-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-123456}
-      - ConnectionStrings__AbpIdentity=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=IdentityServer-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-123456}
-      - ConnectionStrings__AbpIdentityServer=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=IdentityServer-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-123456}
-      - ConnectionStrings__AbpSaas=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-123456}
-      - ConnectionStrings__AbpTenantManagement=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-123456}
-      - ConnectionStrings__AbpFeatureManagement=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-123456}
-      - ConnectionStrings__AbpSettingManagement=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-123456}
-      - ConnectionStrings__AbpPermissionManagement=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-123456}
-      - ConnectionStrings__AbpLocalizationManagement=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-123456}
-      - ConnectionStrings__AbpTextTemplating=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-123456}
-      - ConnectionStrings__TaskManagement=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-123456}
-      - ConnectionStrings__Workflow=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Workflow-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-123456}
-      - ConnectionStrings__Notifications=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Messages-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-123456}
-      - ConnectionStrings__MessageService=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Messages-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-123456}
-      - ConnectionStrings__WebhooksManagement=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-123456}
-      - ConnectionStrings__AppPlatform=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-123456}
-
+      - ConnectionStrings__Default=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-Uef@123}
+      - ConnectionStrings__AbpAuditLogging=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-Uef@123}
+      - ConnectionStrings__AbpOpenIddict=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=AuthServer-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-Uef@123}
+      - ConnectionStrings__AbpIdentity=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=IdentityServer-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-Uef@123}
+      - ConnectionStrings__AbpIdentityServer=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=IdentityServer-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-Uef@123}
+      - ConnectionStrings__AbpSaas=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-Uef@123}
+      - ConnectionStrings__AbpTenantManagement=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-Uef@123}
+      - ConnectionStrings__AbpFeatureManagement=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-Uef@123}
+      - ConnectionStrings__AbpSettingManagement=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-Uef@123}
+      - ConnectionStrings__AbpPermissionManagement=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-Uef@123}
+      - ConnectionStrings__AbpLocalizationManagement=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-Uef@123}
+      - ConnectionStrings__AbpTextTemplating=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-Uef@123}
+      - ConnectionStrings__TaskManagement=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-Uef@123}
+      - ConnectionStrings__Workflow=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Workflow-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-Uef@123}
+      - ConnectionStrings__Notifications=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Messages-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-Uef@123}
+      - ConnectionStrings__MessageService=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Messages-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-Uef@123}
+      - ConnectionStrings__WebhooksManagement=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-Uef@123}
+      - ConnectionStrings__AppPlatform=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-Uef@123}
+      - CAP__PostgreSql__TableNamePrefix=webhook
+      - CAP__PostgreSql__ConnectionString=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-Uef@123}
+  
   workflow-api:
     environment:
-      - ConnectionStrings__Default=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Workflow-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-123456}
-      - ConnectionStrings__AbpAuditLogging=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-123456}
-      - ConnectionStrings__AbpOpenIddict=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=AuthServer-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-123456}
-      - ConnectionStrings__AbpIdentity=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=IdentityServer-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-123456}
-      - ConnectionStrings__AbpIdentityServer=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=IdentityServer-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-123456}
-      - ConnectionStrings__AbpSaas=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-123456}
-      - ConnectionStrings__AbpTenantManagement=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-123456}
-      - ConnectionStrings__AbpFeatureManagement=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-123456}
-      - ConnectionStrings__AbpSettingManagement=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-123456}
-      - ConnectionStrings__AbpPermissionManagement=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-123456}
-      - ConnectionStrings__AbpLocalizationManagement=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-123456}
-      - ConnectionStrings__AbpTextTemplating=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-123456}
-      - ConnectionStrings__TaskManagement=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-123456}
-      - ConnectionStrings__Workflow=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Workflow-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-123456}
-      - ConnectionStrings__Notifications=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Messages-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-123456}
-      - ConnectionStrings__MessageService=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Messages-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-123456}
-      - ConnectionStrings__WebhooksManagement=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-123456}
-      - ConnectionStrings__AppPlatform=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-123456}
-
+      - ConnectionStrings__Default=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Workflow-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-Uef@123}
+      - ConnectionStrings__AbpAuditLogging=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-Uef@123}
+      - ConnectionStrings__AbpOpenIddict=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=AuthServer-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-Uef@123}
+      - ConnectionStrings__AbpIdentity=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=IdentityServer-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-Uef@123}
+      - ConnectionStrings__AbpIdentityServer=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=IdentityServer-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-Uef@123}
+      - ConnectionStrings__AbpSaas=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-Uef@123}
+      - ConnectionStrings__AbpTenantManagement=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-Uef@123}
+      - ConnectionStrings__AbpFeatureManagement=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-Uef@123}
+      - ConnectionStrings__AbpSettingManagement=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-Uef@123}
+      - ConnectionStrings__AbpPermissionManagement=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-Uef@123}
+      - ConnectionStrings__AbpLocalizationManagement=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-Uef@123}
+      - ConnectionStrings__AbpTextTemplating=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-Uef@123}
+      - ConnectionStrings__TaskManagement=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-Uef@123}
+      - ConnectionStrings__Workflow=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Workflow-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-Uef@123}
+      - ConnectionStrings__Notifications=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Messages-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-Uef@123}
+      - ConnectionStrings__MessageService=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Messages-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-Uef@123}
+      - ConnectionStrings__WebhooksManagement=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-Uef@123}
+      - ConnectionStrings__AppPlatform=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-Uef@123}
+      - CAP__PostgreSql__TableNamePrefix=workflow
+      - CAP__PostgreSql__ConnectionString=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-Uef@123}
+  
   wechat-api:
     environment:
-      - ConnectionStrings__Default=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-123456}
-      - ConnectionStrings__AbpAuditLogging=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-123456}
-      - ConnectionStrings__AbpOpenIddict=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=AuthServer-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-123456}
-      - ConnectionStrings__AbpIdentity=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=IdentityServer-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-123456}
-      - ConnectionStrings__AbpIdentityServer=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=IdentityServer-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-123456}
-      - ConnectionStrings__AbpSaas=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-123456}
-      - ConnectionStrings__AbpTenantManagement=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-123456}
-      - ConnectionStrings__AbpFeatureManagement=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-123456}
-      - ConnectionStrings__AbpSettingManagement=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-123456}
-      - ConnectionStrings__AbpPermissionManagement=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-123456}
-      - ConnectionStrings__AbpLocalizationManagement=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-123456}
-      - ConnectionStrings__AbpTextTemplating=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-123456}
-      - ConnectionStrings__TaskManagement=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-123456}
-      - ConnectionStrings__Workflow=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Workflow-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-123456}
-      - ConnectionStrings__Notifications=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Messages-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-123456}
-      - ConnectionStrings__MessageService=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Messages-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-123456}
-      - ConnectionStrings__WebhooksManagement=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-123456}
-      - ConnectionStrings__AppPlatform=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-123456}
-      
+      - ConnectionStrings__Default=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-Uef@123}
+      - ConnectionStrings__AbpAuditLogging=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-Uef@123}
+      - ConnectionStrings__AbpOpenIddict=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=AuthServer-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-Uef@123}
+      - ConnectionStrings__AbpIdentity=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=IdentityServer-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-Uef@123}
+      - ConnectionStrings__AbpIdentityServer=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=IdentityServer-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-Uef@123}
+      - ConnectionStrings__AbpSaas=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-Uef@123}
+      - ConnectionStrings__AbpTenantManagement=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-Uef@123}
+      - ConnectionStrings__AbpFeatureManagement=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-Uef@123}
+      - ConnectionStrings__AbpSettingManagement=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-Uef@123}
+      - ConnectionStrings__AbpPermissionManagement=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-Uef@123}
+      - ConnectionStrings__AbpLocalizationManagement=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-Uef@123}
+      - ConnectionStrings__AbpTextTemplating=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-Uef@123}
+      - ConnectionStrings__TaskManagement=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-Uef@123}
+      - ConnectionStrings__Workflow=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Workflow-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-Uef@123}
+      - ConnectionStrings__Notifications=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Messages-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-Uef@123}
+      - ConnectionStrings__MessageService=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Messages-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-Uef@123}
+      - ConnectionStrings__WebhooksManagement=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-Uef@123}
+      - ConnectionStrings__AppPlatform=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-Uef@123}
+      - CAP__PostgreSql__TableNamePrefix=wechat
+      - CAP__PostgreSql__ConnectionString=Host=${POSTGRES_HOST:-abp-postgres};Port=${POSTGRES_PORT:-5432};Database=Platform-V70;User ID=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-Uef@123}
+
 #  internal-apigateway:
 #    environment:
 #      - AgileConfig__IsEnabled=false

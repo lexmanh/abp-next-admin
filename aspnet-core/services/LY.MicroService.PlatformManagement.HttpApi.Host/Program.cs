@@ -1,3 +1,4 @@
+using LY.MicroService.Platform.EntityFrameworkCore;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -42,12 +43,12 @@ public class Program
                 PlatformManagementHttpApiHostModule.ApplicationName = Environment.GetEnvironmentVariable("APPLICATION_NAME")
                     ?? PlatformManagementHttpApiHostModule.ApplicationName;
                 options.ApplicationName = PlatformManagementHttpApiHostModule.ApplicationName;
-                // ´Ó»·¾³±äÁ¿È¡ÓÃ»§»úÃÜÅäÖÃ, ÊÊÓÃÓÚÈÝÆ÷²âÊÔ
+                // ï¿½Ó»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¡ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
                 options.Configuration.UserSecretsId = Environment.GetEnvironmentVariable("APPLICATION_USER_SECRETS_ID");
-                // Èç¹ûÈÝÆ÷Ã»ÓÐÖ¸¶¨ÓÃ»§»úÃÜ, ´ÓÏîÄ¿¶ÁÈ¡
+                // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã»ï¿½ï¿½Ö¸ï¿½ï¿½ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½Ä¿ï¿½ï¿½È¡
                 options.Configuration.UserSecretsAssembly = typeof(PlatformManagementHttpApiHostModule).Assembly;
-                // ËÑË÷ Modules Ä¿Â¼ÏÂËùÓÐÎÄ¼þ×÷Îª²å¼þ
-                // È¡ÏûÏÔÊ¾ÒýÓÃËùÓÐÆäËûÏîÄ¿µÄÄ£¿é£¬¸ÄÎªÍ¨¹ý²å¼þµÄÐÎÊ½ÒýÓÃ
+                // ï¿½ï¿½ï¿½ï¿½ Modules Ä¿Â¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½Îªï¿½ï¿½ï¿½
+                // È¡ï¿½ï¿½ï¿½ï¿½Ê¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¿ï¿½ï¿½Ä£ï¿½é£¬ï¿½ï¿½ÎªÍ¨ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê½ï¿½ï¿½ï¿½ï¿½
                 var pluginFolder = Path.Combine(
                         Directory.GetCurrentDirectory(), "Modules");
                 DirectoryHelper.CreateIfNotExists(pluginFolder);
@@ -56,6 +57,12 @@ public class Program
                     SearchOption.AllDirectories);
             });
             var app = builder.Build();
+            using (var scope = app.Services.CreateScope())
+            {
+                Log.Information("Checking and applying database migrations...");
+                var migrationService = scope.ServiceProvider.GetRequiredService<PlatformDbMigrationService>();
+                await migrationService.CheckAndApplyDatabaseMigrationsAsync();
+            }
             await app.InitializeApplicationAsync();
             await app.RunAsync();
             return 0;

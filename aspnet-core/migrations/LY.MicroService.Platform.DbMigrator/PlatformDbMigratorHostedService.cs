@@ -37,17 +37,6 @@ public class PlatformDbMigratorHostedService : IHostedService
         });
         await application.InitializeAsync();
         
-        // Check connection string
-        var connectionString = application
-            .ServiceProvider
-            .GetRequiredService<IConfiguration>()
-            .GetConnectionString("Default");
-        
-        if (string.IsNullOrWhiteSpace(connectionString))
-        {
-            throw new AbpInitializationException("The connection string 'Default' is not configured.");
-        }
-
         await application
             .ServiceProvider
             .GetRequiredService<PlatformDbMigrationService>()

@@ -57,6 +57,11 @@ public class Program
             });
             var app = builder.Build();
             await app.InitializeApplicationAsync();
+            // using (var scope = app.Services.CreateScope())
+            // {
+            //     var migrationService = scope.ServiceProvider.GetRequiredService<WorkflowDbMigrationService>();
+            //     await migrationService.CheckAndApplyDatabaseMigrationsAsync();
+            // }
             await app.RunAsync();
             return 0;
         }

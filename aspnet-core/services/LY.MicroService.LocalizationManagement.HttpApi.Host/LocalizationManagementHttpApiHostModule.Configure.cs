@@ -82,9 +82,13 @@ public partial class LocalizationManagementHttpApiHostModule
         PreConfigure<CapOptions>(options =>
         {
             options
-            .UseMySql(mySqlOptions =>
+            // .UseMySql(mySqlOptions =>
+            // {
+            //     configuration.GetSection("CAP:MySql").Bind(mySqlOptions);
+            // })
+            .UsePostgreSql(postgresOptions =>
             {
-                configuration.GetSection("CAP:MySql").Bind(mySqlOptions);
+                configuration.GetSection("CAP:PostgreSql").Bind(postgresOptions);
             })
             .UseRabbitMQ(rabbitMQOptions =>
             {
@@ -268,7 +272,6 @@ public partial class LocalizationManagementHttpApiHostModule
 
     private void ConfigureLocalization()
     {
-        // 默认支持的本地化语言类型
         Configure<AbpLocalizationOptions>(options =>
         {
             options.Languages.Add(new LanguageInfo("en", "en", "English"));

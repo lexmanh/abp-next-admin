@@ -1,4 +1,5 @@
 using DotNetCore.CAP;
+using LINGYUN.Abp.Data.DbMigrator;
 using LINGYUN.Abp.ExceptionHandling;
 using LINGYUN.Abp.ExceptionHandling.Emailing;
 using LINGYUN.Abp.Localization.CultureMap;
@@ -93,9 +94,13 @@ public partial class PlatformManagementHttpApiHostModule
         PreConfigure<CapOptions>(options =>
         {
             options
-            .UseMySql(mySqlOptions =>
+            // .UseMySql(mySqlOptions =>
+            // {
+            //     configuration.GetSection("CAP:MySql").Bind(mySqlOptions);
+            // })
+            .UsePostgreSql(postgresOptions =>
             {
-                configuration.GetSection("CAP:MySql").Bind(mySqlOptions);
+                configuration.GetSection("CAP:PostgreSql").Bind(postgresOptions);
             })
             .UseRabbitMQ(rabbitMQOptions =>
             {
@@ -458,16 +463,26 @@ public partial class PlatformManagementHttpApiHostModule
     {
         Configure<AbpAspNetCoreMvcOptions>(options =>
         {
-            // 允许第三方调用集成服务
+            // Allow third parties to call integration services
             options.ExposeIntegrationServices = true;
         });
-        // 用于消息中心邮件集中发送
+        // Used for centralized message sending
         services.Replace(ServiceDescriptor.Transient<Volo.Abp.Emailing.IEmailSender, PlatformEmailSender>());
 
         services.AddKeyedTransient<Volo.Abp.Emailing.IEmailSender, MailKitSmtpEmailSender>("DefaultEmailSender");
 
-        // 用于消息中心短信集中发送
+        // Used for centralized sending of text messages in the message center
         services.Replace(ServiceDescriptor.Transient<ISmsSender, PlatformSmsSender>());
         services.AddKeyedSingleton<ISmsSender, AliyunSmsSender>("DefaultSmsSender");
+    }
+    
+    // configure db migrator
+    private void ConfigureDbMigrator(IServiceCollection services)
+    {
+        // services.Configure<AbpDataDbMigratorOptions>(options =>
+        // {
+        //     // Whether to allow seed data
+        //     options.AllowSeedData = false;
+        // });
     }
 }

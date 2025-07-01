@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Builder;
+﻿using LY.MicroService.IdentityServer.EntityFrameworkCore;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -57,6 +58,11 @@ public class Program
             });
             var app = builder.Build();
             await app.InitializeApplicationAsync();
+            using (var scope = app.Services.CreateScope())
+            {
+                var migrationService = scope.ServiceProvider.GetRequiredService<IdentityServerDbMigrationService>();
+                await migrationService.CheckAndApplyDatabaseMigrationsAsync();
+            }
             await app.RunAsync();
             return 0;
         }

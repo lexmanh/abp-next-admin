@@ -83,10 +83,14 @@ public partial class WechatManagementHttpApiHostModule
         PreConfigure<CapOptions>(options =>
         {
             options
-            .UseMySql(sqlOptions =>
-            {
-                configuration.GetSection("CAP:MySql").Bind(sqlOptions);
-            })
+                // .UseMySql(mySqlOptions =>
+                // {
+                //     configuration.GetSection("CAP:MySql").Bind(mySqlOptions);
+                // })
+                .UsePostgreSql(postgresOptions =>
+                {
+                    configuration.GetSection("CAP:PostgreSql").Bind(postgresOptions);
+                })
             .UseRabbitMQ(rabbitMQOptions =>
             {
                 configuration.GetSection("CAP:RabbitMQ").Bind(rabbitMQOptions);

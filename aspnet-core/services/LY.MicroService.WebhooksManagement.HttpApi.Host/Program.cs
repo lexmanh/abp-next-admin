@@ -9,6 +9,7 @@ using System.IO;
 using System.Threading.Tasks;
 using Volo.Abp.IO;
 using Volo.Abp.Modularity.PlugIns;
+using LY.MicroService.WebhooksManagement.EntityFrameworkCore;
 
 namespace LY.MicroService.WebhooksManagement;
 
@@ -57,6 +58,11 @@ public class Program
             });
             var app = builder.Build();
             await app.InitializeApplicationAsync();
+            using (var scope = app.Services.CreateScope())
+            {
+                var migrationService = scope.ServiceProvider.GetRequiredService<WebhooksManagementDbMigrationService>();
+                await migrationService.CheckAndApplyDatabaseMigrationsAsync();
+            }
             await app.RunAsync();
             return 0;
         }

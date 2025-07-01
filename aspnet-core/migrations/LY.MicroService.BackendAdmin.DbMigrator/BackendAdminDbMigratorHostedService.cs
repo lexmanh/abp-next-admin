@@ -26,9 +26,9 @@ public class BackendAdminDbMigratorHostedService : IHostedService
         using var application = await AbpApplicationFactory
             .CreateAsync<BackendAdminDbMigratorModule>(options =>
         {
-            // 从环境变量取用户机密配置, 适用于容器测试
+            // Get user confidential configuration from environment variables, suitable for container testing
             options.Configuration.UserSecretsId = Environment.GetEnvironmentVariable("APPLICATION_USER_SECRETS_ID");
-            // 如果容器没有指定用户机密, 从项目读取
+            // If the container does not specify a user secret, read from the project
             options.Configuration.UserSecretsAssembly = typeof(BackendAdminDbMigratorHostedService).Assembly;
             options.Services.ReplaceConfiguration(_configuration);
             options.UseAutofac();

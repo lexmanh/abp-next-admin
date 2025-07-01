@@ -1,5 +1,4 @@
 ﻿FROM mcr.microsoft.com/dotnet/aspnet:9.0
-LABEL maintainer="colin.in@foxmail.com"
 WORKDIR /app
 
 COPY . /app
@@ -11,4 +10,5 @@ VOLUME [ "./app/Modules" ]
 RUN apt update
 RUN apt install wget -y
 
-ENTRYPOINT ["dotnet", "LY.MicroService.WorkflowManagement.HttpApi.Host.dll"]
+# run run.sh
+CMD ["sh", "-c", "chmod +x run.sh && ./run.sh"]

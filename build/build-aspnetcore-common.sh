@@ -51,7 +51,6 @@ serviceNames+=("wechat")
 servicePaths+=("$rootFolder/../gateways/internal/LINGYUN.MicroService.Internal.ApiGateway/src/LINGYUN.MicroService.Internal.Gateway/")
 serviceNames+=("internal-apigateway")
 
-
 # --- Danh sách các tệp solution ---
 # Sử dụng mảng chỉ mục đơn giản để lưu đường dẫn tệp
 declare -a solutionFiles=()
@@ -69,15 +68,24 @@ solutionFiles+=("$rootFolder/../gateways/internal/LINGYUN.MicroService.Internal.
 # --- Danh sách các dự án migration ---
 # Sử dụng mảng chỉ mục đơn giản để lưu đường dẫn đến các dự án DbMigrator
 declare -a migrationProjectPaths=()
+declare -a migrationProjectNames=()
 
 migrationProjectPaths+=("$rootFolder/../aspnet-core/migrations/LY.MicroService.Platform.DbMigrator")
+migrationProjectNames+=("platform")
 migrationProjectPaths+=("$rootFolder/../aspnet-core/migrations/LY.MicroService.LocalizationManagement.DbMigrator")
+migrationProjectNames+=("localization")
 migrationProjectPaths+=("$rootFolder/../aspnet-core/migrations/LY.MicroService.RealtimeMessage.DbMigrator")
+migrationProjectNames+=("messages")
 migrationProjectPaths+=("$rootFolder/../aspnet-core/migrations/LY.MicroService.IdentityServer.DbMigrator")
+migrationProjectNames+=("identityserver")
 migrationProjectPaths+=("$rootFolder/../aspnet-core/migrations/LY.MicroService.TaskManagement.DbMigrator")
+migrationProjectNames+=("task-management")
 migrationProjectPaths+=("$rootFolder/../aspnet-core/migrations/LY.MicroService.AuthServer.DbMigrator")
+migrationProjectNames+=("authserver")
 migrationProjectPaths+=("$rootFolder/../aspnet-core/migrations/LY.MicroService.WebhooksManagement.DbMigrator")
+migrationProjectNames+=("webhooks")
 migrationProjectPaths+=("$rootFolder/../aspnet-core/migrations/LY.MicroService.BackendAdmin.DbMigrator")
+migrationProjectNames+=("admin")
 # Dòng comment này cũng được chuyển đổi tương ứng:
 # migrationProjectPaths+=("$rootFolder/../aspnet-core/migrations/LY.MicroService.Applications.Single.DbMigrator")
 

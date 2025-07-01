@@ -1,6 +1,7 @@
 ﻿using LINGYUN.Abp.Data.DbMigrator;
 using LINGYUN.Abp.Saas.Tenants;
 using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Options;
 using System;
 using System.Linq;
 using System.Threading.Tasks;
@@ -18,6 +19,8 @@ public class LocalizationManagementDbMigrationService : EfCoreRuntimeDbMigratorB
     protected IDataSeeder DataSeeder { get; }
     protected IDbSchemaMigrator DbSchemaMigrator { get; }
     protected ITenantRepository TenantRepository { get; }
+    
+    protected AbpDataDbMigratorOptions DbMigratorOptions { get; }
 
     public LocalizationManagementDbMigrationService(
         IDataSeeder dataSeeder,
@@ -27,15 +30,18 @@ public class LocalizationManagementDbMigrationService : EfCoreRuntimeDbMigratorB
         IUnitOfWorkManager unitOfWorkManager,
         IServiceProvider serviceProvider,
         IAbpDistributedLock abpDistributedLock,
+        IOptions<AbpDataDbMigratorOptions> dataDbMigratorOptions,
         IDistributedEventBus distributedEventBus,
         ILoggerFactory loggerFactory)
         : base(
             ConnectionStringNameAttribute.GetConnStringName<LocalizationManagementMigrationsDbContext>(),
-            unitOfWorkManager, serviceProvider, currentTenant, abpDistributedLock, distributedEventBus, loggerFactory)
+            unitOfWorkManager, serviceProvider, currentTenant, abpDistributedLock, distributedEventBus, loggerFactory,
+            dataDbMigratorOptions)
     {
         DataSeeder = dataSeeder;
         DbSchemaMigrator = dbSchemaMigrator;
         TenantRepository = tenantRepository;
+        DbMigratorOptions = dataDbMigratorOptions.Value;
     }
 
     protected async override Task LockAndApplyDatabaseMigrationsAsync()
@@ -51,6 +57,11 @@ public class LocalizationManagementDbMigrationService : EfCoreRuntimeDbMigratorB
 
     protected async override Task SeedAsync()
     {
+        if (!DataDbMigratorOptions.AllowSeedData)
+        {
+            Logger.LogInformation("Data seeding is disabled. Skipping data seeding.");
+            return;
+        }
         Logger.LogInformation($"Executing {(!CurrentTenant.IsAvailable ? "host" : CurrentTenant.Name ?? CurrentTenant.GetId().ToString())} database seed...");
 
         await DataSeeder.SeedAsync(CurrentTenant.Id);
