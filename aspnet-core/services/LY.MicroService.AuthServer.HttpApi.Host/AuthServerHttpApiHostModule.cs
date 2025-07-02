@@ -1,3 +1,4 @@
+using DotNetCore.CAP;
 using LINGYUN.Abp.Account;
 using LINGYUN.Abp.AspNetCore.HttpOverrides;
 using LINGYUN.Abp.AspNetCore.Mvc.Localization;
@@ -45,6 +46,7 @@ using Volo.Abp.SettingManagement.EntityFrameworkCore;
 namespace LY.MicroService.AuthServer;
 
 [DependsOn(
+    typeof(AbpCAPEventBusModule),
     typeof(AbpSerilogEnrichersApplicationModule),
     typeof(AbpSerilogEnrichersUniqueIdModule),
     typeof(AbpAspNetCoreSerilogModule),
@@ -72,7 +74,6 @@ namespace LY.MicroService.AuthServer;
     typeof(AbpAuditLoggingElasticsearchModule),
     typeof(AbpEmailingExceptionHandlingModule),
     typeof(AbpBlobStoringOssManagementModule),
-    typeof(AbpCAPEventBusModule),
     typeof(AbpHttpClientModule),
     typeof(AbpSmsPlatformModule),
     typeof(AbpEmailingPlatformModule),

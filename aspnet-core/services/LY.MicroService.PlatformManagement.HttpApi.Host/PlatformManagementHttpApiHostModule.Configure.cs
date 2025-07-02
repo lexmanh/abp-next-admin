@@ -106,7 +106,8 @@ public partial class PlatformManagementHttpApiHostModule
             {
                 configuration.GetSection("CAP:RabbitMQ").Bind(rabbitMQOptions);
             })
-            .UseDashboard();
+            // .UseDashboard()
+            ;
         });
     }
 

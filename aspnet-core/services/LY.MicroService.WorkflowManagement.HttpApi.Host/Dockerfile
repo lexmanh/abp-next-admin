@@ -10,5 +10,4 @@ VOLUME [ "./app/Modules" ]
 RUN apt update
 RUN apt install wget -y
 
-# run run.sh
-CMD ["sh", "-c", "chmod +x run.sh && ./run.sh"]
+ENTRYPOINT ["dotnet", "LY.MicroService.WorkflowManagement.HttpApi.Host.dll"]
