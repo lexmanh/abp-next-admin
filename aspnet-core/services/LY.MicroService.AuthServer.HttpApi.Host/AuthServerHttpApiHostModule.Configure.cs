@@ -105,8 +105,7 @@ public partial class AuthServerHttpApiHostModule
             {
                 configuration.GetSection("CAP:RabbitMQ").Bind(rabbitMQOptions);
             })
-            // .UseDashboard()
-            // Đã xóa .UseDashboard() khỏi đây!
+            .UseDashboard()
             ;
         });
     }

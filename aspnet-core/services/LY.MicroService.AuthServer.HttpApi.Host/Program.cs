@@ -42,12 +42,8 @@ public class Program
                 AuthServerHttpApiHostModule.ApplicationName = Environment.GetEnvironmentVariable("APPLICATION_NAME")
                     ?? AuthServerHttpApiHostModule.ApplicationName;
                 options.ApplicationName = AuthServerHttpApiHostModule.ApplicationName;
-                // �ӻ�������ȡ�û���������, ��������������
                 options.Configuration.UserSecretsId = Environment.GetEnvironmentVariable("APPLICATION_USER_SECRETS_ID");
-                // �������û��ָ���û�����, ����Ŀ��ȡ
                 options.Configuration.UserSecretsAssembly = typeof(AuthServerHttpApiHostModule).Assembly;
-                // ���� Modules Ŀ¼�������ļ���Ϊ���
-                // ȡ����ʾ��������������Ŀ��ģ�飬��Ϊͨ���������ʽ����
                 var pluginFolder = Path.Combine(
                         Directory.GetCurrentDirectory(), "Modules");
                 DirectoryHelper.CreateIfNotExists(pluginFolder);
@@ -56,6 +52,7 @@ public class Program
                     SearchOption.AllDirectories);
             });
             var app = builder.Build();
+            await app.InitializeApplicationAsync();
             await app.RunAsync();
             return 0;
         }
