@@ -20,7 +20,18 @@ set -e
 # CONFIGURATION - Modify these values as needed
 # ============================================================================
 
-PROJECT_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+# Find repository root (script may be in .custom/ subdirectory)
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+if [ -d "${SCRIPT_DIR}/.custom" ]; then
+    # Script is in repo root
+    PROJECT_ROOT="${SCRIPT_DIR}"
+elif [ -d "${SCRIPT_DIR}/../aspnet-core" ]; then
+    # Script is in .custom/ folder
+    PROJECT_ROOT="$(cd "${SCRIPT_DIR}/.." && pwd)"
+else
+    PROJECT_ROOT="${SCRIPT_DIR}"
+fi
+
 ASPNET_CORE_DIR="${PROJECT_ROOT}/aspnet-core"
 SERVICES_DIR="${ASPNET_CORE_DIR}/services/LY.MicroService.Applications.Single"
 MIGRATIONS_DIR="${ASPNET_CORE_DIR}/migrations/LY.MicroService.Applications.Single.DbMigrator"
